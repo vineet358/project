@@ -5,50 +5,51 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Clock, MessageCircle, Heart, ArrowRight } from 'lucide-react';
 
 export const featuredPosts = [
-    {
-        id: 1,
-        title: "The Future of AI in Education",
-        excerpt: "Exploring how artificial intelligence is transforming the educational landscape",
-        image: "https://picsum.photos/seed/1/1200/600",
-        author: "Dr. Sarah Johnson",
-        authorAvatar: `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent("Sarah Johnson")}&size=40`,
-        date: "May 15, 2025",
-        category: "Technology",
-        readTime: "8 min read",
-        likes: 245,
-        comments: 32,
-      },
-      {
-        id: 2,
-        title: "Student Success Stories: From Campus to Career",
-        excerpt: "Inspiring journeys of recent graduates who found success in their chosen fields",
-        image: "https://picsum.photos/seed/2/1200/600",
-        author: "Prof. Michael Chen",
-        authorAvatar: `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent("Michael Chen")}&size=40`,
-        date: "June 2, 2025",
-        category: "Career",
-        readTime: "6 min read",
-        likes: 189,
-        comments: 24,
-      },
-      {
-        id: 3,
-        title: "Research Breakthroughs: What's New in 2025",
-        excerpt: "A roundup of the most significant research developments from our institution",
-        image: "https://picsum.photos/seed/3/1200/600",
-        author: "Dr. Emily Rodriguez",
-        authorAvatar: `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent("Emily Rodriguez")}&size=40`,
-        date: "June 10, 2025",
-        category: "Research",
-        readTime: "10 min read",
-        likes: 312,
-        comments: 45,
-      },
-]
+  {
+    id: 1,
+    title: "The Future of AI in Education",
+    excerpt: "Exploring how artificial intelligence is transforming the educational landscape",
+    image: "https://picsum.photos/seed/1/1200/600",
+    author: "Dr. Sarah Johnson",
+    authorAvatar: `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent("Sarah Johnson")}&size=40`,
+    date: "May 15, 2025",
+    category: "Technology",
+    readTime: "8 min read",
+    likes: 245,
+    comments: 32,
+  },
+  {
+    id: 2,
+    title: "Student Success Stories: From Campus to Career",
+    excerpt: "Inspiring journeys of recent graduates who found success in their chosen fields",
+    image: "https://picsum.photos/seed/2/1200/600",
+    author: "Prof. Michael Chen",
+    authorAvatar: `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent("Michael Chen")}&size=40`,
+    date: "June 2, 2025",
+    category: "Career",
+    readTime: "6 min read",
+    likes: 189,
+    comments: 24,
+  },
+  {
+    id: 3,
+    title: "Research Breakthroughs: What's New in 2025",
+    excerpt: "A roundup of the most significant research developments from our institution",
+    image: "https://picsum.photos/seed/3/1200/600",
+    author: "Dr. Emily Rodriguez",
+    authorAvatar: `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent("Emily Rodriguez")}&size=40`,
+    date: "June 10, 2025",
+    category: "Research",
+    readTime: "10 min read",
+    likes: 312,
+    comments: 45,
+  },
+];
 
 export default function WallpaperCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState<'left' | 'right'>('right');
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -67,36 +68,78 @@ export default function WallpaperCarousel() {
     setCurrentIndex((prev) => (prev === 0 ? featuredPosts.length - 1 : prev - 1));
   };
 
-  const springTransition = {
-    type: "spring",
-    damping: 25,
-    stiffness: 120,
-    duration: 0.4
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStartX(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (!touchStartX) return;
+    const endX = e.changedTouches[0].clientX;
+    const deltaX = touchStartX - endX;
+
+    if (Math.abs(deltaX) > 50) {
+      if (deltaX > 0) {
+        handleNext();
+      } else {
+        handlePrev();
+      }
+    }
+    setTouchStartX(null);
+  };
+
+  const dispersionVariants = {
+    enter: (direction: 'left' | 'right') => ({
+      x: direction === 'right' ? '100%' : '-100%',
+      opacity: 1, // Keep it visible immediately
+      scale: 0.98,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+      scale: 1,
+    },
+    exit: (direction: 'left' | 'right') => ({
+      x: direction === 'right' ? '-100%' : '100%',
+      opacity: 0.8, // Reduce opacity slightly instead of making it disappear completely
+      scale: 0.9, // Keep it slightly visible
+    }),
+  };
+  
+
+  const dispersionTransition = {
+    type: 'spring',
+    damping:70,
+    stiffness: 300,
+    velocity: 0.5,
   };
 
   return (
-    <div className="relative w-full h-[400px] md:h-[600px] overflow-hidden shadow-xl group">
+    <div 
+      className="relative w-full h-[400px] md:h-[600px] overflow-hidden shadow-xl group"
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
       <AnimatePresence mode='wait' custom={direction}>
         <motion.div
           key={currentIndex}
           custom={direction}
-          initial={{ opacity: 0, x: direction === 'right' ? '100%' : '-100%' }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: direction === 'right' ? '-100%' : '100%' }}
-          transition={springTransition}
+          variants={dispersionVariants}
+          initial="enter"
+          animate="center"
+          exit="exit"
+          transition={dispersionTransition}
           className="absolute w-full h-full"
         >
-        <img 
+          <img 
             src={featuredPosts[currentIndex].image} 
             alt="" 
             className="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-500 ease-out" 
           />
           <div 
-            className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-900/40 to-gray-900/90"
+            className="fixed inset-0 bg-gradient-to-b from-transparent via-gray-900/40 to-gray-900/90 h-[460px] md:h-[660px] "
             aria-hidden="true"
           />
-
-          
+        
           <div className="absolute bottom-7 left-0 right-0 p-4 md:p-8 text-white max-w-4xl md:ml-12">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -110,7 +153,7 @@ export default function WallpaperCarousel() {
               <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold leading-snug md:leading-tight tracking-tight">
                 {featuredPosts[currentIndex].title}
               </h2>
-              <p className="hidden sm:block text-sm md:text-lg text-gray-200 max-w-2xl line-clamp-2 md:line-clamp-3">
+              <p className="sm:block text-sm md:text-lg text-gray-200 max-w-2xl line-clamp-2 md:line-clamp-3">
                 {featuredPosts[currentIndex].excerpt}
               </p>
               <div className="flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6">
@@ -159,13 +202,13 @@ export default function WallpaperCarousel() {
           onClick={handlePrev}
           className="p-2 md:p-3 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all transform hover:scale-110 shadow-lg hidden sm:block"
         >
-          <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-white" />
+          <ChevronLeft className="w-6 h-6 md:w-8 md:h-8 text-white" />
         </button>
         <button
           onClick={handleNext}
           className="p-2 md:p-3 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all transform hover:scale-110 shadow-lg hidden sm:block"
         >
-          <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-white" />
+          <ChevronRight className="w-6 h-6 md:w-8 md:h-8 text-white" />
         </button>
       </div>
 
