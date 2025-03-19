@@ -136,7 +136,7 @@ export default function WallpaperCarousel() {
             className="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-500 ease-out" 
           />
           <div 
-            className="fixed inset-0 bg-gradient-to-b from-transparent via-gray-900/40 to-gray-900/90 h-[460px] md:h-[660px] "
+            className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-900/40 to-gray-900/90 h-[460px] md:h-[660px] "
             aria-hidden="true"
           />
         
