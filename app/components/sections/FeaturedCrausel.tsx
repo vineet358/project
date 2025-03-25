@@ -86,31 +86,11 @@ export default function WallpaperCarousel() {
     }
     setTouchStartX(null);
   };
-
-  const dispersionVariants = {
-    enter: (direction: 'left' | 'right') => ({
-      x: direction === 'right' ? '100%' : '-100%',
-      opacity: 1, // Keep it visible immediately
-      scale: 0.98,
-    }),
-    center: {
-      x: 0,
-      opacity: 1,
-      scale: 1,
-    },
-    exit: (direction: 'left' | 'right') => ({
-      x: direction === 'right' ? '-100%' : '100%',
-      opacity: 0.8, // Reduce opacity slightly instead of making it disappear completely
-      scale: 0.9, // Keep it slightly visible
-    }),
-  };
-  
-
   const dispersionTransition = {
     type: 'spring',
-    damping:70,
+    damping:300,
     stiffness: 300,
-    velocity: 0.5,
+    velocity: 1,
   };
 
   return (
@@ -123,7 +103,6 @@ export default function WallpaperCarousel() {
         <motion.div
           key={currentIndex}
           custom={direction}
-          variants={dispersionVariants}
           initial="enter"
           animate="center"
           exit="exit"
@@ -133,7 +112,7 @@ export default function WallpaperCarousel() {
           <img 
             src={featuredPosts[currentIndex].image} 
             alt="" 
-            className="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-500 ease-out" 
+            className="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform ease-out" 
           />
           <div 
             className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-900/40 to-gray-900/90 h-[460px] md:h-[660px] "

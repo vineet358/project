@@ -1,11 +1,10 @@
-
-import AuthPage from "./components/sections/login_Signup";
-import HomePage from "./pages/homepage";
+import WallpaperCarousel from "./components/sections/FeaturedCrausel";
+import HomePage from "./homepage/page";
 
 export default function Home() {
   return (
     <div>
-      <AuthPage/>
+      <WallpaperCarousel/>
       {/* <HomePage/> */}
     </div>
   );

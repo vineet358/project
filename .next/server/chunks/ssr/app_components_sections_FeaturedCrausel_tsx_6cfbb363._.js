@@ -101,28 +101,11 @@ function WallpaperCarousel() {
         }
         setTouchStartX(null);
     };
-    const dispersionVariants = {
-        enter: (direction)=>({
-                x: direction === 'right' ? '100%' : '-100%',
-                opacity: 1,
-                scale: 0.98
-            }),
-        center: {
-            x: 0,
-            opacity: 1,
-            scale: 1
-        },
-        exit: (direction)=>({
-                x: direction === 'right' ? '-100%' : '100%',
-                opacity: 0.8,
-                scale: 0.9
-            })
-    };
     const dispersionTransition = {
         type: 'spring',
-        damping: 70,
+        damping: 300,
         stiffness: 300,
-        velocity: 0.5
+        velocity: 1
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "relative w-full h-[400px] md:h-[600px] overflow-hidden shadow-xl group",
@@ -134,7 +117,6 @@ function WallpaperCarousel() {
                 custom: direction,
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
                     custom: direction,
-                    variants: dispersionVariants,
                     initial: "enter",
                     animate: "center",
                     exit: "exit",
@@ -144,18 +126,18 @@ function WallpaperCarousel() {
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                             src: featuredPosts[currentIndex].image,
                             alt: "",
-                            className: "w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-500 ease-out"
+                            className: "w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform ease-out"
                         }, void 0, false, {
                             fileName: "[project]/app/components/sections/FeaturedCrausel.tsx",
-                            lineNumber: 133,
+                            lineNumber: 112,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "fixed inset-0 bg-gradient-to-b from-transparent via-gray-900/40 to-gray-900/90 h-[460px] md:h-[660px] ",
+                            className: "absolute inset-0 bg-gradient-to-b from-transparent via-gray-900/40 to-gray-900/90 h-[460px] md:h-[660px] ",
                             "aria-hidden": "true"
                         }, void 0, false, {
                             fileName: "[project]/app/components/sections/FeaturedCrausel.tsx",
-                            lineNumber: 138,
+                            lineNumber: 117,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -179,7 +161,7 @@ function WallpaperCarousel() {
                                         children: featuredPosts[currentIndex].category
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/sections/FeaturedCrausel.tsx",
-                                        lineNumber: 150,
+                                        lineNumber: 129,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -187,7 +169,7 @@ function WallpaperCarousel() {
                                         children: featuredPosts[currentIndex].title
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/sections/FeaturedCrausel.tsx",
-                                        lineNumber: 153,
+                                        lineNumber: 132,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -195,7 +177,7 @@ function WallpaperCarousel() {
                                         children: featuredPosts[currentIndex].excerpt
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/sections/FeaturedCrausel.tsx",
-                                        lineNumber: 156,
+                                        lineNumber: 135,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -210,7 +192,7 @@ function WallpaperCarousel() {
                                                         className: "w-8 h-8 md:w-10 md:h-10 rounded-full border-[0.5px] border-white/50"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/components/sections/FeaturedCrausel.tsx",
-                                                        lineNumber: 161,
+                                                        lineNumber: 140,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -220,7 +202,7 @@ function WallpaperCarousel() {
                                                                 children: featuredPosts[currentIndex].author
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/components/sections/FeaturedCrausel.tsx",
-                                                                lineNumber: 167,
+                                                                lineNumber: 146,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -228,19 +210,19 @@ function WallpaperCarousel() {
                                                                 children: featuredPosts[currentIndex].date
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/components/sections/FeaturedCrausel.tsx",
-                                                                lineNumber: 168,
+                                                                lineNumber: 147,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/components/sections/FeaturedCrausel.tsx",
-                                                        lineNumber: 166,
+                                                        lineNumber: 145,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/components/sections/FeaturedCrausel.tsx",
-                                                lineNumber: 160,
+                                                lineNumber: 139,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -253,20 +235,20 @@ function WallpaperCarousel() {
                                                                 className: "w-4 h-4 md:w-5 md:h-5"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/components/sections/FeaturedCrausel.tsx",
-                                                                lineNumber: 173,
+                                                                lineNumber: 152,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                 children: featuredPosts[currentIndex].readTime
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/components/sections/FeaturedCrausel.tsx",
-                                                                lineNumber: 174,
+                                                                lineNumber: 153,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/components/sections/FeaturedCrausel.tsx",
-                                                        lineNumber: 172,
+                                                        lineNumber: 151,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -276,20 +258,20 @@ function WallpaperCarousel() {
                                                                 className: "w-4 h-4 md:w-5 md:h-5"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/components/sections/FeaturedCrausel.tsx",
-                                                                lineNumber: 177,
+                                                                lineNumber: 156,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                 children: featuredPosts[currentIndex].likes
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/components/sections/FeaturedCrausel.tsx",
-                                                                lineNumber: 178,
+                                                                lineNumber: 157,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/components/sections/FeaturedCrausel.tsx",
-                                                        lineNumber: 176,
+                                                        lineNumber: 155,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -299,43 +281,43 @@ function WallpaperCarousel() {
                                                                 className: "w-4 h-4 md:w-5 md:h-5"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/components/sections/FeaturedCrausel.tsx",
-                                                                lineNumber: 181,
+                                                                lineNumber: 160,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                 children: featuredPosts[currentIndex].comments
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/components/sections/FeaturedCrausel.tsx",
-                                                                lineNumber: 182,
+                                                                lineNumber: 161,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/components/sections/FeaturedCrausel.tsx",
-                                                        lineNumber: 180,
+                                                        lineNumber: 159,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/components/sections/FeaturedCrausel.tsx",
-                                                lineNumber: 171,
+                                                lineNumber: 150,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/components/sections/FeaturedCrausel.tsx",
-                                        lineNumber: 159,
+                                        lineNumber: 138,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/components/sections/FeaturedCrausel.tsx",
-                                lineNumber: 144,
+                                lineNumber: 123,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/components/sections/FeaturedCrausel.tsx",
-                            lineNumber: 143,
+                            lineNumber: 122,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -348,36 +330,36 @@ function WallpaperCarousel() {
                                         children: "Read More"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/sections/FeaturedCrausel.tsx",
-                                        lineNumber: 192,
+                                        lineNumber: 171,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
                                         className: " sm:ml-2 w-4 h-4 md:w-5 md:h-5"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/sections/FeaturedCrausel.tsx",
-                                        lineNumber: 193,
+                                        lineNumber: 172,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/components/sections/FeaturedCrausel.tsx",
-                                lineNumber: 191,
+                                lineNumber: 170,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/components/sections/FeaturedCrausel.tsx",
-                            lineNumber: 190,
+                            lineNumber: 169,
                             columnNumber: 11
                         }, this)
                     ]
                 }, currentIndex, true, {
                     fileName: "[project]/app/components/sections/FeaturedCrausel.tsx",
-                    lineNumber: 123,
+                    lineNumber: 103,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/components/sections/FeaturedCrausel.tsx",
-                lineNumber: 122,
+                lineNumber: 102,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -390,12 +372,12 @@ function WallpaperCarousel() {
                             className: "w-6 h-6 md:w-8 md:h-8 text-white"
                         }, void 0, false, {
                             fileName: "[project]/app/components/sections/FeaturedCrausel.tsx",
-                            lineNumber: 205,
+                            lineNumber: 184,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/components/sections/FeaturedCrausel.tsx",
-                        lineNumber: 201,
+                        lineNumber: 180,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -405,18 +387,18 @@ function WallpaperCarousel() {
                             className: "w-6 h-6 md:w-8 md:h-8 text-white"
                         }, void 0, false, {
                             fileName: "[project]/app/components/sections/FeaturedCrausel.tsx",
-                            lineNumber: 211,
+                            lineNumber: 190,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/components/sections/FeaturedCrausel.tsx",
-                        lineNumber: 207,
+                        lineNumber: 186,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/components/sections/FeaturedCrausel.tsx",
-                lineNumber: 200,
+                lineNumber: 179,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -430,23 +412,23 @@ function WallpaperCarousel() {
                             className: `h-full bg-white transition-all duration-500 ease-out ${index === currentIndex ? 'w-full' : 'w-0'}`
                         }, void 0, false, {
                             fileName: "[project]/app/components/sections/FeaturedCrausel.tsx",
-                            lineNumber: 223,
+                            lineNumber: 202,
                             columnNumber: 13
                         }, this)
                     }, index, false, {
                         fileName: "[project]/app/components/sections/FeaturedCrausel.tsx",
-                        lineNumber: 218,
+                        lineNumber: 197,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/app/components/sections/FeaturedCrausel.tsx",
-                lineNumber: 216,
+                lineNumber: 195,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/components/sections/FeaturedCrausel.tsx",
-        lineNumber: 117,
+        lineNumber: 97,
         columnNumber: 5
     }, this);
 }
