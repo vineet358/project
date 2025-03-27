@@ -1,17 +1,10 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Pacifico } from "next/font/google"
 import Image from "next/image"
 import cn from "clsx"
 import Link from "next/link"
 import { useEffect, useState } from "react"
-
-const pacifico = Pacifico({
-  subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-pacifico",
-})
 
 function DiamondShape({
   className,
@@ -268,8 +261,7 @@ export default function HeroGeometric() {
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 md:mb-8 tracking-tight">
               <span
                 className={cn(
-                  "bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300 ",
-                  pacifico.className,
+                  "bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300 pacifico",
                 )}
               >
                 {title2}
