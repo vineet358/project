@@ -1,0 +1,9 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/components/auth/page": "/components/auth",
+  "/forgot-password/page": "/forgot-password",
+  "/homepage/page": "/homepage",
+  "/page": "/",
+  "/signin/page": "/signin",
+  "/signup/page": "/signup"
+}
