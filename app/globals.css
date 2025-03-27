@@ -1,4 +1,10 @@
 @import "tailwindcss";
+@font-face {
+  font-family: 'Pacifico';
+  src: url('./assets/fonts/Pacifico.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
 
 :root {
   --background: #ffffff;
@@ -35,4 +41,8 @@ body {
   .responsive-shape {
     transform: scale(0.8);
   }
+}
+
+.pacifico{
+  font-family: 'Pacifico';
 }

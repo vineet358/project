@@ -2097,6 +2097,13 @@
   }
 }
 
+@font-face {
+  font-family: Pacifico;
+  src: url("../media/Pacifico.30c76a31.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+
 :root {
   --background: #fff;
   --foreground: #171717;
@@ -2127,6 +2134,10 @@ body {
   .responsive-shape {
     transform: scale(.8);
   }
+}
+
+.pacifico {
+  font-family: Pacifico;
 }
 
 @property --tw-translate-x {
