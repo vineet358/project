@@ -174,12 +174,7 @@ function BlobShape({
   )
 }
 
-export default function HeroGeometric({
-  title2 = "Share Your Knowledge",
-}: {
-  badge?: string
-  title2?: string
-}) {
+export default function HeroGeometric() {
   const fadeUpVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: (i: number) => ({
@@ -192,6 +187,8 @@ export default function HeroGeometric({
       },
     }),
   }
+
+  const title2 = "Share Your Knowledge" // Moved inside the component
 
   return (
     <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#030303]">

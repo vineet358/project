@@ -229,7 +229,7 @@ function BlobShape({ className, delay = 0, rotate = 0, gradient = "from-cyan-500
     }, this);
 }
 _c2 = BlobShape;
-function HeroGeometric({ title2 = "Share Your Knowledge" }) {
+function HeroGeometric() {
     const fadeUpVariants = {
         hidden: {
             opacity: 0,
@@ -250,6 +250,8 @@ function HeroGeometric({ title2 = "Share Your Knowledge" }) {
                 }
             })
     };
+    const title2 = "Share Your Knowledge" // Moved inside the component
+    ;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#030303]",
         children: [
@@ -257,7 +259,7 @@ function HeroGeometric({ title2 = "Share Your Knowledge" }) {
                 className: "absolute inset-0 bg-gradient-to-br from-indigo-500/[0.05] via-transparent to-rose-500/[0.05] blur-3xl"
             }, void 0, false, {
                 fileName: "[project]/app/homepage/page.tsx",
-                lineNumber: 198,
+                lineNumber: 195,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -280,7 +282,7 @@ function HeroGeometric({ title2 = "Share Your Knowledge" }) {
                                         height: 24
                                     }, void 0, false, {
                                         fileName: "[project]/app/homepage/page.tsx",
-                                        lineNumber: 205,
+                                        lineNumber: 202,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -288,18 +290,18 @@ function HeroGeometric({ title2 = "Share Your Knowledge" }) {
                                         children: "SiteName"
                                     }, void 0, false, {
                                         fileName: "[project]/app/homepage/page.tsx",
-                                        lineNumber: 206,
+                                        lineNumber: 203,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/homepage/page.tsx",
-                                lineNumber: 204,
+                                lineNumber: 201,
                                 columnNumber: 11
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/homepage/page.tsx",
-                            lineNumber: 203,
+                            lineNumber: 200,
                             columnNumber: 9
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -317,17 +319,17 @@ function HeroGeometric({ title2 = "Share Your Knowledge" }) {
                                             children: "Sign In"
                                         }, void 0, false, {
                                             fileName: "[project]/app/homepage/page.tsx",
-                                            lineNumber: 212,
+                                            lineNumber: 209,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/app/homepage/page.tsx",
-                                        lineNumber: 211,
+                                        lineNumber: 208,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/homepage/page.tsx",
-                                    lineNumber: 210,
+                                    lineNumber: 207,
                                     columnNumber: 11
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -342,34 +344,34 @@ function HeroGeometric({ title2 = "Share Your Knowledge" }) {
                                             children: "Sign Up"
                                         }, void 0, false, {
                                             fileName: "[project]/app/homepage/page.tsx",
-                                            lineNumber: 217,
+                                            lineNumber: 214,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/app/homepage/page.tsx",
-                                        lineNumber: 216,
+                                        lineNumber: 213,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/homepage/page.tsx",
-                                    lineNumber: 215,
+                                    lineNumber: 212,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/homepage/page.tsx",
-                            lineNumber: 209,
+                            lineNumber: 206,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/homepage/page.tsx",
-                    lineNumber: 202,
+                    lineNumber: 199,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/homepage/page.tsx",
-                lineNumber: 201,
+                lineNumber: 198,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -382,7 +384,7 @@ function HeroGeometric({ title2 = "Share Your Knowledge" }) {
                         className: "left-[2%] top-[10%] md:left-[5%] md:top-[15%] lg:left-[10%]"
                     }, void 0, false, {
                         fileName: "[project]/app/homepage/page.tsx",
-                        lineNumber: 226,
+                        lineNumber: 223,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(DiamondShape, {
@@ -392,7 +394,7 @@ function HeroGeometric({ title2 = "Share Your Knowledge" }) {
                         className: "right-[2%] top-[65%] md:right-[10%] md:top-[70%] scale-75 md:scale-100"
                     }, void 0, false, {
                         fileName: "[project]/app/homepage/page.tsx",
-                        lineNumber: 233,
+                        lineNumber: 230,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(PolygonShape, {
@@ -402,7 +404,7 @@ function HeroGeometric({ title2 = "Share Your Knowledge" }) {
                         className: "left-[10%] bottom-[5%] md:left-[15%] md:bottom-[10%] scale-90 md:scale-100"
                     }, void 0, false, {
                         fileName: "[project]/app/homepage/page.tsx",
-                        lineNumber: 240,
+                        lineNumber: 237,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(PolygonShape, {
@@ -412,7 +414,7 @@ function HeroGeometric({ title2 = "Share Your Knowledge" }) {
                         className: "right-[5%] top-[15%] md:right-[20%] md:top-[20%] scale-75 lg:scale-100"
                     }, void 0, false, {
                         fileName: "[project]/app/homepage/page.tsx",
-                        lineNumber: 247,
+                        lineNumber: 244,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(BlobShape, {
@@ -421,7 +423,7 @@ function HeroGeometric({ title2 = "Share Your Knowledge" }) {
                         className: "left-[2%] top-[25%] md:left-[5%] md:top-[30%] scale-75 lg:scale-100"
                     }, void 0, false, {
                         fileName: "[project]/app/homepage/page.tsx",
-                        lineNumber: 254,
+                        lineNumber: 251,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(BlobShape, {
@@ -430,13 +432,13 @@ function HeroGeometric({ title2 = "Share Your Knowledge" }) {
                         className: "right-[2%] bottom-[15%] md:right-[5%] md:bottom-[20%] scale-75 lg:scale-100"
                     }, void 0, false, {
                         fileName: "[project]/app/homepage/page.tsx",
-                        lineNumber: 260,
+                        lineNumber: 257,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/homepage/page.tsx",
-                lineNumber: 224,
+                lineNumber: 221,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -456,17 +458,17 @@ function HeroGeometric({ title2 = "Share Your Knowledge" }) {
                                     children: title2
                                 }, void 0, false, {
                                     fileName: "[project]/app/homepage/page.tsx",
-                                    lineNumber: 272,
+                                    lineNumber: 269,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/homepage/page.tsx",
-                                lineNumber: 271,
+                                lineNumber: 268,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/homepage/page.tsx",
-                            lineNumber: 270,
+                            lineNumber: 267,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -479,12 +481,12 @@ function HeroGeometric({ title2 = "Share Your Knowledge" }) {
                                 children: "A collaborative platform where students and teachers connect, share insights, and grow together through educational content."
                             }, void 0, false, {
                                 fileName: "[project]/app/homepage/page.tsx",
-                                lineNumber: 284,
+                                lineNumber: 281,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/homepage/page.tsx",
-                            lineNumber: 283,
+                            lineNumber: 280,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -500,12 +502,12 @@ function HeroGeometric({ title2 = "Share Your Knowledge" }) {
                                         children: "Explore Blogs"
                                     }, void 0, false, {
                                         fileName: "[project]/app/homepage/page.tsx",
-                                        lineNumber: 292,
+                                        lineNumber: 289,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/homepage/page.tsx",
-                                    lineNumber: 291,
+                                    lineNumber: 288,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -518,42 +520,42 @@ function HeroGeometric({ title2 = "Share Your Knowledge" }) {
                                         children: "Write a Blog"
                                     }, void 0, false, {
                                         fileName: "[project]/app/homepage/page.tsx",
-                                        lineNumber: 297,
+                                        lineNumber: 294,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/homepage/page.tsx",
-                                    lineNumber: 296,
+                                    lineNumber: 293,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/homepage/page.tsx",
-                            lineNumber: 290,
+                            lineNumber: 287,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/homepage/page.tsx",
-                    lineNumber: 269,
+                    lineNumber: 266,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/homepage/page.tsx",
-                lineNumber: 268,
+                lineNumber: 265,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "absolute inset-0 bg-gradient-to-t from-[#030303] via-transparent to-[#030303]/80 pointer-events-none"
             }, void 0, false, {
                 fileName: "[project]/app/homepage/page.tsx",
-                lineNumber: 305,
+                lineNumber: 302,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/homepage/page.tsx",
-        lineNumber: 197,
+        lineNumber: 194,
         columnNumber: 5
     }, this);
 }
