@@ -113,17 +113,17 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <Phone className="text-[#8A2BE2] mt-1 flex-shrink-0" size={18} />
                 <a href="tel:+11234567890" className="text-gray-400 hover:text-[#00FFFF] transition-colors">
-                  +1 (123) 456-7890
+                  +91 3456667890
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="text-[#8A2BE2] mt-1 flex-shrink-0" size={18} />
                 <address className="text-gray-400 not-italic">
-                  123 Blog Street
+                  123 Dehradun
                   <br />
-                  Knowledge City, KN 12345
+                  Uttrakhand
                   <br />
-                  United States
+                  India
                 </address>
               </li>
             </ul>
