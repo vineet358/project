@@ -128,8 +128,8 @@ export default function BlogSection() {
   const totalPages = Math.ceil(filteredPosts.length / postsPerPage)
 
   return (
-    <section className="py-8 px-6 md:px-10 lg:px-12 bg-background dark:bg-[#0a0a0a] text-foreground dark:text-[#F5F5F5] transition-colors duration-200 text-center">
-      <div className="flex flex-col md:flex-row justify-center items-start md:items-center mb-12 mt-18">
+    <section className="py-8 px-6 md:px-10 lg:px-12 bg-background dark:bg-[#0a0a0a] text-foreground dark:text-[#F5F5F5] transition-colors duration-200 ">
+      <div className="flex flex-col md:flex-row justify-center items-start md:items-center mb-12 mt-18 text-center">
         <div>
           <h1 className="text-3xl lg:text-5xl font-bold mb-2">Explore by Categories</h1>
           <p className="text-foreground/80 dark:text-[#F5F5F5]/80 max-w-2xl">

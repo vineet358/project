@@ -431,10 +431,10 @@ function BlogSection() {
     const currentPosts = filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
     const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-        className: "py-8 px-6 md:px-10 lg:px-12 bg-background dark:bg-[#0a0a0a] text-foreground dark:text-[#F5F5F5] transition-colors duration-200 text-center",
+        className: "py-8 px-6 md:px-10 lg:px-12 bg-background dark:bg-[#0a0a0a] text-foreground dark:text-[#F5F5F5] transition-colors duration-200 ",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "flex flex-col md:flex-row justify-center items-start md:items-center mb-12 mt-18",
+                className: "flex flex-col md:flex-row justify-center items-start md:items-center mb-12 mt-18 text-center",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
