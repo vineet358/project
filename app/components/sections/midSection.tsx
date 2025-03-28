@@ -1,4 +1,4 @@
-import { ChevronRight, TrendingUp, BookOpen, Calendar, Microscope, Briefcase, HomeIcon, BarChart2 } from "lucide-react";
+import { ChevronRight, TrendingUp, BookOpen, Calendar, Microscope, Briefcase, HomeIcon, BarChart2, Globe, Users, Megaphone } from "lucide-react";
 import PostCard from "../MidSection_Components/post-card";
 import TrendingItem from "../MidSection_Components/trending-item";
 import CategoryCard from "../MidSection_Components/category-card";
@@ -102,11 +102,14 @@ const categories = [
   { icon: Briefcase, title: "Career", postCount: 67 },
   { icon: HomeIcon, title: "Campus Life", postCount: 14 },
   { icon: BarChart2, title: "Trending", postCount: 102 },
+  { icon: Users, title: "Student Life", postCount: 25 },
+  { icon: Globe, title: "International", postCount: 19 },
+  { icon: Megaphone, title: "Announcements", postCount: 30 },
 ];
 
 export default function MiddleSection() {
   return (
-    <div className=" px-4 py-4 sm:px-12">
+    <div className=" px-4 py-4 sm:px-12 mt-18">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Recent Posts Section - Takes 2/3 of the screen on desktop */}
         <section className="lg:col-span-2">
