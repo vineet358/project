@@ -1094,14 +1094,6 @@
     border-color: color-mix(in oklab, var(--color-white) 50%, transparent);
   }
 
-  .bg-\[\#0A1A2F\] {
-    background-color: #0a1a2f;
-  }
-
-  .bg-\[\#0f1524\] {
-    background-color: #0f1524;
-  }
-
   .bg-\[\#00E5FF\] {
     background-color: #00e5ff;
   }
@@ -1641,10 +1633,6 @@
     color: var(--color-black);
   }
 
-  .text-black\/50 {
-    color: color-mix(in oklab, var(--color-black) 50%, transparent);
-  }
-
   .text-blue-400 {
     color: var(--color-blue-400);
   }
@@ -2096,12 +2084,6 @@
   @media (width >= 40rem) {
     .sm\:h-\[350px\] {
       height: 350px;
-    }
-  }
-
-  @media (width >= 40rem) {
-    .sm\:grid-cols-1 {
-      grid-template-columns: repeat(1, minmax(0, 1fr));
     }
   }
 
