@@ -27,7 +27,7 @@ export default function StorySection() {
 
       {/* Content */}
       <div className="relative text-center text-white max-w-3xl">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
+        <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold pacifico">
           Ready to Share Your Story?
         </h2>
         <p className="mt-3 text-sm sm:text-base md:text-lg">
