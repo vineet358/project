@@ -106,7 +106,7 @@ const categories = [
 
 export default function MiddleSection() {
   return (
-    <div className=" px-4 py-4 sm:px-12">
+    <div className=" px-4 py-4 sm:px-12 mt-18">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Recent Posts Section - Takes 2/3 of the screen on desktop */}
         <section className="lg:col-span-2">
