@@ -1,4 +1,4 @@
-import { ChevronRight, TrendingUp, BookOpen, Calendar, Microscope, Briefcase, HomeIcon, BarChart2 } from "lucide-react";
+import { ChevronRight, TrendingUp, BookOpen, Calendar, Microscope, Briefcase, HomeIcon, BarChart2, Globe, Users, Megaphone } from "lucide-react";
 import PostCard from "../MidSection_Components/post-card";
 import TrendingItem from "../MidSection_Components/trending-item";
 import CategoryCard from "../MidSection_Components/category-card";
@@ -102,6 +102,9 @@ const categories = [
   { icon: Briefcase, title: "Career", postCount: 67 },
   { icon: HomeIcon, title: "Campus Life", postCount: 14 },
   { icon: BarChart2, title: "Trending", postCount: 102 },
+  { icon: Users, title: "Student Life", postCount: 25 },
+  { icon: Globe, title: "International", postCount: 19 },
+  { icon: Megaphone, title: "Announcements", postCount: 30 },
 ];
 
 export default function MiddleSection() {
