@@ -4,7 +4,6 @@ import TrendingItem from "../MidSection_Components/trending-item";
 import CategoryCard from "../MidSection_Components/category-card";
 import NewsletterForm from "../MidSection_Components/newsletterform";
 
-// Sample data
 const recentPosts = [
   {
     id: 1,
@@ -14,7 +13,7 @@ const recentPosts = [
     date: "June 12, 2023",
     readTime: "5 min",
     excerpt: "How our campus is working towards a greener future with innovative sustainability programs",
-    imageSrc: "/placeholder.svg?height=300&width=500",
+    imageSrc: "https://picsum.photos/500/300?random=10",
   },
   {
     id: 2,
@@ -24,7 +23,7 @@ const recentPosts = [
     date: "June 10, 2023",
     readTime: "7 min",
     excerpt: "New study reveals significant improvements in student engagement with VR technology",
-    imageSrc: "/placeholder.svg?height=300&width=500",
+    imageSrc: "https://picsum.photos/500/300?random=11",
   },
   {
     id: 3,
@@ -34,7 +33,7 @@ const recentPosts = [
     date: "June 08, 2023",
     readTime: "9 min",
     excerpt: "Meet the graduate who's revolutionizing patient care with AI-powered diagnostics",
-    imageSrc: "/placeholder.svg?height=300&width=500",
+    imageSrc: "https://picsum.photos/500/300?random=12",
   },
   {
     id: 4,
@@ -44,7 +43,7 @@ const recentPosts = [
     date: "July 12, 2023",
     readTime: "5 min",
     excerpt: "Comprehensive guide to mental health services available to all students",
-    imageSrc: "/placeholder.svg?height=300&width=500",
+    imageSrc: "https://picsum.photos/500/300?random=13",
   },
   {
     id: 5,
@@ -54,7 +53,7 @@ const recentPosts = [
     date: "June 12, 2023",
     readTime: "5 min",
     excerpt: "Groundbreaking research project secures $2.5 million in federal funding",
-    imageSrc: "/placeholder.svg?height=300&width=500",
+    imageSrc: "https://picsum.photos/500/300?random=14",
   },
   {
     id: 6,
@@ -64,9 +63,10 @@ const recentPosts = [
     date: "June 12, 2023",
     readTime: "5 min",
     excerpt: "New partnerships offer students more opportunities to study abroad",
-    imageSrc: "/placeholder.svg?height=300&width=500",
+    imageSrc: "https://picsum.photos/500/300?random=15",
   },
 ];
+
 
 const trendingPosts = [
   {
@@ -109,65 +109,68 @@ const categories = [
 
 export default function MiddleSection() {
   return (
-    <div className=" px-4 py-4 sm:px-12 mt-18">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Recent Posts Section - Takes 2/3 of the screen on desktop */}
-        <section className="lg:col-span-2">
-          <div className="flex justify-between items-center mb-6">
-            <h2 className="text-2xl font-bold">Recent Posts</h2>
-            <a href="#" className="flex items-center text-primary font-medium">
-              View All <ChevronRight size={16} />
-            </a>
+<div className="px-4 py-4 sm:px-12 mt-18">
+  <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    {/* Recent Posts Section - Takes 2/3 of the screen on desktop */}
+    <section className="lg:col-span-2">
+      <div className="flex justify-between items-center mb-6">
+        <h2 className="text-2xl font-bold">Recent Posts</h2>
+        <a href="#" className="flex items-center text-primary font-medium">
+          View All <ChevronRight size={16} />
+        </a>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+        {recentPosts.map((post) => (
+          <PostCard
+            key={post.id}
+            category={post.category}
+            title={post.title}
+            author={post.author}
+            date={post.date}
+            readTime={post.readTime}
+            excerpt={post.excerpt}
+            imageSrc={post.imageSrc}
+          />
+        ))}
+      </div>
+    </section>
+
+    {/* Sticky Right Section */}
+    <div className="lg:col-span-1 h-full">
+      <section className="space-y-8 sticky top-4">
+        {/* Trending Now */}
+        <div className="bg-card text-card-foreground rounded-lg shadow p-6 border-[0.5px] border-[#E0E0E0] dark:border-[#333333]">
+          <div className="flex items-center gap-2 mb-4">
+            <TrendingUp className="text-primary" />
+            <h2 className="text-xl font-bold">Trending Now</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-            {recentPosts.map((post) => (
-              <PostCard
-                key={post.id}
-                category={post.category}
-                title={post.title}
-                author={post.author}
-                date={post.date}
-                readTime={post.readTime}
-                excerpt={post.excerpt}
-                imageSrc={post.imageSrc}
-              />
+          <div className="space-y-1">
+            {trendingPosts.map((post) => (
+              <TrendingItem key={post.id} number={post.id} title={post.title} views={post.views} date={post.date} />
             ))}
           </div>
-        </section>
+        </div>
 
-        {/* Trending, Categories, and Newsletter - Takes 1/3 of the screen on desktop */}
-        <section className="space-y-8">
-          {/* Trending Now */}
-          <div className="bg-card text-card-foreground rounded-lg shadow p-6 border-[0.5px] border-[#E0E0E0] dark:border-[#333333]">
-            <div className="flex items-center gap-2 mb-4">
-              <TrendingUp className="text-primary" />
-              <h2 className="text-xl font-bold">Trending Now</h2>
-            </div>
-            <div className="space-y-1">
-              {trendingPosts.map((post) => (
-                <TrendingItem key={post.id} number={post.id} title={post.title} views={post.views} date={post.date} />
-              ))}
-            </div>
+        {/* Categories */}
+        <div className="bg-card text-card-foreground rounded-lg shadow p-6 border border-[#E0E0E0] dark:border-[#333333]">
+          <h2 className="text-xl font-bold mb-4">Categories</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {categories.map((category, index) => (
+              <CategoryCard key={index} icon={category.icon} title={category.title} postCount={category.postCount} />
+            ))}
           </div>
+        </div>
 
-          {/* Categories */}
-          <div className="bg-card text-card-foreground rounded-lg shadow p-6 border border-[#E0E0E0] dark:border-[#333333]">
-            <h2 className="text-xl font-bold mb-4">Categories</h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {categories.map((category, index) => (
-                <CategoryCard key={index} icon={category.icon} title={category.title} postCount={category.postCount} />
-              ))}
-            </div>
-          </div>
-
-          {/* Newsletter */}
-          <div className="bg-card text-card-foreground rounded-lg shadow p-6 border border-[#E0E0E0] dark:border-[#333333]">
-            <h2 className="text-xl font-bold mb-2">Subscribe to Newsletter</h2>
-            <p className="text-muted-foreground mb-4">Get the latest posts delivered right to your inbox</p>
-            <NewsletterForm />
-          </div>
-        </section>
-      </div>
+        {/* Newsletter */}
+        <div className="bg-card text-card-foreground rounded-lg shadow p-6 border border-[#E0E0E0] dark:border-[#333333]">
+          <h2 className="text-xl font-bold mb-2">Subscribe to Newsletter</h2>
+          <p className="text-muted-foreground mb-4">Get the latest posts delivered right to your inbox</p>
+          <NewsletterForm />
+        </div>
+      </section>
     </div>
+  </div>
+</div>
+
   );
 }

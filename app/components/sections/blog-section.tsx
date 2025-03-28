@@ -5,10 +5,9 @@ import Image from "next/image"
 import { ChevronLeftIcon, ChevronRightIcon } from "../icons"
 import { Heart, MessageSquare, Share2 } from "lucide-react"
 import PostCard from "../MidSection_Components/post-card"
-
 const blogPosts = [
   {
-    id:1,
+    id: 1,
     category: "Study Tips",
     title: "Effective Study Techniques for Final Exams",
     author: "Prof. Sarah Johnson",
@@ -16,10 +15,10 @@ const blogPosts = [
     readTime: "10 mins read",
     excerpt:
       "Discover proven methods to maximize your study sessions and retain information better for your upcoming exams.",
-    imageSrc: "/placeholder.svg?height=300&width=400",
+    imageSrc: "https://picsum.photos/400/300?random=1",
   },
   {
-    id:2,
+    id: 2,
     category: "EdTech",
     title: "Digital Tools That Transform Classroom Engagement",
     author: "Michael Chen",
@@ -27,20 +26,21 @@ const blogPosts = [
     readTime: "8 mins read",
     excerpt:
       "Explore the latest educational technology tools that are helping teachers create more interactive and engaging lessons.",
-    imageSrc: "/placeholder.svg?height=300&width=400",
+    imageSrc: "https://picsum.photos/400/300?random=2",
   },
   {
-    id:3,
+    id: 3,
     category: "Wellness",
     title: "Balancing Academics and Mental Health",
     author: "Dr. Emily Rodriguez",
     date: "22 Mar 2024",
     readTime: "12 mins read",
-    excerpt: "Learn strategies for maintaining your mental wellbeing while managing academic pressures and deadlines.",
-    imageSrc: "/placeholder.svg?height=300&width=400",
+    excerpt:
+      "Learn strategies for maintaining your mental wellbeing while managing academic pressures and deadlines.",
+    imageSrc: "https://picsum.photos/400/300?random=3",
   },
   {
-    id:4,
+    id: 4,
     category: "Curriculum",
     title: "The Future of STEM Education",
     author: "Dr. James Wilson",
@@ -48,10 +48,10 @@ const blogPosts = [
     readTime: "15 mins read",
     excerpt:
       "An in-depth look at how STEM education is evolving and preparing students for careers that don't yet exist.",
-    imageSrc: "/placeholder.svg?height=300&width=400",
+    imageSrc: "https://picsum.photos/400/300?random=4",
   },
   {
-    id:5,
+    id: 5,
     category: "Teaching",
     title: "Collaborative Learning Projects That Work",
     author: "Lisa Thompson",
@@ -59,10 +59,10 @@ const blogPosts = [
     readTime: "7 mins read",
     excerpt:
       "Discover group project frameworks that foster genuine collaboration and ensure equal participation from all students.",
-    imageSrc: "/placeholder.svg?height=300&width=400",
+    imageSrc: "https://picsum.photos/400/300?random=5",
   },
   {
-    id:6,
+    id: 6,
     category: "Career",
     title: "Navigating College Applications Successfully",
     author: "Marcus Patel",
@@ -70,10 +70,10 @@ const blogPosts = [
     readTime: "14 mins read",
     excerpt:
       "A comprehensive guide to the college application process, from selecting schools to writing compelling essays.",
-    imageSrc: "/placeholder.svg?height=300&width=400",
+    imageSrc: "https://picsum.photos/400/300?random=6",
   },
   {
-    id:7,
+    id: 7,
     category: "Teaching",
     title: "Inclusive Teaching Practices for Diverse Classrooms",
     author: "Dr. Aisha Washington",
@@ -81,10 +81,10 @@ const blogPosts = [
     readTime: "9 mins read",
     excerpt:
       "Learn how to create an inclusive learning environment that addresses the needs of students from all backgrounds.",
-    imageSrc: "/placeholder.svg?height=300&width=400",
+    imageSrc: "https://picsum.photos/400/300?random=7",
   },
   {
-    id:8,
+    id: 8,
     category: "Study Tips",
     title: "Research Skills for High School Students",
     author: "Prof. Robert Kim",
@@ -92,10 +92,10 @@ const blogPosts = [
     readTime: "11 mins read",
     excerpt:
       "Essential research methodologies and critical thinking skills that prepare students for college-level academic work.",
-    imageSrc: "/placeholder.svg?height=300&width=400",
+    imageSrc: "https://picsum.photos/400/300?random=8",
   },
   {
-    id:9,
+    id: 9,
     category: "EdTech",
     title: "Gamification in Education: Beyond Points and Badges",
     author: "Sophia Martinez",
@@ -103,9 +103,10 @@ const blogPosts = [
     readTime: "10 mins read",
     excerpt:
       "Explore meaningful ways to incorporate game elements into your curriculum to boost student motivation and learning.",
-    imageSrc: "/placeholder.svg?height=300&width=400",
+    imageSrc: "https://picsum.photos/400/300?random=9",
   },
 ];
+
 
 
 // Get unique categories from blog posts
