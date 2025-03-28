@@ -124,6 +124,7 @@
     --ease-in: cubic-bezier(.4, 0, 1, 1);
     --ease-out: cubic-bezier(0, 0, .2, 1);
     --ease-in-out: cubic-bezier(.4, 0, .2, 1);
+    --animate-spin: spin 1s linear infinite;
     --blur-sm: 8px;
     --blur-3xl: 64px;
     --default-transition-duration: .15s;
@@ -873,6 +874,10 @@
 
   .transform {
     transform: var(--tw-rotate-x) var(--tw-rotate-y) var(--tw-rotate-z) var(--tw-skew-x) var(--tw-skew-y);
+  }
+
+  .animate-spin {
+    animation: var(--animate-spin);
   }
 
   .resize {
@@ -2483,8 +2488,26 @@
   }
 
   @media (width >= 64rem) {
+    .lg\:sticky {
+      position: sticky;
+    }
+  }
+
+  @media (width >= 64rem) {
+    .lg\:top-0 {
+      top: calc(var(--spacing) * 0);
+    }
+  }
+
+  @media (width >= 64rem) {
     .lg\:left-\[10\%\] {
       left: 10%;
+    }
+  }
+
+  @media (width >= 64rem) {
+    .lg\:col-span-1 {
+      grid-column: span 1 / span 1;
     }
   }
 
@@ -3209,6 +3232,12 @@ body {
 @property --tw-ease {
   syntax: "*";
   inherits: false
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 

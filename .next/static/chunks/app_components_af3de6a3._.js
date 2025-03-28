@@ -329,7 +329,7 @@ const blogPosts = [
         date: "28 Mar 2024",
         readTime: "10 mins read",
         excerpt: "Discover proven methods to maximize your study sessions and retain information better for your upcoming exams.",
-        imageSrc: "/placeholder.svg?height=300&width=400"
+        imageSrc: "https://picsum.photos/400/300?random=1"
     },
     {
         id: 2,
@@ -339,7 +339,7 @@ const blogPosts = [
         date: "25 Mar 2024",
         readTime: "8 mins read",
         excerpt: "Explore the latest educational technology tools that are helping teachers create more interactive and engaging lessons.",
-        imageSrc: "/placeholder.svg?height=300&width=400"
+        imageSrc: "https://picsum.photos/400/300?random=2"
     },
     {
         id: 3,
@@ -349,7 +349,7 @@ const blogPosts = [
         date: "22 Mar 2024",
         readTime: "12 mins read",
         excerpt: "Learn strategies for maintaining your mental wellbeing while managing academic pressures and deadlines.",
-        imageSrc: "/placeholder.svg?height=300&width=400"
+        imageSrc: "https://picsum.photos/400/300?random=3"
     },
     {
         id: 4,
@@ -359,7 +359,7 @@ const blogPosts = [
         date: "20 Mar 2024",
         readTime: "15 mins read",
         excerpt: "An in-depth look at how STEM education is evolving and preparing students for careers that don't yet exist.",
-        imageSrc: "/placeholder.svg?height=300&width=400"
+        imageSrc: "https://picsum.photos/400/300?random=4"
     },
     {
         id: 5,
@@ -369,7 +369,7 @@ const blogPosts = [
         date: "18 Mar 2024",
         readTime: "7 mins read",
         excerpt: "Discover group project frameworks that foster genuine collaboration and ensure equal participation from all students.",
-        imageSrc: "/placeholder.svg?height=300&width=400"
+        imageSrc: "https://picsum.photos/400/300?random=5"
     },
     {
         id: 6,
@@ -379,7 +379,7 @@ const blogPosts = [
         date: "15 Mar 2024",
         readTime: "14 mins read",
         excerpt: "A comprehensive guide to the college application process, from selecting schools to writing compelling essays.",
-        imageSrc: "/placeholder.svg?height=300&width=400"
+        imageSrc: "https://picsum.photos/400/300?random=6"
     },
     {
         id: 7,
@@ -389,7 +389,7 @@ const blogPosts = [
         date: "12 Mar 2024",
         readTime: "9 mins read",
         excerpt: "Learn how to create an inclusive learning environment that addresses the needs of students from all backgrounds.",
-        imageSrc: "/placeholder.svg?height=300&width=400"
+        imageSrc: "https://picsum.photos/400/300?random=7"
     },
     {
         id: 8,
@@ -399,7 +399,7 @@ const blogPosts = [
         date: "10 Mar 2024",
         readTime: "11 mins read",
         excerpt: "Essential research methodologies and critical thinking skills that prepare students for college-level academic work.",
-        imageSrc: "/placeholder.svg?height=300&width=400"
+        imageSrc: "https://picsum.photos/400/300?random=8"
     },
     {
         id: 9,
@@ -409,7 +409,7 @@ const blogPosts = [
         date: "8 Mar 2024",
         readTime: "10 mins read",
         excerpt: "Explore meaningful ways to incorporate game elements into your curriculum to boost student motivation and learning.",
-        imageSrc: "/placeholder.svg?height=300&width=400"
+        imageSrc: "https://picsum.photos/400/300?random=9"
     }
 ];
 // Get unique categories from blog posts
@@ -442,7 +442,7 @@ function BlogSection() {
                             children: "Explore by Categories"
                         }, void 0, false, {
                             fileName: "[project]/app/components/sections/blog-section.tsx",
-                            lineNumber: 134,
+                            lineNumber: 135,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -450,18 +450,18 @@ function BlogSection() {
                             children: "Resources, insights, and strategies for students and teachers to excel in the modern educational landscape."
                         }, void 0, false, {
                             fileName: "[project]/app/components/sections/blog-section.tsx",
-                            lineNumber: 135,
+                            lineNumber: 136,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/components/sections/blog-section.tsx",
-                    lineNumber: 133,
+                    lineNumber: 134,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/components/sections/blog-section.tsx",
-                lineNumber: 132,
+                lineNumber: 133,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -475,12 +475,12 @@ function BlogSection() {
                         children: category
                     }, category, false, {
                         fileName: "[project]/app/components/sections/blog-section.tsx",
-                        lineNumber: 144,
+                        lineNumber: 145,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/app/components/sections/blog-section.tsx",
-                lineNumber: 142,
+                lineNumber: 143,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -497,7 +497,7 @@ function BlogSection() {
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/components/sections/blog-section.tsx",
-                        lineNumber: 163,
+                        lineNumber: 164,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -508,7 +508,7 @@ function BlogSection() {
                                 children: "Sort by:"
                             }, void 0, false, {
                                 fileName: "[project]/app/components/sections/blog-section.tsx",
-                                lineNumber: 167,
+                                lineNumber: 168,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -521,7 +521,7 @@ function BlogSection() {
                                         children: "Newest"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/sections/blog-section.tsx",
-                                        lineNumber: 173,
+                                        lineNumber: 174,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -529,7 +529,7 @@ function BlogSection() {
                                         children: "Oldest"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/sections/blog-section.tsx",
-                                        lineNumber: 174,
+                                        lineNumber: 175,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -537,25 +537,25 @@ function BlogSection() {
                                         children: "Popular"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/sections/blog-section.tsx",
-                                        lineNumber: 175,
+                                        lineNumber: 176,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/components/sections/blog-section.tsx",
-                                lineNumber: 168,
+                                lineNumber: 169,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/components/sections/blog-section.tsx",
-                        lineNumber: 166,
+                        lineNumber: 167,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/components/sections/blog-section.tsx",
-                lineNumber: 162,
+                lineNumber: 163,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -570,12 +570,12 @@ function BlogSection() {
                         imageSrc: post.imageSrc
                     }, post.id, false, {
                         fileName: "[project]/app/components/sections/blog-section.tsx",
-                        lineNumber: 183,
+                        lineNumber: 184,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/app/components/sections/blog-section.tsx",
-                lineNumber: 181,
+                lineNumber: 182,
                 columnNumber: 7
             }, this),
             totalPages > 1 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -590,12 +590,12 @@ function BlogSection() {
                             className: "w-5 h-5"
                         }, void 0, false, {
                             fileName: "[project]/app/components/sections/blog-section.tsx",
-                            lineNumber: 204,
+                            lineNumber: 205,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/components/sections/blog-section.tsx",
-                        lineNumber: 198,
+                        lineNumber: 199,
                         columnNumber: 11
                     }, this),
                     Array.from({
@@ -606,7 +606,7 @@ function BlogSection() {
                             children: index + 1
                         }, index, false, {
                             fileName: "[project]/app/components/sections/blog-section.tsx",
-                            lineNumber: 208,
+                            lineNumber: 209,
                             columnNumber: 13
                         }, this)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -618,24 +618,24 @@ function BlogSection() {
                             className: "w-5 h-5"
                         }, void 0, false, {
                             fileName: "[project]/app/components/sections/blog-section.tsx",
-                            lineNumber: 227,
+                            lineNumber: 228,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/components/sections/blog-section.tsx",
-                        lineNumber: 221,
+                        lineNumber: 222,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/components/sections/blog-section.tsx",
-                lineNumber: 197,
+                lineNumber: 198,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/components/sections/blog-section.tsx",
-        lineNumber: 131,
+        lineNumber: 132,
         columnNumber: 5
     }, this);
 }
