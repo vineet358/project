@@ -1,13 +1,15 @@
 import Footer from "../components/layout/footer";
+import Header from "../components/layout/header";
 import BlogSection from "../components/sections/blog-section";
-import WallpaperCarousel from "../components/sections/FeaturedCrausel";
+import HorizonLandingPage from "../components/sections/FeaturedCrausel";
 import MiddleSection from "../components/sections/midSection";
 import StorySection from "../components/sections/storySection";
 
 export default function LandingHomePage() {
     return (
         <div>
-            <WallpaperCarousel/>
+            {/* <Header/> */}
+            <HorizonLandingPage/>
             <MiddleSection/>
             <BlogSection/>
             <StorySection/>
