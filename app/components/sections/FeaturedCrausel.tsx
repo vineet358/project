@@ -1,210 +1,208 @@
-'use client';
+"use client"
+import { useState, useEffect } from "react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Clock, MessageCircle, Heart, ArrowRight } from 'lucide-react';
-
-export const featuredPosts = [
+const recentPosts = [
   {
     id: 1,
-    title: "The Future of AI in Education",
-    excerpt: "Exploring how artificial intelligence is transforming the educational landscape",
-    image: "https://picsum.photos/seed/1/1200/600",
-    author: "Dr. Sarah Johnson",
-    authorAvatar: `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent("Sarah Johnson")}&size=40`,
-    date: "May 15, 2025",
-    category: "Technology",
-    readTime: "8 min read",
-    likes: 245,
-    comments: 32,
+    category: "Campus Life",
+    title: "Campus Sustainability Initiatives: Making a Difference",
+    author: "Environmental Committee",
+    date: "June 12, 2023",
+    readTime: "5 min",
+    excerpt: "How our campus is working towards a greener future with innovative sustainability programs",
+    imageSrc: "https://picsum.photos/1200/600?random=10",
   },
   {
     id: 2,
-    title: "Student Success Stories: From Campus to Career",
-    excerpt: "Inspiring journeys of recent graduates who found success in their chosen fields",
-    image: "https://picsum.photos/seed/2/1200/600",
-    author: "Prof. Michael Chen",
-    authorAvatar: `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent("Michael Chen")}&size=40`,
-    date: "June 2, 2025",
-    category: "Career",
-    readTime: "6 min read",
-    likes: 189,
-    comments: 24,
+    category: "Technology",
+    title: "The Impact of Virtual Reality on Learning Outcomes",
+    author: "Tech Research Team",
+    date: "June 10, 2023",
+    readTime: "7 min",
+    excerpt: "New study reveals significant improvements in student engagement with VR technology",
+    imageSrc: "https://picsum.photos/seed/1/1200/600",
   },
   {
     id: 3,
-    title: "Research Breakthroughs: What's New in 2025",
-    excerpt: "A roundup of the most significant research developments from our institution",
-    image: "https://picsum.photos/seed/3/1200/600",
-    author: "Dr. Emily Rodriguez",
-    authorAvatar: `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent("Emily Rodriguez")}&size=40`,
-    date: "June 10, 2025",
-    category: "Research",
-    readTime: "10 min read",
-    likes: 312,
-    comments: 45,
+    category: "Alumni",
+    title: "Alumni Spotlight: Leading Innovation in Healthcare",
+    author: "Alumni Association",
+    date: "June 08, 2023",
+    readTime: "9 min",
+    excerpt: "Meet the graduate who's revolutionizing patient care with AI-powered diagnostics",
+    imageSrc: "https://picsum.photos/seed/2/1200/600",
   },
-];
+  {
+    id: 4,
+    category: "Health",
+    title: "Student Mental Health: Resources and Support",
+    author: "Wellness Center",
+    date: "July 12, 2023",
+    readTime: "5 min",
+    excerpt: "Comprehensive guide to mental health services available to all students",
+    imageSrc: "https://picsum.photos/seed/3/1200/600",
+  }
+]
 
-export default function WallpaperCarousel() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState<'left' | 'right'>('right');
-  const [touchStartX, setTouchStartX] = useState<number | null>(null);
+const HorizonLandingPage = () => {
+  const [currentPostIndex, setCurrentPostIndex] = useState(0)
+  const [textTransition, setTextTransition] = useState<"enter" | "exit" | "">("")
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      handleNext();
-    }, 8000);
-    return () => clearInterval(interval);
-  }, [currentIndex]);
+  // Navigation with text transition
+  const navigatePost = (direction: "next" | "prev" | number) => {
+    // First exit the current text
+    setTextTransition("exit")
 
-  const handleNext = () => {
-    setDirection('right');
-    setCurrentIndex((prev) => (prev === featuredPosts.length - 1 ? 0 : prev + 1));
-  };
-
-  const handlePrev = () => {
-    setDirection('left');
-    setCurrentIndex((prev) => (prev === 0 ? featuredPosts.length - 1 : prev - 1));
-  };
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    setTouchStartX(e.touches[0].clientX);
-  };
-
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    if (!touchStartX) return;
-    const endX = e.changedTouches[0].clientX;
-    const deltaX = touchStartX - endX;
-
-    if (Math.abs(deltaX) > 50) {
-      if (deltaX > 0) {
-        handleNext();
+    // After text exits, change the content and enter new text
+    setTimeout(() => {
+      let newIndex
+      if (typeof direction === "number") {
+        newIndex = direction
+      } else if (direction === "next") {
+        newIndex = (currentPostIndex + 1) % recentPosts.length
       } else {
-        handlePrev();
+        newIndex = (currentPostIndex - 1 + recentPosts.length) % recentPosts.length
       }
+
+      setCurrentPostIndex(newIndex)
+      setTextTransition("enter")
+    }, 300) // Match this with the CSS transition duration
+  }
+
+  // Auto-advance
+  useEffect(() => {
+    const timer = setInterval(() => {
+      navigatePost("next")
+    }, 6000)
+
+    return () => clearInterval(timer)
+  }, [currentPostIndex])
+
+  // Reset the text transition class after animation completes
+  useEffect(() => {
+    if (textTransition === "enter") {
+      const timer = setTimeout(() => {
+        setTextTransition("")
+      }, 500)
+      return () => clearTimeout(timer)
     }
-    setTouchStartX(null);
-  };
-  const dispersionTransition = {
-    type: 'spring',
-    damping:300,
-    stiffness: 300,
-    velocity: 1,
-  };
+  }, [textTransition])
+
+  const currentPost = recentPosts[currentPostIndex]
 
   return (
-    <div 
-      className="relative w-full h-[400px] md:h-[600px] overflow-hidden shadow-xl group"
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
-    >
-      <AnimatePresence mode='wait' custom={direction}>
-        <motion.div
-          key={currentIndex}
-          custom={direction}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          transition={dispersionTransition}
-          className="absolute w-full h-full"
-        >
-          <img 
-            src={featuredPosts[currentIndex].image} 
-            alt="" 
-            className="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform ease-out" 
-          />
-          <div 
-            className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-900/40 to-gray-900/90 h-[460px] md:h-[660px] "
-            aria-hidden="true"
-          />
-        
-          <div className="absolute bottom-7 left-0 right-0 p-4 md:p-8 text-white max-w-4xl md:ml-12">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="space-y-4 md:space-y-6"
-            >
-              <div className="inline-flex items-center px-3 py-1 md:px-4 md:py-1.5 bg-[#FF6F61] rounded-full text-xs md:text-sm font-medium">
-                {featuredPosts[currentIndex].category}
-              </div>
-              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold leading-snug md:leading-tight tracking-tight">
-                {featuredPosts[currentIndex].title}
-              </h2>
-              <p className="sm:block text-sm md:text-lg text-gray-200 max-w-2xl line-clamp-2 md:line-clamp-3">
-                {featuredPosts[currentIndex].excerpt}
-              </p>
-              <div className="flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6">
-                <div className="flex items-center space-x-3">
-                  <img 
-                    src={featuredPosts[currentIndex].authorAvatar} 
-                    alt="Author" 
-                    className="w-8 h-8 md:w-10 md:h-10 rounded-full border-[0.5px] border-white/50" 
-                  />
-                  <div>
-                    <p className="font-medium text-sm md:text-base">{featuredPosts[currentIndex].author}</p>
-                    <p className="text-xs md:text-sm text-gray-300">{featuredPosts[currentIndex].date}</p>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-4 text-xs md:text-sm">
-                  <div className="flex items-center space-x-1">
-                    <Clock className="w-4 h-4 md:w-5 md:h-5" />
-                    <span>{featuredPosts[currentIndex].readTime}</span>
-                  </div>
-                  <div className="flex items-center space-x-1">
-                    <Heart className="w-4 h-4 md:w-5 md:h-5" />
-                    <span>{featuredPosts[currentIndex].likes}</span>
-                  </div>
-                  <div className="flex items-center space-x-1">
-                    <MessageCircle className="w-4 h-4 md:w-5 md:h-5" />
-                    <span>{featuredPosts[currentIndex].comments}</span>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Read More Button */}
-          <div className="absolute bottom-15 right-4 md:bottom-12 md:right-12 z-10">
-            <button className="flex items-center bg-[#0077B6] hover:bg-[#3a7897] sm:px-4 sm:py-2 p-3 md:px-6 md:py-3 sm:rounded-xl rounded-2xl transition-all duration-300">
-              <span className="text-sm md:text-base font-bold hidden sm:block">Read More</span>
-              <ArrowRight className=" sm:ml-2 w-4 h-4 md:w-5 md:h-5" />
-            </button>
-          </div>
-        </motion.div>
-      </AnimatePresence>
-
-      {/* Navigation Arrows */}
-      <div className="absolute inset-0 flex items-center justify-between px-2 md:px-6">
-        <button
-          onClick={handlePrev}
-          className="p-2 md:p-3 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all transform hover:scale-110 shadow-lg hidden sm:block"
-        >
-          <ChevronLeft className="w-6 h-6 md:w-8 md:h-8 text-white" />
-        </button>
-        <button
-          onClick={handleNext}
-          className="p-2 md:p-3 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all transform hover:scale-110 shadow-lg hidden sm:block"
-        >
-          <ChevronRight className="w-6 h-6 md:w-8 md:h-8 text-white" />
-        </button>
-      </div>
-
-      {/* Centered Progress Indicators */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-        {featuredPosts.map((_, index) => (
+    <div className="bg-white dark:bg-[#0a0a0a] relative overflow-hidden">
+      {/* Hero Section with Post Carousel */}
+      <div className="relative h-[500px] md:h-[600px] overflow-hidden mt-4 mx-4 rounded-xl">
+        {/* Background Images */}
+        {recentPosts.map((post, index) => (
           <div
             key={index}
-            className="h-1.5 rounded-full overflow-hidden bg-white/20 backdrop-blur-sm"
-            style={{ width: 20 }}
+            className={`absolute inset-0 transition-all duration-1000 
+              ${index === currentPostIndex ? "opacity-100" : "opacity-0"}`}
+            style={{
+              transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
+            }}
           >
-            <div 
-              className={`h-full bg-white transition-all duration-500 ease-out ${index === currentIndex ? 'w-full' : 'w-0'}`}
-            />
+            {/* Image with overlay */}
+            <div className="relative h-full w-full">
+              <img src={post.imageSrc || "/placeholder.svg"} alt={post.title} className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10"></div>
+            </div>
           </div>
         ))}
+
+        {/* Content Container */}
+        <div className="absolute bottom-0 left-0 w-full h-full flex items-end pb-8">
+          <div className="relative z-20 w-full px-6">
+            {/* Post Content */}
+            <div className="flex flex-col md:flex-row justify-between space-y-4 md:space-y-0 items-start md:items-end">
+              {/* Main Post Content - Left Side */}
+              <div className="text-white overflow-hidden relative max-w-2xl w-full md:w-auto">
+                {/* Category Badge */}
+                <div className="flex items-center space-x-2 mb-4">
+                  <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-medium">
+                    {currentPost.category}
+                  </span>
+                </div>
+
+                {/* Dynamic text content with transitions */}
+                <div
+                  key={currentPostIndex}
+                  className={`transition-all duration-500 transform
+                    ${textTransition === "exit" ? "opacity-0 scale-95 translate-y-4" : ""}
+                    ${textTransition === "enter" ? "opacity-100 scale-100 translate-y-0" : ""}
+                    ${textTransition === "" ? "opacity-100 scale-100 translate-y-0" : ""}`}
+                >
+                  <h1 className="text-3xl md:text-4xl font-bold mb-4">{currentPost.title}</h1>
+                  <p className="hidden md:block text-gray-200 mb-6 text-sm md:text-base">{currentPost.excerpt}</p>
+                </div>
+              </div>
+
+              {/* Author Info - Right Side */}
+              <div className="bg-transparent p-4 text-white w-full md:w-auto">
+                <div className="flex items-center space-x-3">
+                  <div className="rounded-full w-12 h-12 overflow-hidden relative bg-gray-300">
+                    <img
+                      src="/placeholder.svg?height=48&width=48"
+                      alt="Author"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <span className="block text-md font-semibold">{currentPost.author}</span>
+                    <span className="block text-xs text-gray-300">
+                      {currentPost.date} • {currentPost.readTime} read
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Navigation Controls */}
+            <div className="flex justify-between items-center mt-8">
+              {/* Pagination Dots */}
+              <div className="flex space-x-2">
+                {recentPosts.map((_, dotIndex) => (
+                  <button
+                    key={dotIndex}
+                    onClick={() => navigatePost(dotIndex)}
+                    className={`h-3 rounded-full transition-all duration-500 ease-in-out transform
+                      ${
+                        dotIndex === currentPostIndex
+                          ? "bg-blue-400 w-9 shadow-lg scale-110"
+                          : "bg-white/50 w-3 hover:bg-white/80 hover:w-4 hover:scale-105 hover:shadow-md"
+                      }`}
+                    aria-label={`Go to slide ${dotIndex + 1}`}
+                  ></button>
+                ))}
+              </div>
+
+              {/* Arrow Navigation */}
+              <div className="flex space-x-2">
+                <button
+                  onClick={() => navigatePost("prev")}
+                  className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors duration-300"
+                  aria-label="Previous post"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
+                <button
+                  onClick={() => navigatePost("next")}
+                  className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors duration-300"
+                  aria-label="Next post"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  );
+  )
 }
+
+export default HorizonLandingPage
+
