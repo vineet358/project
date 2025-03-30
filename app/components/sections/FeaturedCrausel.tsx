@@ -1,6 +1,7 @@
 "use client"
 import { useState, useEffect } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
 
 const recentPosts = [
   {
@@ -47,27 +48,26 @@ const recentPosts = [
 
 const HorizonLandingPage = () => {
   const [currentPostIndex, setCurrentPostIndex] = useState(0)
-  const [textTransition, setTextTransition] = useState<"enter" | "exit" | "">("")
+  const [direction, setDirection] = useState(0) // 1 for next, -1 for prev
 
-  // Navigation with text transition
-  const navigatePost = (direction: "next" | "prev" | number) => {
-    // First exit the current text
-    setTextTransition("exit")
-
-    // After text exits, change the content and enter new text
-    setTimeout(() => {
-      let newIndex
-      if (typeof direction === "number") {
-        newIndex = direction
-      } else if (direction === "next") {
+  // Navigation with animation direction
+  const navigatePost = (nav: "next" | "prev" | number) => {
+    let newIndex
+    
+    if (typeof nav === "number") {
+      newIndex = nav
+      setDirection(nav > currentPostIndex ? 1 : -1)
+    } else {
+      if (nav === "next") {
         newIndex = (currentPostIndex + 1) % recentPosts.length
+        setDirection(1)
       } else {
         newIndex = (currentPostIndex - 1 + recentPosts.length) % recentPosts.length
+        setDirection(-1)
       }
-
-      setCurrentPostIndex(newIndex)
-      setTextTransition("enter")
-    }, 300) // Match this with the CSS transition duration
+    }
+    
+    setCurrentPostIndex(newIndex)
   }
 
   // Auto-advance
@@ -79,39 +79,54 @@ const HorizonLandingPage = () => {
     return () => clearInterval(timer)
   }, [currentPostIndex])
 
-  // Reset the text transition class after animation completes
-  useEffect(() => {
-    if (textTransition === "enter") {
-      const timer = setTimeout(() => {
-        setTextTransition("")
-      }, 500)
-      return () => clearTimeout(timer)
-    }
-  }, [textTransition])
-
   const currentPost = recentPosts[currentPostIndex]
+
+  // Animation variants
+  const slideVariants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? 200 : -200,
+      opacity: 0,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+    },
+    exit: (direction: number) => ({
+      x: direction > 0 ? -200 : 200,
+      opacity: 0,
+    }),
+  }
+
+  const fadeVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  }
 
   return (
     <div className="bg-white dark:bg-[#0a0a0a] relative overflow-hidden">
       {/* Hero Section with Post Carousel */}
       <div className="relative h-[500px] md:h-[600px] overflow-hidden mt-4 mx-4 rounded-xl">
         {/* Background Images */}
-        {recentPosts.map((post, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-all duration-1000 
-              ${index === currentPostIndex ? "opacity-100" : "opacity-0"}`}
-            style={{
-              transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
-            }}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentPostIndex}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1, ease: "easeInOut" }}
+            className="absolute inset-0"
           >
             {/* Image with overlay */}
             <div className="relative h-full w-full">
-              <img src={post.imageSrc || "/placeholder.svg"} alt={post.title} className="w-full h-full object-cover" />
+              <img 
+                src={currentPost.imageSrc || "/placeholder.svg"} 
+                alt={currentPost.title} 
+                className="w-full h-full object-cover" 
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10"></div>
             </div>
-          </div>
-        ))}
+          </motion.div>
+        </AnimatePresence>
 
         {/* Content Container */}
         <div className="absolute bottom-0 left-0 w-full h-full flex items-end pb-8">
@@ -121,27 +136,44 @@ const HorizonLandingPage = () => {
               {/* Main Post Content - Left Side */}
               <div className="text-white overflow-hidden relative max-w-2xl w-full md:w-auto">
                 {/* Category Badge */}
-                <div className="flex items-center space-x-2 mb-4">
+                <motion.div 
+                  className="flex items-center space-x-2 mb-4"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                >
                   <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-medium">
                     {currentPost.category}
                   </span>
-                </div>
+                </motion.div>
 
-                {/* Dynamic text content with transitions */}
-                <div
-                  key={currentPostIndex}
-                  className={`transition-all duration-500 transform
-                    ${textTransition === "exit" ? "opacity-0 scale-95 translate-y-4" : ""}
-                    ${textTransition === "enter" ? "opacity-100 scale-100 translate-y-0" : ""}
-                    ${textTransition === "" ? "opacity-100 scale-100 translate-y-0" : ""}`}
-                >
-                  <h1 className="text-3xl md:text-4xl font-bold mb-4">{currentPost.title}</h1>
-                  <p className="hidden md:block text-gray-200 mb-6 text-sm md:text-base">{currentPost.excerpt}</p>
-                </div>
+                {/* Dynamic text content with Framer Motion */}
+                <AnimatePresence mode="wait" custom={direction}>
+                  <motion.div
+                    key={currentPostIndex}
+                    custom={direction}
+                    variants={slideVariants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    transition={{
+                      x: { type: "spring", stiffness: 300, damping: 30 },
+                      opacity: { duration: 0.5 }
+                    }}
+                  >
+                    <h1 className="text-3xl md:text-4xl font-bold mb-4">{currentPost.title}</h1>
+                    <p className="hidden md:block text-gray-200 mb-6 text-sm md:text-base">{currentPost.excerpt}</p>
+                  </motion.div>
+                </AnimatePresence>
               </div>
 
               {/* Author Info - Right Side */}
-              <div className="bg-transparent p-4 text-white w-full md:w-auto">
+              <motion.div 
+                className="bg-transparent p-4 text-white w-full md:w-auto"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.3 }}
+              >
                 <div className="flex items-center space-x-3">
                   <div className="rounded-full w-12 h-12 overflow-hidden relative bg-gray-300">
                     <img
@@ -157,7 +189,7 @@ const HorizonLandingPage = () => {
                     </span>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
 
             {/* Navigation Controls */}
@@ -165,36 +197,51 @@ const HorizonLandingPage = () => {
               {/* Pagination Dots */}
               <div className="flex space-x-2">
                 {recentPosts.map((_, dotIndex) => (
-                  <button
+                  <motion.button
                     key={dotIndex}
                     onClick={() => navigatePost(dotIndex)}
-                    className={`h-3 rounded-full transition-all duration-500 ease-in-out transform
-                      ${
-                        dotIndex === currentPostIndex
-                          ? "bg-blue-400 w-9 shadow-lg scale-110"
-                          : "bg-white/50 w-3 hover:bg-white/80 hover:w-4 hover:scale-105 hover:shadow-md"
-                      }`}
+                    className={`h-3 rounded-full ${
+                      dotIndex === currentPostIndex
+                        ? "bg-blue-400"
+                        : "bg-white/50 hover:bg-white/80 hover:shadow-md"
+                    }`}
+                    initial={false}
+                    animate={{
+                      width: dotIndex === currentPostIndex ? 36 : 12,
+                      scale: dotIndex === currentPostIndex ? 1.1 : 1,
+                    }}
+                    whileHover={{
+                      scale: dotIndex !== currentPostIndex ? 1.05 : 1.1,
+                      width: dotIndex !== currentPostIndex ? 16 : 36,
+                    }}
+                    transition={{ duration: 0.3 }}
                     aria-label={`Go to slide ${dotIndex + 1}`}
-                  ></button>
+                  ></motion.button>
                 ))}
               </div>
 
               {/* Arrow Navigation */}
               <div className="flex space-x-2">
-                <button
+                <motion.button
+                  whileHover={{ backgroundColor: "rgba(255,255,255,0.2)" }}
+                  whileTap={{ scale: 0.95 }}
                   onClick={() => navigatePost("prev")}
-                  className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors duration-300"
+                  className="p-2 rounded-full bg-white/10 text-white"
                   aria-label="Previous post"
+                  transition={{ duration: 0.2 }}
                 >
                   <ChevronLeft className="w-5 h-5" />
-                </button>
-                <button
+                </motion.button>
+                <motion.button
+                  whileHover={{ backgroundColor: "rgba(255,255,255,0.2)" }}
+                  whileTap={{ scale: 0.95 }}
                   onClick={() => navigatePost("next")}
-                  className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors duration-300"
+                  className="p-2 rounded-full bg-white/10 text-white"
                   aria-label="Next post"
+                  transition={{ duration: 0.2 }}
                 >
                   <ChevronRight className="w-5 h-5" />
-                </button>
+                </motion.button>
               </div>
             </div>
           </div>
@@ -205,4 +252,3 @@ const HorizonLandingPage = () => {
 }
 
 export default HorizonLandingPage
-
