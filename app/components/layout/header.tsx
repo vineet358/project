@@ -55,7 +55,7 @@ type SearchResult = {
 }
 
 const navItems: NavItem[] = [
-  { label: "Home", href: "/", icon: <Home className="h-4 w-4 mr-2" /> },
+  { label: "Home", href: "/landing_homepage", icon: <Home className="h-4 w-4 mr-2" /> },
   { label: "Blogs", href: "/blogs", icon: <BookOpen className="h-4 w-4 mr-2" /> },
   { label: "Categories", href: "/categories", icon: <Grid className="h-4 w-4 mr-2" /> },
   { label: "About Us", href: "/about", icon: <Users className="h-4 w-4 mr-2" /> },

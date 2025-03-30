@@ -5,6 +5,7 @@ import Image from "next/image"
 import cn from "clsx"
 import Link from "next/link"
 import { useEffect, useState } from "react"
+import { useRouter } from "next/navigation"
 
 function DiamondShape({
   className,
@@ -130,7 +131,7 @@ function BlobShape({
       ]
     }
   };
-
+  
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.5 }}
@@ -180,6 +181,7 @@ export default function HeroGeometric() {
       },
     }),
   }
+  const router = useRouter();
 
   const title2 = "Share Your Knowledge" // Moved inside the component
 
@@ -277,16 +279,23 @@ export default function HeroGeometric() {
           </motion.div>
 
           <div className="flex flex-row gap-2 sm:gap-4 justify-center">
-            <motion.div custom={6} variants={fadeUpVariants} initial="hidden" animate="visible">
-              <button className="px-5 py-2.5 sm:px-6 sm:py-3 rounded-full bg-gradient-to-r from-blue-600 to-blue-800 text-white font-medium hover:shadow-lg hover:shadow-indigo-500/30 transition-all duration-300 text-sm sm:text-base">
-                Explore Blogs
-              </button>
-            </motion.div>
-            <motion.div custom={7} variants={fadeUpVariants} initial="hidden" animate="visible">
-              <button className="px-5 py-2.5 sm:px-6 sm:py-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium hover:bg-white/15 transition-all duration-300 text-sm sm:text-base">
-                Write a Blog
-              </button>
-            </motion.div>
+          <motion.div custom={6} variants={fadeUpVariants} initial="hidden" animate="visible">
+            <button
+              className="px-5 py-2.5 sm:px-6 sm:py-3 rounded-full bg-gradient-to-r from-blue-600 to-blue-800 text-white font-medium hover:shadow-lg hover:shadow-indigo-500/30 transition-all duration-300 text-sm sm:text-base"
+              onClick={() => router.push("/landing_homepage")}
+            >
+              Explore Blogs
+            </button>
+          </motion.div>
+          <motion.div custom={7} variants={fadeUpVariants} initial="hidden" animate="visible">
+            <button
+              className="px-5 py-2.5 sm:px-6 sm:py-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium hover:bg-white/15 transition-all duration-300 text-sm sm:text-base"
+              onClick={() => router.push("/write-blog")}
+            >
+              Write a Blog
+            </button>
+          </motion.div>
+  
           </div>
         </div>
       </div>

@@ -14,7 +14,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$imag
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/clsx/dist/clsx.mjs [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/client/app-dir/link.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/navigation.js [app-ssr] (ecmascript)");
 "use client";
+;
 ;
 ;
 ;
@@ -69,12 +71,12 @@ function DiamondShape({ className, delay = 0, size = 150, rotate = 0, gradient =
             className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"])("w-full h-full bg-gradient-to-br", gradient, "clip-diamond backdrop-blur-[2px] border-2 border-white/15", "shadow-[0_8px_32px_0_rgba(255,255,255,0.1)]")
         }, void 0, false, {
             fileName: "[project]/app/homepage/page.tsx",
-            lineNumber: 43,
+            lineNumber: 44,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/homepage/page.tsx",
-        lineNumber: 29,
+        lineNumber: 30,
         columnNumber: 5
     }, this);
 }
@@ -122,12 +124,12 @@ function PolygonShape({ className, delay = 0, size = 200, rotate = 0, gradient =
             className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"])("w-full h-full bg-gradient-to-br", gradient, "clip-polygon backdrop-blur-[2px] border-2 border-white/15", "shadow-[0_8px_32px_0_rgba(255,255,255,0.1)]")
         }, void 0, false, {
             fileName: "[project]/app/homepage/page.tsx",
-            lineNumber: 92,
+            lineNumber: 93,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/homepage/page.tsx",
-        lineNumber: 78,
+        lineNumber: 79,
         columnNumber: 5
     }, this);
 }
@@ -173,17 +175,17 @@ function BlobShape({ className, delay = 0, rotate = 0, gradient = "from-cyan-500
                 className: "opacity-20"
             }, void 0, false, {
                 fileName: "[project]/app/homepage/page.tsx",
-                lineNumber: 158,
+                lineNumber: 159,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/app/homepage/page.tsx",
-            lineNumber: 145,
+            lineNumber: 146,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/homepage/page.tsx",
-        lineNumber: 135,
+        lineNumber: 136,
         columnNumber: 5
     }, this);
 }
@@ -208,6 +210,7 @@ function HeroGeometric() {
                 }
             })
     };
+    const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRouter"])();
     const title2 = "Share Your Knowledge" // Moved inside the component
     ;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -217,7 +220,7 @@ function HeroGeometric() {
                 className: "absolute inset-0 bg-gradient-to-br from-indigo-500/[0.05] via-transparent to-rose-500/[0.05] blur-3xl"
             }, void 0, false, {
                 fileName: "[project]/app/homepage/page.tsx",
-                lineNumber: 188,
+                lineNumber: 190,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -240,7 +243,7 @@ function HeroGeometric() {
                                         height: 24
                                     }, void 0, false, {
                                         fileName: "[project]/app/homepage/page.tsx",
-                                        lineNumber: 195,
+                                        lineNumber: 197,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -248,18 +251,18 @@ function HeroGeometric() {
                                         children: "SiteName"
                                     }, void 0, false, {
                                         fileName: "[project]/app/homepage/page.tsx",
-                                        lineNumber: 196,
+                                        lineNumber: 198,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/homepage/page.tsx",
-                                lineNumber: 194,
+                                lineNumber: 196,
                                 columnNumber: 11
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/homepage/page.tsx",
-                            lineNumber: 193,
+                            lineNumber: 195,
                             columnNumber: 9
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -277,17 +280,17 @@ function HeroGeometric() {
                                             children: "Sign In"
                                         }, void 0, false, {
                                             fileName: "[project]/app/homepage/page.tsx",
-                                            lineNumber: 202,
+                                            lineNumber: 204,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/app/homepage/page.tsx",
-                                        lineNumber: 201,
+                                        lineNumber: 203,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/homepage/page.tsx",
-                                    lineNumber: 200,
+                                    lineNumber: 202,
                                     columnNumber: 11
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -302,34 +305,34 @@ function HeroGeometric() {
                                             children: "Sign Up"
                                         }, void 0, false, {
                                             fileName: "[project]/app/homepage/page.tsx",
-                                            lineNumber: 207,
+                                            lineNumber: 209,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/app/homepage/page.tsx",
-                                        lineNumber: 206,
+                                        lineNumber: 208,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/homepage/page.tsx",
-                                    lineNumber: 205,
+                                    lineNumber: 207,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/homepage/page.tsx",
-                            lineNumber: 199,
+                            lineNumber: 201,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/homepage/page.tsx",
-                    lineNumber: 192,
+                    lineNumber: 194,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/homepage/page.tsx",
-                lineNumber: 191,
+                lineNumber: 193,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -342,7 +345,7 @@ function HeroGeometric() {
                         className: "left-[2%] top-[10%] md:left-[5%] md:top-[15%] lg:left-[10%]"
                     }, void 0, false, {
                         fileName: "[project]/app/homepage/page.tsx",
-                        lineNumber: 216,
+                        lineNumber: 218,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(DiamondShape, {
@@ -352,7 +355,7 @@ function HeroGeometric() {
                         className: "right-[2%] top-[65%] md:right-[10%] md:top-[70%] scale-75 md:scale-100"
                     }, void 0, false, {
                         fileName: "[project]/app/homepage/page.tsx",
-                        lineNumber: 223,
+                        lineNumber: 225,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(PolygonShape, {
@@ -362,7 +365,7 @@ function HeroGeometric() {
                         className: "left-[10%] bottom-[5%] md:left-[15%] md:bottom-[10%] scale-90 md:scale-100"
                     }, void 0, false, {
                         fileName: "[project]/app/homepage/page.tsx",
-                        lineNumber: 230,
+                        lineNumber: 232,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(PolygonShape, {
@@ -372,7 +375,7 @@ function HeroGeometric() {
                         className: "right-[5%] top-[15%] md:right-[20%] md:top-[20%] scale-75 lg:scale-100"
                     }, void 0, false, {
                         fileName: "[project]/app/homepage/page.tsx",
-                        lineNumber: 237,
+                        lineNumber: 239,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(BlobShape, {
@@ -381,7 +384,7 @@ function HeroGeometric() {
                         className: "left-[2%] top-[25%] md:left-[5%] md:top-[30%] scale-75 lg:scale-100"
                     }, void 0, false, {
                         fileName: "[project]/app/homepage/page.tsx",
-                        lineNumber: 244,
+                        lineNumber: 246,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(BlobShape, {
@@ -390,13 +393,13 @@ function HeroGeometric() {
                         className: "right-[2%] bottom-[15%] md:right-[5%] md:bottom-[20%] scale-75 lg:scale-100"
                     }, void 0, false, {
                         fileName: "[project]/app/homepage/page.tsx",
-                        lineNumber: 250,
+                        lineNumber: 252,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/homepage/page.tsx",
-                lineNumber: 214,
+                lineNumber: 216,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -416,17 +419,17 @@ function HeroGeometric() {
                                     children: title2
                                 }, void 0, false, {
                                     fileName: "[project]/app/homepage/page.tsx",
-                                    lineNumber: 262,
+                                    lineNumber: 264,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/homepage/page.tsx",
-                                lineNumber: 261,
+                                lineNumber: 263,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/homepage/page.tsx",
-                            lineNumber: 260,
+                            lineNumber: 262,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -439,12 +442,12 @@ function HeroGeometric() {
                                 children: "A collaborative platform where students and teachers connect, share insights, and grow together through educational content."
                             }, void 0, false, {
                                 fileName: "[project]/app/homepage/page.tsx",
-                                lineNumber: 273,
+                                lineNumber: 275,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/homepage/page.tsx",
-                            lineNumber: 272,
+                            lineNumber: 274,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -457,16 +460,17 @@ function HeroGeometric() {
                                     animate: "visible",
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                         className: "px-5 py-2.5 sm:px-6 sm:py-3 rounded-full bg-gradient-to-r from-blue-600 to-blue-800 text-white font-medium hover:shadow-lg hover:shadow-indigo-500/30 transition-all duration-300 text-sm sm:text-base",
+                                        onClick: ()=>router.push("/landing_homepage"),
                                         children: "Explore Blogs"
                                     }, void 0, false, {
                                         fileName: "[project]/app/homepage/page.tsx",
-                                        lineNumber: 281,
-                                        columnNumber: 15
+                                        lineNumber: 283,
+                                        columnNumber: 13
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/homepage/page.tsx",
-                                    lineNumber: 280,
-                                    columnNumber: 13
+                                    lineNumber: 282,
+                                    columnNumber: 11
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
                                     custom: 7,
@@ -475,45 +479,46 @@ function HeroGeometric() {
                                     animate: "visible",
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                         className: "px-5 py-2.5 sm:px-6 sm:py-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium hover:bg-white/15 transition-all duration-300 text-sm sm:text-base",
+                                        onClick: ()=>router.push("/write-blog"),
                                         children: "Write a Blog"
                                     }, void 0, false, {
                                         fileName: "[project]/app/homepage/page.tsx",
-                                        lineNumber: 286,
-                                        columnNumber: 15
+                                        lineNumber: 291,
+                                        columnNumber: 13
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/homepage/page.tsx",
-                                    lineNumber: 285,
-                                    columnNumber: 13
+                                    lineNumber: 290,
+                                    columnNumber: 11
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/homepage/page.tsx",
-                            lineNumber: 279,
+                            lineNumber: 281,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/homepage/page.tsx",
-                    lineNumber: 259,
+                    lineNumber: 261,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/homepage/page.tsx",
-                lineNumber: 258,
+                lineNumber: 260,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "absolute inset-0 bg-gradient-to-t from-[#030303] via-transparent to-[#030303]/80 pointer-events-none"
             }, void 0, false, {
                 fileName: "[project]/app/homepage/page.tsx",
-                lineNumber: 294,
+                lineNumber: 303,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/homepage/page.tsx",
-        lineNumber: 187,
+        lineNumber: 189,
         columnNumber: 5
     }, this);
 }
