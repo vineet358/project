@@ -1,6 +1,6 @@
 "use client"
 
-import { Save, Eye, Sun, Moon } from "lucide-react"
+import { Save, Eye } from "lucide-react"
 import { motion } from "framer-motion"
 
 interface HeaderProps {
@@ -11,7 +11,7 @@ interface HeaderProps {
   darkMode: boolean
 }
 
-export default function Header({ saveDraft, previewPost, publishPost, toggleDarkMode, darkMode }: HeaderProps) {
+export default function HeaderWriteBlog({ saveDraft, previewPost, publishPost}: HeaderProps) {
   const buttonVariants = {
     hover: { scale: 1.05, transition: { duration: 0.2 } },
     tap: { scale: 0.95, transition: { duration: 0.1 } },
@@ -43,21 +43,11 @@ export default function Header({ saveDraft, previewPost, publishPost, toggleDark
             whileHover="hover"
             whileTap="tap"
             variants={buttonVariants}
-            onClick={toggleDarkMode}
-            className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-            aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
-          >
-            {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-          </motion.button>
-          <motion.button
-            whileHover="hover"
-            whileTap="tap"
-            variants={buttonVariants}
             onClick={saveDraft}
             className="flex items-center gap-2 px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
           >
             <Save size={18} />
-            <span>Save Draft</span>
+            <span>Draft</span>
           </motion.button>
           <motion.button
             whileHover="hover"

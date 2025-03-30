@@ -1,12 +1,12 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import Header from "./header"
 import EditorMain from "./editor-main"
 import Sidebar from "./sidebar"
 import type { BlogPost, DraftPost } from "@/app/types"
 import { motion, AnimatePresence } from "framer-motion"
 import PreviewModal from "./preview-modal"
+import HeaderWriteBlog from "./header"
 
 export default function BlogEditor() {
   const [darkMode, setDarkMode] = useState(false)
@@ -16,6 +16,7 @@ export default function BlogEditor() {
     tags: [],
     content: "",
     featuredImage: null,
+    selectedFont: "Arial", // Added font selection state
   })
   const [drafts, setDrafts] = useState<DraftPost[]>([
     {
@@ -121,9 +122,6 @@ export default function BlogEditor() {
       return
     }
 
-    // In a real app, this would submit the post to an API
-    showNotificationMessage("Your post has been published successfully!", "success")
-
     // Reset the form
     setPost({
       title: "",
@@ -131,7 +129,10 @@ export default function BlogEditor() {
       tags: [],
       content: "",
       featuredImage: null,
+      selectedFont: "Arial", // Reset font to default
     })
+    
+    showNotificationMessage("Your post has been published successfully!", "success")
   }
 
   // Animation variants
@@ -170,7 +171,7 @@ export default function BlogEditor() {
       className="flex flex-col min-h-screen bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100"
     >
       <motion.div variants={itemVariants}>
-        <Header
+        <HeaderWriteBlog
           saveDraft={saveDraft}
           previewPost={previewPost}
           publishPost={publishPost}
@@ -209,6 +210,7 @@ export default function BlogEditor() {
           </motion.div>
         )}
       </AnimatePresence>
+
       {/* Preview Modal */}
       <PreviewModal
         isOpen={showPreview}
@@ -218,8 +220,8 @@ export default function BlogEditor() {
         category={post.category}
         tags={post.tags}
         featuredImage={post.featuredImage}
+        fontFamily={post.selectedFont} // Pass selected font
       />
     </motion.div>
   )
 }
-

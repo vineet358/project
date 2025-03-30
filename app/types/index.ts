@@ -4,6 +4,7 @@ export interface BlogPost {
     tags: string[]
     content: string
     featuredImage: string | null
+    selectedFont: string
   }
   
   export interface DraftPost {
