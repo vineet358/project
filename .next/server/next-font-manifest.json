@@ -1,8 +1,7 @@
 {
   "app": {
     "[project]/app/_not-found/page": [],
-    "[project]/app/landing_homepage/page": [],
-    "[project]/app/page": []
+    "[project]/app/landing_homepage/page": []
   },
   "appUsingSizeAdjust": false,
   "pages": {},
