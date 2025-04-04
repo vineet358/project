@@ -133,8 +133,13 @@ export default function Dashboard() {
             </div>
 
             <div className="flex-1 flex justify-center items-center">
-              <img src="/placeholder.svg?height=200&width=200" alt="Person reading" className="h-48 animate-float" />
-            </div>
+                <img 
+                    src="https://picsum.photos/200" 
+                    alt="Random placeholder" 
+                    className="h-48 animate-float" 
+                />
+                </div>
+
           </div>
         </div>
 
@@ -353,48 +358,48 @@ export default function Dashboard() {
             <div className="space-y-4">
               {[
                 {
-                  id: 1,
-                  title: "Clever Ways to Celebrate Christmas...",
-                  comments: 232,
-                  views: 3566,
-                  image: "/placeholder.svg?height=60&width=80",
+                    id: 1,
+                    title: "Clever Ways to Celebrate Christmas...",
+                    comments: 232,
+                    views: 3566,
+                    image: "https://picsum.photos/80/60?random=1"
                 },
                 {
-                  id: 2,
-                  title: "Setting Intentions Instead of Resolutions...",
-                  comments: 25,
-                  views: 565,
-                  image: "/placeholder.svg?height=60&width=80",
+                    id: 2,
+                    title: "Setting Intentions Instead of Resolutions...",
+                    comments: 25,
+                    views: 565,
+                    image: "https://picsum.photos/80/60?random=2"
                 },
                 {
-                  id: 3,
-                  title: "Physical Development Activities for...",
-                  comments: 36,
-                  views: 165,
-                  image: "/placeholder.svg?height=60&width=80",
+                    id: 3,
+                    title: "Physical Development Activities for...",
+                    comments: 36,
+                    views: 165,
+                    image: "https://picsum.photos/80/60?random=3"
                 },
                 {
-                  id: 4,
-                  title: "Liki Trike - A Compact Trike with the Big...",
-                  comments: 545,
-                  views: 9158,
-                  image: "/placeholder.svg?height=60&width=80",
+                    id: 4,
+                    title: "Liki Trike - A Compact Trike with the Big...",
+                    comments: 545,
+                    views: 9158,
+                    image: "https://picsum.photos/80/60?random=4"
                 },
                 {
-                  id: 5,
-                  title: "How Doona and Liki Make For The Perfe...",
-                  comments: 99,
-                  views: 4582,
-                  image: "/placeholder.svg?height=60&width=80",
+                    id: 5,
+                    title: "How Doona and Liki Make For The Perfe...",
+                    comments: 99,
+                    views: 4582,
+                    image: "https://picsum.photos/80/60?random=5"
                 },
                 {
-                  id: 6,
-                  title: "How Doona and Liki Make For The Perfe...",
-                  comments: 99,
-                  views: 4580,
-                  image: "/placeholder.svg?height=60&width=80",
-                },
-              ].map((blog, index) => (
+                    id: 6,
+                    title: "How Doona and Liki Make For The Perfe...",
+                    comments: 99,
+                    views: 4580,
+                    image: "https://picsum.photos/80/60?random=6"
+                }
+                ].map((blog, index) => (
                 <div
                   key={blog.id}
                   className={`flex space-x-4 p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer ${animationClass(600 + index * 50)}`}
