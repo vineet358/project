@@ -1,4 +1,4 @@
-(globalThis.TURBOPACK = globalThis.TURBOPACK || []).push(["static/chunks/app_c1d42004._.js", {
+(globalThis.TURBOPACK = globalThis.TURBOPACK || []).push([typeof document === "object" ? document.currentScript : undefined, {
 
 "[project]/app/components/layout/footer.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";

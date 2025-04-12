@@ -54,6 +54,7 @@ function TextEditor({ content, setContent }) {
     const editorRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
     const history = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])([]);
     const historyIndex = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(-1);
+    const selectionRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
     const fonts = [
         "Arial",
         "Helvetica",
@@ -89,8 +90,26 @@ function TextEditor({ content, setContent }) {
         "#0000FF"
     ];
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        const editor = editorRef.current;
+        if (!editor) return;
+        const saveSelection = ()=>{
+            const sel = window.getSelection();
+            if (sel && sel.rangeCount > 0) {
+                selectionRef.current = sel.getRangeAt(0);
+            }
+        };
+        editor.addEventListener('mouseup', saveSelection);
+        editor.addEventListener('keyup', saveSelection);
+        return ()=>{
+            editor.removeEventListener('mouseup', saveSelection);
+            editor.removeEventListener('keyup', saveSelection);
+        };
+    }, []);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         if (editorRef.current) {
             editorRef.current.innerHTML = content;
+            document.execCommand("fontName", false, fontFamily);
+            document.execCommand("fontSize", false, fontSize);
         }
         saveState();
     }, []);
@@ -113,21 +132,30 @@ function TextEditor({ content, setContent }) {
     };
     const applyFormatting = (command, value)=>{
         if (!editorRef.current) return;
+        const sel = window.getSelection();
+        if (selectionRef.current && sel) {
+            sel.removeAllRanges();
+            sel.addRange(selectionRef.current.cloneRange());
+        }
         editorRef.current.focus();
         try {
             document.execCommand("styleWithCSS", true);
             switch(command){
                 case "fontFamily":
                     document.execCommand("fontName", false, value);
+                    setFontFamily(value || "Arial");
                     break;
                 case "fontSize":
                     document.execCommand("fontSize", false, value);
+                    setFontSize(value || "3");
                     break;
                 case "textColor":
                     document.execCommand("foreColor", false, value);
+                    setTextColor(value || "#000000");
                     break;
                 case "highlight":
                     document.execCommand("hiliteColor", false, value);
+                    setHighlightColor(value || "#FFFF00");
                     break;
                 case "createLink":
                     const url = prompt("Enter URL:", "https://");
@@ -146,6 +174,10 @@ function TextEditor({ content, setContent }) {
             saveState();
         } catch (err) {
             console.error("Error executing command:", err);
+        }
+        const newSel = window.getSelection();
+        if (newSel && newSel.rangeCount > 0) {
+            selectionRef.current = newSel.getRangeAt(0);
         }
     };
     const insertTable = ()=>{
@@ -213,7 +245,7 @@ function TextEditor({ content, setContent }) {
         }
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "border border-gray-300 dark:border-gray-700 rounded-md overflow-hidden shadow-lg max-w-5xl",
+        className: "border border-gray-300 dark:border-gray-700 rounded-md overflow-hidden shadow-lg",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "flex flex-wrap items-center gap-2 p-2 bg-gray-100 dark:bg-gray-800 border-b border-gray-300 dark:border-gray-700",
@@ -233,7 +265,7 @@ function TextEditor({ content, setContent }) {
                                         className: "text-gray-800 dark:text-gray-200"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/editor/text-editor.tsx",
-                                        lineNumber: 200,
+                                        lineNumber: 234,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -241,13 +273,13 @@ function TextEditor({ content, setContent }) {
                                         children: fontFamily
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/editor/text-editor.tsx",
-                                        lineNumber: 201,
+                                        lineNumber: 235,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/components/editor/text-editor.tsx",
-                                lineNumber: 193,
+                                lineNumber: 227,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AnimatePresence"], {
@@ -256,7 +288,6 @@ function TextEditor({ content, setContent }) {
                                     className: "absolute z-10 mt-1 w-48 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded shadow-lg",
                                     children: fonts.map((font)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             onClick: ()=>{
-                                                setFontFamily(font);
                                                 applyFormatting("fontFamily", font);
                                                 setShowFontDropdown(false);
                                             },
@@ -267,23 +298,23 @@ function TextEditor({ content, setContent }) {
                                             children: font
                                         }, font, false, {
                                             fileName: "[project]/app/components/editor/text-editor.tsx",
-                                            lineNumber: 211,
+                                            lineNumber: 245,
                                             columnNumber: 19
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/app/components/editor/text-editor.tsx",
-                                    lineNumber: 206,
+                                    lineNumber: 240,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/components/editor/text-editor.tsx",
-                                lineNumber: 204,
+                                lineNumber: 238,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/components/editor/text-editor.tsx",
-                        lineNumber: 192,
+                        lineNumber: 226,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -301,7 +332,7 @@ function TextEditor({ content, setContent }) {
                                         className: "text-gray-800 dark:text-gray-200"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/editor/text-editor.tsx",
-                                        lineNumber: 238,
+                                        lineNumber: 271,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -309,13 +340,13 @@ function TextEditor({ content, setContent }) {
                                         children: fontSize
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/editor/text-editor.tsx",
-                                        lineNumber: 239,
+                                        lineNumber: 272,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/components/editor/text-editor.tsx",
-                                lineNumber: 231,
+                                lineNumber: 264,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AnimatePresence"], {
@@ -324,7 +355,6 @@ function TextEditor({ content, setContent }) {
                                     className: "absolute z-10 mt-1 w-16 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded shadow-lg",
                                     children: fontSizes.map((size)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             onClick: ()=>{
-                                                setFontSize(size);
                                                 applyFormatting("fontSize", size);
                                                 setShowFontSizeDropdown(false);
                                             },
@@ -332,23 +362,23 @@ function TextEditor({ content, setContent }) {
                                             children: size
                                         }, size, false, {
                                             fileName: "[project]/app/components/editor/text-editor.tsx",
-                                            lineNumber: 249,
+                                            lineNumber: 282,
                                             columnNumber: 19
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/app/components/editor/text-editor.tsx",
-                                    lineNumber: 244,
+                                    lineNumber: 277,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/components/editor/text-editor.tsx",
-                                lineNumber: 242,
+                                lineNumber: 275,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/components/editor/text-editor.tsx",
-                        lineNumber: 230,
+                        lineNumber: 263,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].button, {
@@ -362,12 +392,12 @@ function TextEditor({ content, setContent }) {
                             className: "text-gray-800 dark:text-gray-200"
                         }, void 0, false, {
                             fileName: "[project]/app/components/editor/text-editor.tsx",
-                            lineNumber: 274,
+                            lineNumber: 306,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/components/editor/text-editor.tsx",
-                        lineNumber: 267,
+                        lineNumber: 299,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].button, {
@@ -381,12 +411,12 @@ function TextEditor({ content, setContent }) {
                             className: "text-gray-800 dark:text-gray-200"
                         }, void 0, false, {
                             fileName: "[project]/app/components/editor/text-editor.tsx",
-                            lineNumber: 283,
+                            lineNumber: 315,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/components/editor/text-editor.tsx",
-                        lineNumber: 276,
+                        lineNumber: 308,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].button, {
@@ -400,12 +430,12 @@ function TextEditor({ content, setContent }) {
                             className: "text-gray-800 dark:text-gray-200"
                         }, void 0, false, {
                             fileName: "[project]/app/components/editor/text-editor.tsx",
-                            lineNumber: 292,
+                            lineNumber: 324,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/components/editor/text-editor.tsx",
-                        lineNumber: 285,
+                        lineNumber: 317,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -423,7 +453,7 @@ function TextEditor({ content, setContent }) {
                                         className: "text-gray-800 dark:text-gray-200"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/editor/text-editor.tsx",
-                                        lineNumber: 304,
+                                        lineNumber: 336,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -433,13 +463,13 @@ function TextEditor({ content, setContent }) {
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/editor/text-editor.tsx",
-                                        lineNumber: 305,
+                                        lineNumber: 337,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/components/editor/text-editor.tsx",
-                                lineNumber: 297,
+                                lineNumber: 329,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AnimatePresence"], {
@@ -452,29 +482,28 @@ function TextEditor({ content, setContent }) {
                                                 backgroundColor: color
                                             },
                                             onClick: ()=>{
-                                                setTextColor(color);
                                                 applyFormatting("textColor", color);
                                                 setShowColorDropdown(false);
                                             }
                                         }, color, false, {
                                             fileName: "[project]/app/components/editor/text-editor.tsx",
-                                            lineNumber: 315,
+                                            lineNumber: 347,
                                             columnNumber: 19
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/app/components/editor/text-editor.tsx",
-                                    lineNumber: 310,
+                                    lineNumber: 342,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/components/editor/text-editor.tsx",
-                                lineNumber: 308,
+                                lineNumber: 340,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/components/editor/text-editor.tsx",
-                        lineNumber: 296,
+                        lineNumber: 328,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -492,7 +521,7 @@ function TextEditor({ content, setContent }) {
                                         className: "text-gray-800 dark:text-gray-200"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/editor/text-editor.tsx",
-                                        lineNumber: 340,
+                                        lineNumber: 371,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -502,13 +531,13 @@ function TextEditor({ content, setContent }) {
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/editor/text-editor.tsx",
-                                        lineNumber: 341,
+                                        lineNumber: 372,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/components/editor/text-editor.tsx",
-                                lineNumber: 333,
+                                lineNumber: 364,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AnimatePresence"], {
@@ -521,29 +550,28 @@ function TextEditor({ content, setContent }) {
                                                 backgroundColor: color
                                             },
                                             onClick: ()=>{
-                                                setHighlightColor(color);
                                                 applyFormatting("highlight", color);
                                                 setShowHighlightDropdown(false);
                                             }
                                         }, color, false, {
                                             fileName: "[project]/app/components/editor/text-editor.tsx",
-                                            lineNumber: 351,
+                                            lineNumber: 382,
                                             columnNumber: 19
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/app/components/editor/text-editor.tsx",
-                                    lineNumber: 346,
+                                    lineNumber: 377,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/components/editor/text-editor.tsx",
-                                lineNumber: 344,
+                                lineNumber: 375,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/components/editor/text-editor.tsx",
-                        lineNumber: 332,
+                        lineNumber: 363,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].button, {
@@ -557,12 +585,12 @@ function TextEditor({ content, setContent }) {
                             className: "text-gray-800 dark:text-gray-200"
                         }, void 0, false, {
                             fileName: "[project]/app/components/editor/text-editor.tsx",
-                            lineNumber: 375,
+                            lineNumber: 405,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/components/editor/text-editor.tsx",
-                        lineNumber: 368,
+                        lineNumber: 398,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].button, {
@@ -576,12 +604,12 @@ function TextEditor({ content, setContent }) {
                             className: "text-gray-800 dark:text-gray-200"
                         }, void 0, false, {
                             fileName: "[project]/app/components/editor/text-editor.tsx",
-                            lineNumber: 384,
+                            lineNumber: 414,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/components/editor/text-editor.tsx",
-                        lineNumber: 377,
+                        lineNumber: 407,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].button, {
@@ -595,12 +623,12 @@ function TextEditor({ content, setContent }) {
                             className: "text-gray-800 dark:text-gray-200"
                         }, void 0, false, {
                             fileName: "[project]/app/components/editor/text-editor.tsx",
-                            lineNumber: 395,
+                            lineNumber: 425,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/components/editor/text-editor.tsx",
-                        lineNumber: 388,
+                        lineNumber: 418,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].button, {
@@ -614,12 +642,12 @@ function TextEditor({ content, setContent }) {
                             className: "text-gray-800 dark:text-gray-200"
                         }, void 0, false, {
                             fileName: "[project]/app/components/editor/text-editor.tsx",
-                            lineNumber: 404,
+                            lineNumber: 434,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/components/editor/text-editor.tsx",
-                        lineNumber: 397,
+                        lineNumber: 427,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].button, {
@@ -633,12 +661,12 @@ function TextEditor({ content, setContent }) {
                             className: "text-gray-800 dark:text-gray-200"
                         }, void 0, false, {
                             fileName: "[project]/app/components/editor/text-editor.tsx",
-                            lineNumber: 413,
+                            lineNumber: 443,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/components/editor/text-editor.tsx",
-                        lineNumber: 406,
+                        lineNumber: 436,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].button, {
@@ -652,12 +680,12 @@ function TextEditor({ content, setContent }) {
                             className: "text-gray-800 dark:text-gray-200"
                         }, void 0, false, {
                             fileName: "[project]/app/components/editor/text-editor.tsx",
-                            lineNumber: 424,
+                            lineNumber: 454,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/components/editor/text-editor.tsx",
-                        lineNumber: 417,
+                        lineNumber: 447,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].button, {
@@ -671,12 +699,12 @@ function TextEditor({ content, setContent }) {
                             className: "text-gray-800 dark:text-gray-200"
                         }, void 0, false, {
                             fileName: "[project]/app/components/editor/text-editor.tsx",
-                            lineNumber: 433,
+                            lineNumber: 463,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/components/editor/text-editor.tsx",
-                        lineNumber: 426,
+                        lineNumber: 456,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].button, {
@@ -690,12 +718,12 @@ function TextEditor({ content, setContent }) {
                             className: "text-gray-800 dark:text-gray-200"
                         }, void 0, false, {
                             fileName: "[project]/app/components/editor/text-editor.tsx",
-                            lineNumber: 442,
+                            lineNumber: 472,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/components/editor/text-editor.tsx",
-                        lineNumber: 435,
+                        lineNumber: 465,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].button, {
@@ -709,12 +737,12 @@ function TextEditor({ content, setContent }) {
                             className: "text-gray-800 dark:text-gray-200"
                         }, void 0, false, {
                             fileName: "[project]/app/components/editor/text-editor.tsx",
-                            lineNumber: 453,
+                            lineNumber: 483,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/components/editor/text-editor.tsx",
-                        lineNumber: 446,
+                        lineNumber: 476,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].button, {
@@ -728,12 +756,12 @@ function TextEditor({ content, setContent }) {
                             className: "text-gray-800 dark:text-gray-200"
                         }, void 0, false, {
                             fileName: "[project]/app/components/editor/text-editor.tsx",
-                            lineNumber: 462,
+                            lineNumber: 492,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/components/editor/text-editor.tsx",
-                        lineNumber: 455,
+                        lineNumber: 485,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].button, {
@@ -747,12 +775,12 @@ function TextEditor({ content, setContent }) {
                             className: "text-gray-800 dark:text-gray-200"
                         }, void 0, false, {
                             fileName: "[project]/app/components/editor/text-editor.tsx",
-                            lineNumber: 473,
+                            lineNumber: 503,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/components/editor/text-editor.tsx",
-                        lineNumber: 466,
+                        lineNumber: 496,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].button, {
@@ -766,18 +794,18 @@ function TextEditor({ content, setContent }) {
                             className: "text-gray-800 dark:text-gray-200"
                         }, void 0, false, {
                             fileName: "[project]/app/components/editor/text-editor.tsx",
-                            lineNumber: 482,
+                            lineNumber: 512,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/components/editor/text-editor.tsx",
-                        lineNumber: 475,
+                        lineNumber: 505,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/components/editor/text-editor.tsx",
-                lineNumber: 190,
+                lineNumber: 224,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -786,12 +814,12 @@ function TextEditor({ content, setContent }) {
                 onInput: handleInput,
                 className: "min-h-[300px] p-4 bg-white dark:bg-gray-900 outline-none overflow-auto text-gray-800 dark:text-gray-200",
                 style: {
-                    fontFamily,
-                    fontSize: `${fontSize}em`
+                    fontFamily: "inherit",
+                    fontSize: "inherit"
                 }
             }, void 0, false, {
                 fileName: "[project]/app/components/editor/text-editor.tsx",
-                lineNumber: 487,
+                lineNumber: 517,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AnimatePresence"], {
@@ -818,7 +846,7 @@ function TextEditor({ content, setContent }) {
                             onChange: (e)=>setFindText(e.target.value)
                         }, void 0, false, {
                             fileName: "[project]/app/components/editor/text-editor.tsx",
-                            lineNumber: 504,
+                            lineNumber: 537,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -829,7 +857,7 @@ function TextEditor({ content, setContent }) {
                             onChange: (e)=>setReplaceText(e.target.value)
                         }, void 0, false, {
                             fileName: "[project]/app/components/editor/text-editor.tsx",
-                            lineNumber: 511,
+                            lineNumber: 544,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].button, {
@@ -841,18 +869,18 @@ function TextEditor({ content, setContent }) {
                             children: "Replace"
                         }, void 0, false, {
                             fileName: "[project]/app/components/editor/text-editor.tsx",
-                            lineNumber: 518,
+                            lineNumber: 551,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/components/editor/text-editor.tsx",
-                    lineNumber: 498,
+                    lineNumber: 531,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/components/editor/text-editor.tsx",
-                lineNumber: 496,
+                lineNumber: 529,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AnimatePresence"], {
@@ -878,7 +906,7 @@ function TextEditor({ content, setContent }) {
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/components/editor/text-editor.tsx",
-                            lineNumber: 540,
+                            lineNumber: 573,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -888,24 +916,24 @@ function TextEditor({ content, setContent }) {
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/components/editor/text-editor.tsx",
-                            lineNumber: 541,
+                            lineNumber: 574,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/components/editor/text-editor.tsx",
-                    lineNumber: 534,
+                    lineNumber: 567,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/components/editor/text-editor.tsx",
-                lineNumber: 532,
+                lineNumber: 565,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/components/editor/text-editor.tsx",
-        lineNumber: 188,
+        lineNumber: 223,
         columnNumber: 5
     }, this);
 }
@@ -1251,7 +1279,7 @@ function EditorMain({ post, setPost }) {
                                 className: "p-3 border border-gray-300 dark:border-gray-700 rounded-md bg-white dark:bg-gray-800",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "flex flex-wrap gap-2 mb-2",
+                                        className: "flex flex-wrap gap-2",
                                         children: post.tags.map((tag)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 className: "px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded-md flex items-center gap-1",
                                                 children: [
