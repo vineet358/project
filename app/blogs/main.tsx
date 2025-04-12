@@ -564,17 +564,31 @@ export default function BlogsPage() {
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100">
       <main className="flex-1">
-        {/* Page Header */}
-        <section className="bg-gray-100 dark:bg-gray-900 py-8 md:py-12">
-          <div className="container mx-auto px-4">
-            <div className="text-center">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Blog Articles</h1>
-              <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                Discover the latest insights, research, and stories from our community of thinkers and innovators.
-              </p>
-            </div>
-          </div>
-        </section>
+      {/* Page Header */}
+      <div className="relative flex justify-center items-center h-[200px] sm:h-[250px] md:h-[300px] w-full overflow-hidden px-4">
+      {/* Animated Gradient Background */}
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-r from-blue-500 via-blue-400 to-cyan-400 dark:from-indigo-700 dark:via-purple-600 dark:to-pink-500"
+        animate={{
+          backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+      />
+
+      {/* Content */}
+      <div className="relative text-center text-white max-w-3xl">
+        <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold pacifico">
+        Blog Articles
+        </h2>
+        <p className="mt-3 text-sm sm:text-base md:text-lg">
+        Discover the latest insights, research, and stories from our community of thinkers and innovators.
+        </p>
+      </div>
+    </div>
 
         {/* Filters and Blog Content */}
         <section className="mx-4 py-8 md:py-12">
