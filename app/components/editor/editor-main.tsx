@@ -91,7 +91,7 @@ export default function EditorMain({ post, setPost }: EditorMainProps) {
         <div className="w-full md:w-2/3">
           <label className="block mb-2 font-medium">Tags</label>
           <div className="p-3 border border-gray-300 dark:border-gray-700 rounded-md bg-white dark:bg-gray-800">
-            <div className="flex flex-wrap gap-2 mb-2">
+            <div className="flex flex-wrap gap-2">
               {post.tags.map((tag) => (
                 <span key={tag} className="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded-md flex items-center gap-1">
                   {tag}
