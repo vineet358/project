@@ -2,11 +2,10 @@
   "app": {
     "[project]/app/_not-found/page": [],
     "[project]/app/blogs/page": [],
-    "[project]/app/homepage/page": [],
+    "[project]/app/categories/page": [],
+    "[project]/app/contact/page": [],
     "[project]/app/landing_homepage/page": [],
     "[project]/app/page": [],
-    "[project]/app/signin/page": [],
-    "[project]/app/signup/page": [],
     "[project]/app/write-blog/page": []
   },
   "appUsingSizeAdjust": false,

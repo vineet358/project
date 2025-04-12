@@ -581,7 +581,7 @@ export default function BlogsPage() {
 
       {/* Content */}
       <div className="relative text-center text-white max-w-3xl">
-        <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold pacifico">
+        <h2 className="text-4xl sm:text-4xl md:text-5xl font-bold pacifico">
         Blog Articles
         </h2>
         <p className="mt-3 text-sm sm:text-base md:text-lg">
@@ -879,20 +879,34 @@ export default function BlogsPage() {
             </div>
           </div>
         </section>
+        <div className="relative flex justify-center items-center h-[300px] w-full overflow-hidden px-4">
+      {/* Animated Gradient Background */}
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-r from-blue-500 via-blue-400 to-cyan-400 dark:from-indigo-700 dark:via-purple-600 dark:to-pink-500"
+        animate={{
+          backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+      />
 
-        {/* Newsletter Section */}
-        <section className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30 py-12">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">Stay Updated</h2>
-            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-6">
+      {/* Content */}
+      <div className="relative text-center text-white max-w-3xl">
+        <h2 className="text-4xl sm:text-4xl md:text-5xl font-bold pacifico">
+        Stay Updated
+        </h2>
+        <p className="text-gray-950 dark:text-white max-w-2xl mx-auto mt-6 mb-6">
               Subscribe to our newsletter to receive the latest blog posts and updates directly in your inbox.
             </p>
             <div className="flex flex-col sm:flex-row gap-2 max-w-md mx-auto">
               <Input placeholder="Your email address" type="email" className="sm:flex-1" />
               <Button>Subscribe</Button>
             </div>
-          </div>
-        </section>
+      </div>
+    </div>
       </main>
     </div>
   )
