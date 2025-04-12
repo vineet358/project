@@ -17,13 +17,9 @@ import {
   Redo,
   Type,
   Heading,
-  Heading1,
-  Heading2,
   PaintBucket,
   Highlighter,
   Table,
-  Indent,
-  Outdent,
   Search,
   FileText,
   Strikethrough,
@@ -56,6 +52,7 @@ export default function TextEditor({ content, setContent }: TextEditorProps) {
   const editorRef = useRef<HTMLDivElement>(null)
   const history = useRef<string[]>([])
   const historyIndex = useRef(-1)
+  const selectionRef = useRef<Range | null>(null)
 
   const fonts = ["Arial", "Helvetica", "Times New Roman", "Courier New", "Georgia", "Verdana"]
   const fontSizes = ["1", "2", "3", "4", "5", "6", "7"]
@@ -63,8 +60,30 @@ export default function TextEditor({ content, setContent }: TextEditorProps) {
   const highlightColors = ["#FFFF00", "#00FFFF", "#FF00FF", "#FF0000", "#00FF00", "#0000FF"]
 
   useEffect(() => {
+    const editor = editorRef.current
+    if (!editor) return
+
+    const saveSelection = () => {
+      const sel = window.getSelection()
+      if (sel && sel.rangeCount > 0) {
+        selectionRef.current = sel.getRangeAt(0)
+      }
+    }
+
+    editor.addEventListener('mouseup', saveSelection)
+    editor.addEventListener('keyup', saveSelection)
+
+    return () => {
+      editor.removeEventListener('mouseup', saveSelection)
+      editor.removeEventListener('keyup', saveSelection)
+    }
+  }, [])
+
+  useEffect(() => {
     if (editorRef.current) {
       editorRef.current.innerHTML = content
+      document.execCommand("fontName", false, fontFamily)
+      document.execCommand("fontSize", false, fontSize)
     }
     saveState()
   }, [])
@@ -89,6 +108,13 @@ export default function TextEditor({ content, setContent }: TextEditorProps) {
 
   const applyFormatting = (command: string, value?: string) => {
     if (!editorRef.current) return
+    
+    const sel = window.getSelection()
+    if (selectionRef.current && sel) {
+      sel.removeAllRanges()
+      sel.addRange(selectionRef.current.cloneRange())
+    }
+
     editorRef.current.focus()
     
     try {
@@ -96,15 +122,19 @@ export default function TextEditor({ content, setContent }: TextEditorProps) {
       switch (command) {
         case "fontFamily":
           document.execCommand("fontName", false, value)
+          setFontFamily(value || "Arial")
           break
         case "fontSize":
           document.execCommand("fontSize", false, value)
+          setFontSize(value || "3")
           break
         case "textColor":
           document.execCommand("foreColor", false, value)
+          setTextColor(value || "#000000")
           break
         case "highlight":
           document.execCommand("hiliteColor", false, value)
+          setHighlightColor(value || "#FFFF00")
           break
         case "createLink":
           const url = prompt("Enter URL:", "https://")
@@ -123,6 +153,11 @@ export default function TextEditor({ content, setContent }: TextEditorProps) {
       saveState()
     } catch (err) {
       console.error("Error executing command:", err)
+    }
+
+    const newSel = window.getSelection()
+    if (newSel && newSel.rangeCount > 0) {
+      selectionRef.current = newSel.getRangeAt(0)
     }
   }
 
@@ -185,8 +220,7 @@ export default function TextEditor({ content, setContent }: TextEditorProps) {
   }
 
   return (
-    <div className="border border-gray-300 dark:border-gray-700 rounded-md overflow-hidden shadow-lg max-w-5xl">
-      {/* Main Toolbar */}
+    <div className="border border-gray-300 dark:border-gray-700 rounded-md overflow-hidden shadow-lg">
       <div className="flex flex-wrap items-center gap-2 p-2 bg-gray-100 dark:bg-gray-800 border-b border-gray-300 dark:border-gray-700">
         {/* Font Family */}
         <div className="relative">
@@ -211,7 +245,6 @@ export default function TextEditor({ content, setContent }: TextEditorProps) {
                   <div
                     key={font}
                     onClick={() => {
-                      setFontFamily(font)
                       applyFormatting("fontFamily", font)
                       setShowFontDropdown(false)
                     }}
@@ -249,7 +282,6 @@ export default function TextEditor({ content, setContent }: TextEditorProps) {
                   <div
                     key={size}
                     onClick={() => {
-                      setFontSize(size)
                       applyFormatting("fontSize", size)
                       setShowFontSizeDropdown(false)
                     }}
@@ -317,7 +349,6 @@ export default function TextEditor({ content, setContent }: TextEditorProps) {
                     className="w-6 h-6 rounded cursor-pointer border dark:border-gray-600"
                     style={{ backgroundColor: color }}
                     onClick={() => {
-                      setTextColor(color)
                       applyFormatting("textColor", color)
                       setShowColorDropdown(false)
                     }}
@@ -353,7 +384,6 @@ export default function TextEditor({ content, setContent }: TextEditorProps) {
                     className="w-6 h-6 rounded cursor-pointer border dark:border-gray-600"
                     style={{ backgroundColor: color }}
                     onClick={() => {
-                      setHighlightColor(color)
                       applyFormatting("highlight", color)
                       setShowHighlightDropdown(false)
                     }}
@@ -489,7 +519,10 @@ export default function TextEditor({ content, setContent }: TextEditorProps) {
         contentEditable
         onInput={handleInput}
         className="min-h-[300px] p-4 bg-white dark:bg-gray-900 outline-none overflow-auto text-gray-800 dark:text-gray-200"
-        style={{ fontFamily, fontSize: `${fontSize}em` }}
+        style={{ 
+          fontFamily: "inherit", 
+          fontSize: "inherit" 
+        }}
       />
 
       {/* Find/Replace Panel */}
