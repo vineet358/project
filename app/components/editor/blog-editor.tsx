@@ -25,7 +25,7 @@ export default function BlogEditor() {
       excerpt: "Exploring how artificial intelligence...",
       category: "Technology",
       timestamp: "2 hours ago",
-      image: "/placeholder.svg?height=80&width=80",
+      image: "https://picsum.photos/seed/ai/80/80",
     },
     {
       id: "2",
@@ -33,7 +33,7 @@ export default function BlogEditor() {
       excerpt: "Proven strategies to improve your...",
       category: "Education",
       timestamp: "Yesterday",
-      image: "/placeholder.svg?height=80&width=80",
+      image: "https://picsum.photos/seed/study/80/80",
     },
     {
       id: "3",
@@ -41,9 +41,10 @@ export default function BlogEditor() {
       excerpt: "A guide for students looking to...",
       category: "Career",
       timestamp: "3 days ago",
-      image: "/placeholder.svg?height=80&width=80",
+      image: "https://picsum.photos/seed/career/80/80",
     },
   ])
+  
   const [showNotification, setShowNotification] = useState(false)
   const [notificationMessage, setNotificationMessage] = useState("")
   const [notificationType, setNotificationType] = useState<"success" | "error" | "info">("info")
@@ -168,7 +169,7 @@ export default function BlogEditor() {
       initial="hidden"
       animate="visible"
       variants={pageVariants}
-      className="flex flex-col min-h-screen bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100"
+      className="flex flex-col min-h-screen bg-gray-50 text-gray-900 dark:bg-[#0a0a0a] dark:text-gray-100"
     >
       <motion.div variants={itemVariants}>
         <HeaderWriteBlog

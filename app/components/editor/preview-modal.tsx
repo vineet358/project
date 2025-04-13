@@ -44,24 +44,24 @@ export default function PreviewModal({
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
             transition={{ type: "spring", damping: 20 }}
-            className="relative w-full max-w-4xl max-h-[90vh] overflow-auto bg-white dark:bg-gray-900 rounded-lg shadow-xl"
+            className="relative w-full max-w-4xl max-h-[90vh] overflow-auto bg-white dark:bg-[#1A1A1A] rounded-lg shadow-xl"
           >
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 p-2 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors"
+              className="absolute top-4 right-4 p-2 rounded-full bg-gray-200 dark:bg-[#1A1A1A] hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors"
               aria-label="Close preview"
             >
               <X size={20} />
             </button>
 
-            <div className="p-6 border-b border-gray-200 dark:border-gray-800">
+            <div className="p-6 border-b border-gray-200 dark:border-[#1A1A1A]">
               <h2 className="text-xl font-bold">Post Preview</h2>
               <p className="text-gray-600 dark:text-gray-400">This is how your post will appear when published</p>
             </div>
 
             <div className="p-6">
               <div 
-                className="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 min-h-[500px] p-4 overflow-auto"
+                className="bg-white dark:bg-[#1A1A1A] text-gray-800 dark:text-gray-200 min-h-[500px] p-4 overflow-auto"
                 style={{ fontFamily }} // Apply font family to container
               >
                 <article className="max-w-none">

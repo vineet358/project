@@ -68,13 +68,13 @@ export default function EditorMain({ post, setPost }: EditorMainProps) {
           <div className="relative">
             <button
               onClick={() => setShowCategoryDropdown(!showCategoryDropdown)}
-              className="w-full flex items-center justify-between p-3 border border-gray-300 dark:border-gray-700 rounded-md bg-white dark:bg-gray-800"
+              className="w-full flex items-center justify-between p-3 border border-gray-300 dark:border-[#333333] rounded-md bg-white dark:bg-[#1A1A1A]"
             >
               <span>{post.category || "Select a category"}</span>
               <ChevronDown size={18} />
             </button>
             {showCategoryDropdown && (
-              <div className="absolute z-10 w-full mt-1 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md shadow-lg max-h-60 overflow-auto">
+              <div className="absolute z-10 w-full mt-1 bg-white dark:bg-[#1A1A1A] border border-gray-300 dark:border-[#333333] rounded-md shadow-lg max-h-60 overflow-auto">
                 {categories.map((category) => (
                   <div
                     key={category}
@@ -90,7 +90,7 @@ export default function EditorMain({ post, setPost }: EditorMainProps) {
         </div>
         <div className="w-full md:w-2/3">
           <label className="block mb-2 font-medium">Tags</label>
-          <div className="p-3 border border-gray-300 dark:border-gray-700 rounded-md bg-white dark:bg-gray-800">
+          <div className="p-3 border border-gray-300 dark:border-[#333333] rounded-md bg-white dark:bg-[#1A1A1A]">
             <div className="flex flex-wrap gap-2">
               {post.tags.map((tag) => (
                 <span key={tag} className="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded-md flex items-center gap-1">

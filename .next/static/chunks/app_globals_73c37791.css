@@ -1726,12 +1726,8 @@
     background-color: #0a0a0a;
   }
 
-  .bg-\[\#00E5FF\], .bg-\[\#00e5FF\] {
+  .bg-\[\#00E5FF\] {
     background-color: #00e5ff;
-  }
-
-  .bg-\[\#1A1A1A\] {
-    background-color: #1a1a1a;
   }
 
   .bg-\[\#0077B6\] {
@@ -2596,15 +2592,11 @@
     color: #0a1a2f;
   }
 
-  .text-\[\#00E5FF\], .text-\[\#00e5FF\] {
+  .text-\[\#00E5FF\] {
     color: #00e5ff;
   }
 
-  .text-\[\#1A1A1A\] {
-    color: #1a1a1a;
-  }
-
-  .text-\[\#8A2BE2\] {
+  .text-\[\#8A2BE2\], .text-\[\#8a2be2\] {
     color: #8a2be2;
   }
 
@@ -2770,10 +2762,6 @@
 
   .text-white\/80 {
     color: color-mix(in oklab, var(--color-white) 80%, transparent);
-  }
-
-  .text-white\/90 {
-    color: color-mix(in oklab, var(--color-white) 90%, transparent);
   }
 
   .lowercase {
@@ -3299,6 +3287,12 @@
   }
 
   @media (hover: hover) {
+    .hover\:bg-blue-50:hover {
+      background-color: var(--color-blue-50);
+    }
+  }
+
+  @media (hover: hover) {
     .hover\:bg-blue-100:hover {
       background-color: var(--color-blue-100);
     }
@@ -3451,12 +3445,6 @@
   }
 
   @media (hover: hover) {
-    .hover\:text-blue-700:hover {
-      color: var(--color-blue-700);
-    }
-  }
-
-  @media (hover: hover) {
     .hover\:text-blue-800:hover {
       color: var(--color-blue-800);
     }
@@ -3579,10 +3567,6 @@
 
   .focus\:ring-blue-500:focus {
     --tw-ring-color: var(--color-blue-500);
-  }
-
-  .focus\:ring-blue-600:focus {
-    --tw-ring-color: var(--color-blue-600);
   }
 
   .focus\:ring-indigo-500:focus {
@@ -4412,6 +4396,12 @@
   }
 
   @media (prefers-color-scheme: dark) {
+    .dark\:border-\[\#1A1A1A\] {
+      border-color: #1a1a1a;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
     .dark\:border-\[\#333333\] {
       border-color: #333;
     }
@@ -4432,18 +4422,6 @@
   @media (prefers-color-scheme: dark) {
     .dark\:border-gray-800 {
       border-color: var(--color-gray-800);
-    }
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .dark\:border-white\/25 {
-      border-color: color-mix(in oklab, var(--color-white) 25%, transparent);
-    }
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .dark\:bg-\[\#0A0A0A\] {
-      background-color: #0a0a0a;
     }
   }
 
@@ -4484,26 +4462,14 @@
   }
 
   @media (prefers-color-scheme: dark) {
-    .dark\:bg-\[\#00e5ff9f\] {
-      background-color: #00e5ff9f;
-    }
-  }
-
-  @media (prefers-color-scheme: dark) {
     .dark\:bg-\[\#00e5ff\] {
       background-color: #00e5ff;
     }
   }
 
   @media (prefers-color-scheme: dark) {
-    .dark\:bg-\[\#1A0A0A\] {
-      background-color: #1a0a0a;
-    }
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .dark\:bg-\[\#1A1A0A\] {
-      background-color: #1a1a0a;
+    .dark\:bg-\[\#1A01A1A\] {
+      background-color: #1A01A1A;
     }
   }
 
@@ -4522,6 +4488,12 @@
   @media (prefers-color-scheme: dark) {
     .dark\:bg-\[\#2D2D2D\] {
       background-color: #2d2d2d;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .dark\:bg-\[\#111111\] {
+      background-color: #111;
     }
   }
 
@@ -4550,12 +4522,6 @@
   }
 
   @media (prefers-color-scheme: dark) {
-    .dark\:bg-blue-700\/50 {
-      background-color: color-mix(in oklab, var(--color-blue-700) 50%, transparent);
-    }
-  }
-
-  @media (prefers-color-scheme: dark) {
     .dark\:bg-blue-900 {
       background-color: var(--color-blue-900);
     }
@@ -4570,12 +4536,6 @@
   @media (prefers-color-scheme: dark) {
     .dark\:bg-blue-900\/30 {
       background-color: color-mix(in oklab, var(--color-blue-900) 30%, transparent);
-    }
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .dark\:bg-blue-900\/50 {
-      background-color: color-mix(in oklab, var(--color-blue-900) 50%, transparent);
     }
   }
 
@@ -4634,13 +4594,6 @@
   }
 
   @media (prefers-color-scheme: dark) {
-    .dark\:from-blue-950\/30 {
-      --tw-gradient-from: color-mix(in oklab, var(--color-blue-950) 30%, transparent);
-      --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
-    }
-  }
-
-  @media (prefers-color-scheme: dark) {
     .dark\:from-indigo-400 {
       --tw-gradient-from: var(--color-indigo-400);
       --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
@@ -4666,13 +4619,6 @@
       --tw-gradient-via: var(--color-purple-600);
       --tw-gradient-via-stops: var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-via) var(--tw-gradient-via-position), var(--tw-gradient-to) var(--tw-gradient-to-position);
       --tw-gradient-stops: var(--tw-gradient-via-stops);
-    }
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .dark\:to-indigo-950\/30 {
-      --tw-gradient-to: color-mix(in oklab, var(--color-indigo-950) 30%, transparent);
-      --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
     }
   }
 
@@ -4800,12 +4746,6 @@
   }
 
   @media (prefers-color-scheme: dark) {
-    .dark\:text-blue-500 {
-      color: var(--color-blue-500);
-    }
-  }
-
-  @media (prefers-color-scheme: dark) {
     .dark\:text-gray-50 {
       color: var(--color-gray-50);
     }
@@ -4896,12 +4836,6 @@
   }
 
   @media (prefers-color-scheme: dark) {
-    .dark\:ring-gray-700 {
-      --tw-ring-color: var(--color-gray-700);
-    }
-  }
-
-  @media (prefers-color-scheme: dark) {
     @media (hover: hover) {
       .dark\:group-hover\:text-black:is(:where(.group):hover *) {
         color: var(--color-black);
@@ -4963,14 +4897,6 @@
 
   @media (prefers-color-scheme: dark) {
     @media (hover: hover) {
-      .dark\:hover\:bg-\[\#1A1A1AS\]:hover {
-        background-color: #1A1A1AS;
-      }
-    }
-  }
-
-  @media (prefers-color-scheme: dark) {
-    @media (hover: hover) {
       .dark\:hover\:bg-\[\#1A1A1A\]:hover {
         background-color: #1a1a1a;
       }
@@ -4981,6 +4907,14 @@
     @media (hover: hover) {
       .dark\:hover\:bg-\[\#1A1A1A\]\/90:hover {
         background-color: oklab(21.7786% -7.45058e-9 0 / .9);
+      }
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    @media (hover: hover) {
+      .dark\:hover\:bg-\[\#1a1a1a\]:hover {
+        background-color: #1a1a1a;
       }
     }
   }
@@ -5123,6 +5057,22 @@
 
   @media (prefers-color-scheme: dark) {
     @media (hover: hover) {
+      .dark\:hover\:text-red-200:hover {
+        color: var(--color-red-200);
+      }
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    @media (hover: hover) {
+      .dark\:hover\:text-red-900:hover {
+        color: var(--color-red-900);
+      }
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    @media (hover: hover) {
       .dark\:hover\:text-white:hover {
         color: var(--color-white);
       }
@@ -5196,6 +5146,67 @@
   --slider-thumb-bg: #3b82f6;
   --switch-bg: #3b82f6;
   --checkbox-bg: #3b82f6;
+  --scrollbar-bg: transparent;
+  --scrollbar-thumb: #cbd5e1;
+  --scrollbar-thumb-hover: #94a3b8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #171717;
+    --foreground: #fff;
+    --bg-white: #1f2937;
+    --text-color: #d1d5db;
+    --card-shadow: #ffffff0d;
+    --card-hover-shadow: #ffffff1a;
+    --scrollbar-thumb: #4b5563;
+    --scrollbar-thumb-hover: #6b7280;
+  }
+}
+
+@media (hover: hover) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+  }
+
+  :hover {
+    scrollbar-color: var(--scrollbar-thumb) transparent;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: none;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #0000;
+    border-radius: 10px;
+    transition: background-color .3s;
+  }
+
+  :hover::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-thumb-hover);
+  }
+}
+
+@media (pointer: coarse) {
+  * {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+
+  ::-webkit-scrollbar {
+    display: none !important;
+  }
 }
 
 .dark {

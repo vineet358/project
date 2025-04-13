@@ -26,6 +26,8 @@ import {
   Zap,
   X,
 } from "lucide-react"
+import PostCard from "../components/MidSection_Components/post-card"
+
 
 export default function CategoriesPage() {
   const router = useRouter()
@@ -40,7 +42,175 @@ export default function CategoriesPage() {
   const [showMobileFilters, setShowMobileFilters] = useState(false)
   const [showSortDropdown, setShowSortDropdown] = useState(false)
   const [activeTab, setActiveTab] = useState("academics")
-
+  const dummyPosts = {
+    academics: [
+      {
+        category: "Academics",
+        title: "Top 10 Study Hacks for University Students",
+        author: "Jane Doe",
+        date: "March 20, 2025",
+        readTime: "5 min",
+        excerpt: "Boost your academic performance with these scientifically-backed study techniques.",
+        imageSrc: "https://picsum.photos/seed/academics1/600/400",
+      },
+      {
+        category: "Academics",
+        title: "Balancing Academics and Life",
+        author: "John Smith",
+        date: "March 25, 2025",
+        readTime: "6 min",
+        excerpt: "Discover ways to maintain mental health while excelling in your studies.",
+        imageSrc: "https://picsum.photos/seed/academics2/600/400",
+      },
+      {
+        category: "Academics",
+        title: "How to Pick the Right Major",
+        author: "Alex Kim",
+        date: "April 1, 2025",
+        readTime: "4 min",
+        excerpt: "Explore strategies for choosing a major aligned with your passions and goals.",
+        imageSrc: "https://picsum.photos/seed/academics3/600/400",
+      },
+    ],
+    technology: [
+      {
+        category: "Technology",
+        title: "The Rise of AI in Everyday Life",
+        author: "Ava Chen",
+        date: "April 2, 2025",
+        readTime: "7 min",
+        excerpt: "Artificial Intelligence is reshaping how we live, work, and interact with the world.",
+        imageSrc: "https://picsum.photos/seed/technology1/600/400",
+      },
+      {
+        category: "Technology",
+        title: "Best Programming Languages to Learn in 2025",
+        author: "Liam Patel",
+        date: "April 8, 2025",
+        readTime: "5 min",
+        excerpt: "Explore the most in-demand programming languages and why they matter in today’s job market.",
+        imageSrc: "https://picsum.photos/seed/technology2/600/400",
+      },
+      {
+        category: "Technology",
+        title: "Quantum Computing Explained Simply",
+        author: "Nina Rao",
+        date: "April 12, 2025",
+        readTime: "6 min",
+        excerpt: "Understand the basic concepts behind quantum computing and its future potential.",
+        imageSrc: "https://picsum.photos/seed/technology3/600/400",
+      },
+    ],
+    research: [
+      {
+        category: "Research",
+        title: "Breakthroughs in Renewable Energy",
+        author: "Sophia Khan",
+        date: "March 28, 2025",
+        readTime: "6 min",
+        excerpt: "New research reveals a more efficient method of storing solar energy long-term.",
+        imageSrc: "https://picsum.photos/seed/research1/600/400",
+      },
+      {
+        category: "Research",
+        title: "Is Space Travel the Next Frontier?",
+        author: "Ethan Williams",
+        date: "April 3, 2025",
+        readTime: "8 min",
+        excerpt: "A look at current missions and the future of human exploration beyond Earth.",
+        imageSrc: "https://picsum.photos/seed/research2/600/400",
+      },
+      {
+        category: "Research",
+        title: "Brain-Machine Interfaces and You",
+        author: "Zara Nguyen",
+        date: "April 6, 2025",
+        readTime: "7 min",
+        excerpt: "Exploring how direct neural interfaces could change medicine and communication.",
+        imageSrc: "https://picsum.photos/seed/research3/600/400",
+      },
+    ],
+    health: [
+      {
+        category: "Health",
+        title: "5 Habits for a Healthier Mind and Body",
+        author: "Maya Rivera",
+        date: "April 5, 2025",
+        readTime: "4 min",
+        excerpt: "Simple daily routines that can significantly improve your mental and physical health.",
+        imageSrc: "https://picsum.photos/seed/health1/600/400",
+      },
+      {
+        category: "Health",
+        title: "How Sleep Affects Your Brain",
+        author: "Noah Adams",
+        date: "March 30, 2025",
+        readTime: "6 min",
+        excerpt: "Understand the science behind sleep and its impact on learning, memory, and focus.",
+        imageSrc: "https://picsum.photos/seed/health2/600/400",
+      },
+      {
+        category: "Health",
+        title: "The Science of Hydration",
+        author: "Lily Moore",
+        date: "April 9, 2025",
+        readTime: "5 min",
+        excerpt: "Staying hydrated isn’t just a trend—it’s essential for overall wellness.",
+        imageSrc: "https://picsum.photos/seed/health3/600/400",
+      },
+    ],
+    events: [
+      {
+        category: "Events",
+        title: "Campus Tech Fair 2025 Recap",
+        author: "Ella Brooks",
+        date: "April 10, 2025",
+        readTime: "3 min",
+        excerpt: "Highlights from the annual tech fair featuring innovations from students and startups.",
+        imageSrc: "https://picsum.photos/seed/events1/600/400",
+      },
+      {
+        category: "Events",
+        title: "Spring Wellness Expo Highlights",
+        author: "Carlos Torres",
+        date: "April 7, 2025",
+        readTime: "4 min",
+        excerpt: "Check out the top talks, demos, and workshops from this year’s wellness event.",
+        imageSrc: "https://picsum.photos/seed/events2/600/400",
+      },
+    ],
+    innovation: [
+      {
+        category: "Innovation",
+        title: "Smart Cities: The Future is Now",
+        author: "Mason Lee",
+        date: "April 12, 2025",
+        readTime: "5 min",
+        excerpt: "A look at how urban areas are evolving using data and tech to improve everyday life.",
+        imageSrc: "https://picsum.photos/seed/innovation1/600/400",
+      },
+      {
+        category: "Innovation",
+        title: "The Next Generation of Wearables",
+        author: "Olivia Tan",
+        date: "April 4, 2025",
+        readTime: "5 min",
+        excerpt: "Wearables are going beyond fitness — into mental health, sleep, and even nutrition.",
+        imageSrc: "https://picsum.photos/seed/innovation2/600/400",
+      },
+      {
+        category: "Innovation",
+        title: "Biotech Startups to Watch",
+        author: "David Park",
+        date: "April 11, 2025",
+        readTime: "6 min",
+        excerpt: "These startups are combining biology, engineering, and AI to revolutionize healthcare.",
+        imageSrc: "https://picsum.photos/seed/innovation3/600/400",
+      },
+    ],
+  };
+  
+  
   // All available categories
   const allCategories = [
     {
@@ -182,7 +352,7 @@ export default function CategoriesPage() {
       <div className="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 py-12 md:py-16">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Explore Categories</h1>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 pacifico">Explore Categories</h1>
             <p className="text-gray-600 dark:text-gray-300 text-lg">
               Discover content organized by topics that matter to you. Browse our collection of categories to find
               exactly what you're looking for.
@@ -483,18 +653,18 @@ export default function CategoriesPage() {
                       <motion.div key={category.name} whileHover={{ y: -5 }} transition={{ duration: 0.2 }}>
                         <div
                           onClick={() => navigateToCategory(category.name)}
-                          className="h-full overflow-hidden border rounded-lg hover:shadow-lg transition-shadow dark:border-gray-700 dark:bg-[#1A1A1A] cursor-pointer"
+                          className="h-full overflow-hidden border rounded-lg hover:shadow-lg transition-shadow dark:border-[#333333] dark:bg-[#1A1A1A] cursor-pointer"
                         >
                           <div className="p-4 pb-2">
                             <div className="flex items-center justify-between">
                               <div className="flex items-center gap-2">
-                                <div className="p-2 rounded-md bg-purple-100 dark:bg-[#00e5FF]/20">
-                                  <category.icon className="h-5 w-5 text-purple-600 dark:text-[#00e5FF]" />
+                                <div className="p-2 rounded-md bg-blue-100 dark:bg-[#00e5FF]/20">
+                                  <category.icon className="h-5 w-5 text-blue-600 dark:text-[#00e5FF]" />
                                 </div>
                                 <h3 className="text-xl font-semibold dark:text-white">{category.name}</h3>
                               </div>
                               {category.featured && (
-                                <span className="ml-2 px-2 py-1 text-xs bg-purple-100 text-purple-800 dark:bg-[#00e5FF]/20 dark:text-[#00e5FF] rounded-full">
+                                <span className="ml-2 px-2 py-1 text-xs bg-blue-100 text-blue-800 dark:bg-[#00e5FF]/20 dark:text-[#00e5FF] rounded-full">
                                   Featured
                                 </span>
                               )}
@@ -504,7 +674,7 @@ export default function CategoriesPage() {
                           <div className="p-4">
                             <div className="flex items-center justify-between text-sm">
                               <span className="text-gray-500 dark:text-gray-400">{category.count} posts</span>
-                              <span className="text-purple-600 dark:text-[#00e5FF] font-medium">View Category →</span>
+                              <span className="text-[#8a2be2] font-bold">View Category →</span>
                             </div>
                           </div>
                         </div>
@@ -517,17 +687,17 @@ export default function CategoriesPage() {
                       <motion.div key={category.name} whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
                         <div
                           onClick={() => navigateToCategory(category.name)}
-                          className="overflow-hidden border rounded-lg hover:shadow-md transition-shadow dark:border-gray-700 dark:bg-[#1A1A1A] cursor-pointer"
+                          className="overflow-hidden border rounded-lg hover:shadow-md transition-shadow dark:border-[#333333] dark:bg-[#1A1A1A] cursor-pointer"
                         >
                           <div className="flex items-center p-4">
-                            <div className="p-3 rounded-md bg-purple-100 mr-4 dark:bg-[#00e5FF]/20">
-                              <category.icon className="h-6 w-6 text-purple-600 dark:text-[#00e5FF]" />
+                            <div className="p-3 rounded-md bg-blue-100 mr-4 dark:bg-[#00e5FF]/20">
+                              <category.icon className="h-6 w-6 text-blue-600 dark:text-[#00e5FF]" />
                             </div>
                             <div className="flex-1">
                               <div className="flex items-center justify-between">
                                 <h3 className="text-lg font-semibold dark:text-white">{category.name}</h3>
                                 {category.featured && (
-                                  <span className="px-2 py-1 text-xs bg-purple-100 text-purple-800 dark:bg-[#00e5FF]/20 dark:text-[#00e5FF] rounded-full">
+                                  <span className="px-2 py-1 text-xs bg-blue-100 text-blue-800 dark:bg-[#00e5FF]/20 dark:text-[#00e5FF] rounded-full">
                                     Featured
                                   </span>
                                 )}
@@ -539,7 +709,7 @@ export default function CategoriesPage() {
                                 {category.count} posts
                               </span>
                               <button
-                                className="text-sm text-purple-600 dark:text-[#00e5FF] px-3 py-1 hover:bg-purple-50 dark:hover:bg-[#00e5FF]/10 rounded"
+                                className="text-sm text-blue-600 dark:text-[#00e5FF] px-3 py-1 hover:bg-blue-50 dark:hover:bg-[#00e5FF]/10 rounded"
                                 onClick={(e) => {
                                   e.stopPropagation()
                                   navigateToCategory(category.name)
@@ -562,7 +732,7 @@ export default function CategoriesPage() {
 
       {/* Featured Categories Section */}
       <section className="bg-gray-50 dark:bg-[#0a0a0a]/80 py-12">
-        <div className="container mx-auto px-4">
+        <div className="px-4">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold mb-4 dark:text-white">Popular Categories</h2>
             <p className="text-gray-600 max-w-2xl mx-auto dark:text-gray-400">
@@ -570,7 +740,7 @@ export default function CategoriesPage() {
             </p>
           </div>
 
-          <div className="w-full max-w-4xl mx-auto">
+          <div className="w-full">
             <div className="tabs flex overflow-x-auto mb-8">
               {["academics", "technology", "research", "health", "events", "innovation"].map((tab) => (
                 <button
@@ -578,8 +748,8 @@ export default function CategoriesPage() {
                   onClick={() => handleTabChange(tab)}
                   className={`px-4 py-2 text-sm font-medium whitespace-nowrap ${
                     activeTab === tab
-                      ? "border-b-2 border-purple-600 text-purple-600 dark:border-[#00e5FF] dark:text-[#00e5FF]"
-                      : "text-gray-600 hover:text-purple-600 dark:text-gray-300 dark:hover:text-[#00e5FF]"
+                      ? "border-b-2 border-blue-600 text-blue-600 dark:border-[#00e5FF] dark:text-[#00e5FF]"
+                      : "text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-[#00e5FF]"
                   }`}
                 >
                   {tab.charAt(0).toUpperCase() + tab.slice(1)}
@@ -588,30 +758,9 @@ export default function CategoriesPage() {
             </div>
 
             <div className="space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                {[1, 2, 3].map((i) => (
-                  <div
-                    key={i}
-                    className="overflow-hidden border rounded-lg hover:shadow-lg transition-shadow dark:border-gray-700 dark:bg-[#1A1A1A] cursor-pointer"
-                    onClick={() => navigateToCategory(activeTab)}
-                  >
-                    <div className="relative aspect-video overflow-hidden">
-                      <Image
-                        src={`/placeholder.svg?height=200&width=400&text=${activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}+${i}`}
-                        alt={`${activeTab} post ${i}`}
-                        fill
-                        className="object-cover transition-transform duration-500 hover:scale-105"
-                      />
-                    </div>
-                    <div className="p-3 sm:p-4">
-                      <h3 className="text-base sm:text-lg font-semibold line-clamp-1 dark:text-white">
-                        {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)} Article {i}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-gray-500 line-clamp-2 mt-2 dark:text-gray-400">
-                        A sample article about {activeTab} showcasing the latest developments and insights.
-                      </p>
-                    </div>
-                  </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                {dummyPosts[activeTab]?.map((post, i) => (
+                  <PostCard key={i} {...post} />
                 ))}
               </div>
               <div className="text-center mt-6">
@@ -630,7 +779,7 @@ export default function CategoriesPage() {
       {/* Call to Action */}
       <section className="py-12 md:py-16 bg-gradient-to-r from-purple-600 to-pink-500 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">Can't Find What You're Looking For?</h2>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 pacifico">Can't Find What You're Looking For?</h2>
           <p className="text-white/80 max-w-2xl mx-auto mb-6 md:mb-8 text-sm md:text-base">
             Suggest a new category or topic that you'd like to see on our platform. We're always looking to expand our
             content.

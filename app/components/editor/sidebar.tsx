@@ -43,11 +43,11 @@ export default function Sidebar({ drafts }: SidebarProps) {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="bg-white dark:bg-gray-950 rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden shadow-md"
+        className="bg-white dark:bg-[#1A1A1A] rounded-lg border border-gray-200 dark:border-[#333333] overflow-hidden shadow-md"
       >
-        <div className="p-4 border-b border-gray-200 dark:border-gray-800 flex justify-between items-center">
+        <div className="p-4 border-b border-gray-200 dark:border-[#333333] flex justify-between items-center">
           <h2 className="text-xl font-bold">Your Drafts</h2>
-          <span className="bg-gray-200 dark:bg-gray-800 px-2 py-1 rounded-full text-sm">{drafts.length}</span>
+          <span className="bg-gray-200 dark:bg-[#00e5FF] px-2 py-1 rounded-full text-sm dark:text-black">{drafts.length}</span>
         </div>
         <div className="divide-y divide-gray-200 dark:divide-gray-800 max-h-[400px] overflow-auto">
           {drafts.map((draft, index) => (
@@ -56,14 +56,13 @@ export default function Sidebar({ drafts }: SidebarProps) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1, duration: 0.3 }}
-              whileHover={{ backgroundColor: "rgba(0,0,0,0.05)" }}
-              className="p-4 hover:bg-gray-50 dark:hover:bg-gray-900 cursor-pointer"
+              className="p-4 hover:bg-gray-50 dark:hover:bg-[#1a1a1a] cursor-pointer dark:bg-[#0a0a0a]"
             >
               <div className="flex gap-3">
                 <Image
                   src={draft.image || "/placeholder.svg"}
                   alt={draft.title}
-                  width={60}
+                  width={70}
                   height={60}
                   className="rounded-md object-cover"
                 />
@@ -88,21 +87,21 @@ export default function Sidebar({ drafts }: SidebarProps) {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.5 }}
-        className="bg-white dark:bg-gray-950 rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden shadow-md"
+        className="bg-white dark:bg-[#0a0a0a] rounded-lg border border-gray-200 dark:border-[#333333] overflow-hidden shadow-md"
       >
-        <div className="p-4 border-b border-gray-200 dark:border-gray-800 flex items-center gap-2">
+        <div className="p-4 border-b border-gray-200 dark:border-[#333333] flex items-center gap-2">
           <Info size={18} className="text-blue-500" />
           <h2 className="text-xl font-bold">Publishing Guidelines</h2>
         </div>
 
         {/* Content Standards */}
-        <div className="border-b border-gray-200 dark:border-gray-800">
+        <div className="border-b border-gray-200 dark:border-[#333333]">
           <motion.button
             whileHover="hover"
             whileTap="tap"
             variants={buttonVariants}
             onClick={() => toggleSection("contentStandards")}
-            className="flex justify-between items-center w-full p-4 text-left hover:bg-gray-50 dark:hover:bg-gray-900"
+            className="flex justify-between items-center w-full p-4 text-left hover:bg-gray-50 dark:hover:bg-[#1A1A1A]"
           >
             <span className="font-medium">Content Standards</span>
             <motion.div
@@ -135,13 +134,13 @@ export default function Sidebar({ drafts }: SidebarProps) {
         </div>
 
         {/* Formatting Guidelines */}
-        <div className="border-b border-gray-200 dark:border-gray-800">
+        <div className="border-b border-gray-200 dark:border-[#333333]">
           <motion.button
             whileHover="hover"
             whileTap="tap"
             variants={buttonVariants}
             onClick={() => toggleSection("formattingGuidelines")}
-            className="flex justify-between items-center w-full p-4 text-left hover:bg-gray-50 dark:hover:bg-gray-900"
+            className="flex justify-between items-center w-full p-4 text-left hover:bg-gray-50 dark:hover:bg-[#1A1A1A]"
           >
             <span className="font-medium">Formatting Guidelines</span>
             <motion.div
@@ -174,13 +173,13 @@ export default function Sidebar({ drafts }: SidebarProps) {
         </div>
 
         {/* Image Usage */}
-        <div className="border-b border-gray-200 dark:border-gray-800">
+        <div className="border-b border-gray-200 dark:border-[#333333]">
           <motion.button
             whileHover="hover"
             whileTap="tap"
             variants={buttonVariants}
             onClick={() => toggleSection("imageUsage")}
-            className="flex justify-between items-center w-full p-4 text-left hover:bg-gray-50 dark:hover:bg-gray-900"
+            className="flex justify-between items-center w-full p-4 text-left hover:bg-gray-50 dark:hover:bg-[#1A1A1A]"
           >
             <span className="font-medium">Image Usage</span>
             <motion.div animate={{ rotate: expandedSections.imageUsage ? 180 : 0 }} transition={{ duration: 0.3 }}>
@@ -210,13 +209,13 @@ export default function Sidebar({ drafts }: SidebarProps) {
         </div>
 
         {/* Tone and Style */}
-        <div className="border-b border-gray-200 dark:border-gray-800">
+        <div className="border-b border-gray-200 dark:border-[#333333]">
           <motion.button
             whileHover="hover"
             whileTap="tap"
             variants={buttonVariants}
             onClick={() => toggleSection("toneAndStyle")}
-            className="flex justify-between items-center w-full p-4 text-left hover:bg-gray-50 dark:hover:bg-gray-900"
+            className="flex justify-between items-center w-full p-4 text-left hover:bg-gray-50 dark:hover:bg-[#1A1A1A]"
           >
             <span className="font-medium">Tone and Style</span>
             <motion.div animate={{ rotate: expandedSections.toneAndStyle ? 180 : 0 }} transition={{ duration: 0.3 }}>
@@ -252,7 +251,7 @@ export default function Sidebar({ drafts }: SidebarProps) {
             whileTap="tap"
             variants={buttonVariants}
             onClick={() => toggleSection("reviewProcess")}
-            className="flex justify-between items-center w-full p-4 text-left hover:bg-gray-50 dark:hover:bg-gray-900"
+            className="flex justify-between items-center w-full p-4 text-left hover:bg-gray-50 dark:hover:bg-[#1A1A1A]"
           >
             <span className="font-medium">Review Process</span>
             <motion.div animate={{ rotate: expandedSections.reviewProcess ? 180 : 0 }} transition={{ duration: 0.3 }}>
@@ -282,18 +281,6 @@ export default function Sidebar({ drafts }: SidebarProps) {
         </div>
       </motion.div>
 
-      {/* Get Writing Help */}
-      <motion.button
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3, duration: 0.5 }}
-        whileHover={{ scale: 1.02, boxShadow: "0 4px 6px rgba(0,0,0,0.1)" }}
-        whileTap={{ scale: 0.98 }}
-        className="w-full flex items-center justify-center gap-2 p-4 bg-white dark:bg-gray-950 border border-gray-200 dark:border-gray-800 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-900 shadow-md"
-      >
-        <HelpCircle size={18} />
-        <span className="font-medium">Get Writing Help</span>
-      </motion.button>
     </div>
   )
 }

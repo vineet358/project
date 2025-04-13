@@ -220,8 +220,8 @@ export default function TextEditor({ content, setContent }: TextEditorProps) {
   }
 
   return (
-    <div className="border border-gray-300 dark:border-gray-700 rounded-md overflow-hidden shadow-lg">
-      <div className="flex flex-wrap items-center gap-2 p-2 bg-gray-100 dark:bg-gray-800 border-b border-gray-300 dark:border-gray-700">
+    <div className="border border-gray-300 dark:border-[#333333] rounded-md overflow-hidden shadow-lg">
+      <div className="flex flex-wrap items-center gap-2 p-2 bg-gray-100 dark:bg-[#1A1A1A] border-b border-gray-300 dark:border-[#333333]">
         {/* Font Family */}
         <div className="relative">
           <motion.button
@@ -497,7 +497,7 @@ export default function TextEditor({ content, setContent }: TextEditorProps) {
           variants={buttonVariants} 
           whileHover="hover" 
           whileTap="tap"
-          className="p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700"
+          className="p-2 rounded hover:bg-gray-200 dark:hover:bg-[#1A1A1A]"
           onClick={() => setShowFindReplace(!showFindReplace)}
         >
           <Search size={18} className="text-gray-800 dark:text-gray-200" />
@@ -518,7 +518,7 @@ export default function TextEditor({ content, setContent }: TextEditorProps) {
         ref={editorRef}
         contentEditable
         onInput={handleInput}
-        className="min-h-[300px] p-4 bg-white dark:bg-gray-900 outline-none overflow-auto text-gray-800 dark:text-gray-200"
+        className="min-h-[300px] p-4 bg-white dark:bg-[#111111] outline-none overflow-auto text-gray-800 dark:text-gray-200"
         style={{ 
           fontFamily: "inherit", 
           fontSize: "inherit" 
@@ -529,22 +529,19 @@ export default function TextEditor({ content, setContent }: TextEditorProps) {
       <AnimatePresence>
         {showFindReplace && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="p-2 border-t border-gray-300 dark:border-gray-700 flex gap-2 items-center bg-gray-100 dark:bg-gray-800"
+            className="p-2 border-t border-gray-300 dark:border-[#333333] flex gap-2 items-center bg-gray-100 dark:bg-[#1A1A1A]"
           >
             <input
               type="text"
               placeholder="Find"
-              className="flex-1 p-1 border rounded bg-white dark:bg-gray-900 border-gray-300 dark:border-gray-600 text-gray-800 dark:text-gray-200"
+              className="flex-1 p-1 border rounded bg-white dark:bg-[#0a0a0a] border-gray-300 dark:border-[#333333] text-gray-800 dark:text-gray-200"
               value={findText}
               onChange={(e) => setFindText(e.target.value)}
             />
             <input
               type="text"
               placeholder="Replace"
-              className="flex-1 p-1 border rounded bg-white dark:bg-gray-900 border-gray-300 dark:border-gray-600 text-gray-800 dark:text-gray-200"
+              className="flex-1 p-1 border rounded bg-white dark:bg-[#0a0a0a] border-gray-300 dark:border-[#333333] text-gray-800 dark:text-gray-200"
               value={replaceText}
               onChange={(e) => setReplaceText(e.target.value)}
             />
@@ -565,10 +562,7 @@ export default function TextEditor({ content, setContent }: TextEditorProps) {
       <AnimatePresence>
         {showWordCount && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="p-2 border-t border-gray-300 dark:border-gray-700 text-sm flex justify-between bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300"
+            className="p-2 border-t border-gray-300 dark:border-[#333333] text-sm flex justify-between bg-gray-100 dark:bg-[#1A1A1A] text-gray-600 dark:text-gray-300"
           >
             <span>Words: {wordCount}</span>
             <span>Characters: {charCount}</span>

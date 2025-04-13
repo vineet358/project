@@ -18,7 +18,7 @@ export default function HeaderWriteBlog({ saveDraft, previewPost, publishPost}: 
   }
 
   return (
-    <header className="p-4 border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950 shadow-sm">
+    <header className="p-4 border-b border-gray-200 dark:border-[#333333] bg-white dark:bg-[#0a0a0a] shadow-sm">
       <div className="container mx-auto flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
           <motion.h1
