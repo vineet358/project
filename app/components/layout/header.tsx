@@ -28,7 +28,7 @@ const MOCK_USER = {
   uid: "mock-user-id",
   email: "user@example.com",
   displayName: "John Doe",
-  photoURL: "/placeholder.svg?height=40&width=40",
+  photoURL: "https://picsum.photos/50/50",
 }
 
 type NavItem = {
@@ -66,14 +66,14 @@ const mockNotifications: Notification[] = [
     message: 'John commented on your post "Getting Started with Next.js"',
     time: "2 min ago",
     read: false,
-    avatar: "/placeholder.svg?height=40&width=40",
+    avatar: "https://picsum.photos/50/50",
   },
   {
     id: 2,
     message: "Sarah liked your article about Tailwind CSS",
     time: "1 hour ago",
     read: false,
-    avatar: "/placeholder.svg?height=40&width=40",
+    avatar: "https://picsum.photos/50/50",
   },
   {
     id: 3,
@@ -88,20 +88,20 @@ const mockSearchResults: SearchResult[] = [
     id: 1,
     title: "Getting Started with Next.js",
     type: "blog",
-    image: "/placeholder.svg?height=40&width=40",
+    image: "https://picsum.photos/50/50",
   },
   {
     id: 2,
     title: "Tailwind CSS Tips and Tricks",
     type: "blog",
-    image: "/placeholder.svg?height=40&width=40",
+    image: "https://picsum.photos/50/50",
   },
   { id: 3, title: "JavaScript", type: "tag" },
   {
     id: 4,
     title: "React Hooks Explained",
     type: "blog",
-    image: "/placeholder.svg?height=40&width=40",
+    image: "https://picsum.photos/50/50",
   },
 ]
 
@@ -318,7 +318,7 @@ export default function Header() {
                         {result.image && (
                           <div className="flex-shrink-0 mr-3">
                             <Image
-                              src={result.image || "/placeholder.svg"}
+                              src={result.image || "https://picsum.photos/50/50"}
                               alt={result.title}
                               width={30}
                               height={30}
@@ -403,7 +403,7 @@ export default function Header() {
                                       {notification.avatar && (
                                         <div className="flex-shrink-0 mr-3">
                                           <Image
-                                            src={notification.avatar || "/placeholder.svg"}
+                                            src={notification.avatar || "https://picsum.photos/50/50"}
                                             alt="User Avatar"
                                             width={36}
                                             height={36}
@@ -457,7 +457,7 @@ export default function Header() {
                     >
                       <div className="relative w-8 h-8 rounded-full overflow-hidden border-1 border-blue-500/30 transition-transform duration-200">
                         <Image
-                          src={user.photoURL || "/placeholder.svg?height=32&width=32"}
+                          src={user.photoURL || "https://picsum.photos/50/50"}
                           alt={user.displayName || "User Avatar"}
                           width={32}
                           height={32}
@@ -650,7 +650,7 @@ export default function Header() {
                         {result.image && (
                           <div className="flex-shrink-0 mr-3">
                             <Image
-                              src={result.image || "/placeholder.svg"}
+                              src={result.image || "https://picsum.photos/50/50"}
                               alt={result.title}
                               width={30}
                               height={30}

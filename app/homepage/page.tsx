@@ -76,12 +76,34 @@ export default function HeroGeometric() {
       {/* Navigation Bar */}
       <div className="absolute top-0 left-0 right-0 z-50 px-4 py-6">
         <div className="container mx-auto flex justify-between items-center">
-        <motion.div custom={1} variants={fadeUpVariants} initial="hidden" animate="visible">
-          <div className="flex items-center gap-2">
-            <Image src="/placeholder.svg?height=24&width=24" alt="Logo" width={24} height={24} />
-            <span className="text-white font-medium">SiteName</span>
-          </div>
-        </motion.div>
+          {/* Logo */}
+          <motion.div
+            className="flex-shrink-0 flex items-center"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <Link href="/" className="flex items-center">
+              <div className="relative h-10 w-10 overflow-hidden rounded-lg bg-gradient-to-br from-indigo-500 to-blue-600 p-1">
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+                  className="absolute inset-0 opacity-30 bg-gradient-to-r from-white to-transparent"
+                />
+                <span className="relative flex items-center justify-center h-full w-full text-white font-bold text-lg">
+                  S
+                </span>
+              </div>
+              <motion.span
+                className="ml-2 text-xl font-bold bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent dark:from-indigo-400 dark:to-purple-400"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
+              >
+                SiteName
+              </motion.span>
+            </Link>
+          </motion.div>
           <div className="flex items-center gap-3">
           <motion.div custom={2} variants={fadeUpVariants} initial="hidden" animate="visible">
               <button className="px-4 py-2 text-sm text-white/80 hover:text-white transition-colors">
