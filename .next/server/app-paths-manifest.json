@@ -5,5 +5,6 @@
   "/contact/page": "app/contact/page.js",
   "/landing_homepage/page": "app/landing_homepage/page.js",
   "/page": "app/page.js",
+  "/signin/page": "app/signin/page.js",
   "/write-blog/page": "app/write-blog/page.js"
 }

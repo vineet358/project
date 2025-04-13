@@ -312,7 +312,7 @@ const Button = ({
 const Card = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => {
   return (
     <div
-      className={`rounded-lg border border-gray-200 bg-white shadow-sm dark:border-gray-800 dark:bg-gray-950 ${className}`}
+      className={`rounded-lg border border-gray-200 bg-white shadow-sm dark:border-[#333333] dark:bg-[#1A1A1A] ${className}`}
     >
       {children}
     </div>
@@ -417,7 +417,7 @@ const Select = ({
     <div ref={selectRef} className={`relative ${className}`}>
       <button
         type="button"
-        className="flex w-full items-center justify-between rounded-md border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-700 dark:bg-gray-900"
+        className="flex w-full items-center justify-between rounded-md border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#333333] dark:border-[#333333] dark:bg-[#1c1c1c]"
         onClick={() => setIsOpen(!isOpen)}
       >
         <span>{value}</span>
@@ -425,7 +425,7 @@ const Select = ({
       </button>
 
       {isOpen && (
-        <div className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-gray-900 dark:ring-gray-700">
+        <div className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-[#1A1A1A] dark:ring-[#333333]">
           {children}
         </div>
       )}
@@ -562,7 +562,7 @@ export default function BlogsPage() {
   if (!mounted) return null
 
   return (
-    <div className="min-h-screen flex flex-col bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100">
+    <div className="min-h-screen flex flex-col bg-white dark:bg-[#0a0a0a] text-gray-900 dark:text-gray-100">
       <main className="flex-1">
       {/* Page Header */}
       <div className="relative flex justify-center items-center h-[200px] sm:h-[250px] md:h-[300px] w-full overflow-hidden px-4">
@@ -596,10 +596,10 @@ export default function BlogsPage() {
             {/* Sidebar with Filters - Desktop */}
             <div className="hidden lg:block lg:w-1/4">
               <div className="sticky top-24">
-                <div className="bg-white dark:bg-gray-900 rounded-lg shadow-sm border border-gray-200 dark:border-gray-800 p-5 mb-6">
+                <div className="bg-white dark:bg-[#1A1A1A] rounded-lg shadow-sm border border-gray-200 dark:border-[#333333] p-5 mb-6">
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="font-bold text-lg flex items-center">
-                      <Filter className="mr-2 h-5 w-5 text-blue-600 dark:text-blue-500" />
+                      <Filter className="mr-2 h-5 w-5 text-blue-600 dark:text-[#00FFFF]" />
                       Filters
                     </h3>
                     <Button variant="ghost" size="sm" onClick={resetFilters} className="text-xs h-8">
@@ -646,9 +646,9 @@ export default function BlogsPage() {
                 </div>
 
                 {/* Tags Cloud */}
-                <div className="bg-white dark:bg-gray-900 rounded-lg shadow-sm border border-gray-200 dark:border-gray-800 p-5">
+                <div className="bg-white dark:bg-[#1A1A1A] rounded-lg shadow-sm border border-gray-200 dark:border-[#333333] p-5">
                   <h3 className="font-bold text-lg flex items-center mb-4">
-                    <Tag className="mr-2 h-5 w-5 text-blue-600 dark:text-blue-500" />
+                    <Tag className="mr-2 h-5 w-5 text-blue-600 dark:text-[#00FFFF]" />
                     Popular Tags
                   </h3>
                   <div className="flex flex-wrap gap-2">
@@ -838,7 +838,7 @@ export default function BlogsPage() {
                             <CardFooter className="p-4 pt-0 flex justify-between items-center">
                               <Link
                                 href={`/blog/${post.id}`}
-                                className="text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                                className="text-md font-bold text-blue-600 dark:text-[#8a2be2] hover:underline"
                               >
                                 Read More
                               </Link>
@@ -862,7 +862,7 @@ export default function BlogsPage() {
                   {/* Load More Button */}
                   {visiblePosts < filteredPosts.length && (
                     <div className="mt-10 text-center">
-                      <Button onClick={loadMorePosts} disabled={isLoading} className="px-8">
+                      <Button onClick={loadMorePosts} disabled={isLoading} className="px-8 dark:bg-[#0A1A2F] dark:text-[#00e5ff] hover:bg-[#B2F2BB] dark:hover:bg-[#00FFFF] hover:text-[#333333] dark:hover:text-[#333333] border border-white/5">
                         {isLoading ? (
                           <>
                             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -903,7 +903,7 @@ export default function BlogsPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-2 max-w-md mx-auto">
               <Input placeholder="Your email address" type="email" className="sm:flex-1" />
-              <Button>Subscribe</Button>
+              <Button className="dark:bg-[#0A1A2F] dark:text-[#00e5ff] hover:bg-[#B2F2BB] dark:hover:bg-[#00FFFF] hover:text-[#333333] dark:hover:text-[#333333]">Subscribe</Button>
             </div>
       </div>
     </div>
