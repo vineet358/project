@@ -40,10 +40,6 @@ export default function TeamSection() {
 
         <motion.div
           className="grid grid-cols-2 sm:grid-cols-4 gap-4 justify-center"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
         >
           {team.map((member, index) => (
             <motion.div
