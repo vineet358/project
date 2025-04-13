@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
+import { useRouter } from "next/navigation"
 import {
   Search,
   Filter,
@@ -27,6 +28,7 @@ import {
 } from "lucide-react"
 
 export default function CategoriesPage() {
+  const router = useRouter()
   const [searchQuery, setSearchQuery] = useState("")
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid")
   const [selectedCategories, setSelectedCategories] = useState<string[]>([])
@@ -37,6 +39,7 @@ export default function CategoriesPage() {
   const [activeFilters, setActiveFilters] = useState(0)
   const [showMobileFilters, setShowMobileFilters] = useState(false)
   const [showSortDropdown, setShowSortDropdown] = useState(false)
+  const [activeTab, setActiveTab] = useState("academics")
 
   // All available categories
   const allCategories = [
@@ -140,10 +143,29 @@ export default function CategoriesPage() {
     setSortBy("popular")
   }
 
+  // Navigate to category detail page
+  const navigateToCategory = (categoryName: string) => {
+    router.push(`/category/${categoryName.toLowerCase()}`)
+  }
+
+  // Handle tab change
+  const handleTabChange = (tab: string) => {
+    setActiveTab(tab)
+  }
+
+  // Handle suggest category
+  const handleSuggestCategory = () => {
+    // In a real app, this would open a form or modal
+    alert("Suggest a category feature will be implemented soon!")
+  }
+
   // Close dropdowns when clicking outside
   useEffect(() => {
-    const handleClickOutside = () => {
-      setShowSortDropdown(false)
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement
+      if (!target.closest('[data-dropdown="sort"]')) {
+        setShowSortDropdown(false)
+      }
     }
 
     document.addEventListener("mousedown", handleClickOutside)
@@ -161,7 +183,7 @@ export default function CategoriesPage() {
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Explore Categories</h1>
-            <p className="text-gray-600 text-lg">
+            <p className="text-gray-600 dark:text-gray-300 text-lg">
               Discover content organized by topics that matter to you. Browse our collection of categories to find
               exactly what you're looking for.
             </p>
@@ -186,6 +208,7 @@ export default function CategoriesPage() {
               <button
                 className="absolute right-3 top-1/2 transform -translate-y-1/2"
                 onClick={() => setSearchQuery("")}
+                aria-label="Clear search"
               >
                 <X className="h-4 w-4 text-gray-500" />
               </button>
@@ -197,30 +220,37 @@ export default function CategoriesPage() {
             <button
               className="md:hidden flex items-center gap-1 px-3 py-2 border rounded-md text-sm font-medium dark:bg-[#1A1A1A] dark:border-gray-700 dark:text-white"
               onClick={() => setShowMobileFilters(!showMobileFilters)}
+              aria-expanded={showMobileFilters}
+              aria-controls="mobile-filters"
             >
               <Filter className="h-4 w-4" />
               Filters
               {activeFilters > 0 && (
-                <span className="ml-1 h-5 w-5 p-0 flex items-center justify-center bg-gray-200 text-gray-800 rounded-full text-xs">
+                <span className="ml-1 h-5 w-5 p-0 flex items-center justify-center bg-gray-200 text-gray-800 rounded-full text-xs dark:bg-gray-700 dark:text-gray-200">
                   {activeFilters}
                 </span>
               )}
             </button>
 
             {/* Sort Dropdown */}
-            <div className="relative">
+            <div className="relative" data-dropdown="sort">
               <button
                 className="flex items-center gap-1 px-3 py-2 border rounded-md text-sm font-medium dark:bg-[#1A1A1A] dark:border-gray-700 dark:text-white"
                 onClick={(e) => {
                   e.stopPropagation()
                   setShowSortDropdown(!showSortDropdown)
                 }}
+                aria-expanded={showSortDropdown}
+                aria-controls="sort-dropdown"
               >
                 <ArrowUpDown className="h-4 w-4" />
                 Sort
               </button>
               {showSortDropdown && (
-                <div className="absolute right-0 mt-1 w-48 bg-white dark:bg-[#1A1A1A] rounded-md shadow-lg z-10 border dark:border-gray-700">
+                <div
+                  id="sort-dropdown"
+                  className="absolute right-0 mt-1 w-48 bg-white dark:bg-[#1A1A1A] rounded-md shadow-lg z-10 border dark:border-gray-700"
+                >
                   <div className="py-1 px-2 text-sm font-medium border-b dark:border-gray-700">Sort by</div>
                   <div className="py-1">
                     <button
@@ -230,7 +260,7 @@ export default function CategoriesPage() {
                       }}
                       className={`block px-4 py-2 text-sm w-full text-left ${
                         sortBy === "popular" ? "bg-gray-100 dark:bg-gray-800" : ""
-                      } dark:hover:bg-gray-800`}
+                      } dark:hover:bg-gray-800 hover:bg-gray-100`}
                     >
                       Most Popular
                     </button>
@@ -239,7 +269,7 @@ export default function CategoriesPage() {
                         setSortBy("newest")
                         setShowSortDropdown(false)
                       }}
-                      className={`block px-4 py-2 text-sm w-full text-left ${sortBy === "newest" ? "bg-gray-100 dark:bg-gray-800" : ""} dark:hover:bg-gray-800`}
+                      className={`block px-4 py-2 text-sm w-full text-left ${sortBy === "newest" ? "bg-gray-100 dark:bg-gray-800" : ""} dark:hover:bg-gray-800 hover:bg-gray-100`}
                     >
                       Newest
                     </button>
@@ -248,7 +278,7 @@ export default function CategoriesPage() {
                         setSortBy("oldest")
                         setShowSortDropdown(false)
                       }}
-                      className={`block px-4 py-2 text-sm w-full text-left ${sortBy === "oldest" ? "bg-gray-100 dark:bg-gray-800" : ""} dark:hover:bg-gray-800`}
+                      className={`block px-4 py-2 text-sm w-full text-left ${sortBy === "oldest" ? "bg-gray-100 dark:bg-gray-800" : ""} dark:hover:bg-gray-800 hover:bg-gray-100`}
                     >
                       Oldest
                     </button>
@@ -257,7 +287,7 @@ export default function CategoriesPage() {
                         setSortBy("a-z")
                         setShowSortDropdown(false)
                       }}
-                      className={`block px-4 py-2 text-sm w-full text-left ${sortBy === "a-z" ? "bg-gray-100 dark:bg-gray-800" : ""} dark:hover:bg-gray-800`}
+                      className={`block px-4 py-2 text-sm w-full text-left ${sortBy === "a-z" ? "bg-gray-100 dark:bg-gray-800" : ""} dark:hover:bg-gray-800 hover:bg-gray-100`}
                     >
                       A-Z
                     </button>
@@ -266,7 +296,7 @@ export default function CategoriesPage() {
                         setSortBy("z-a")
                         setShowSortDropdown(false)
                       }}
-                      className={`block px-4 py-2 text-sm w-full text-left ${sortBy === "z-a" ? "bg-gray-100 dark:bg-gray-800" : ""} dark:hover:bg-gray-800`}
+                      className={`block px-4 py-2 text-sm w-full text-left ${sortBy === "z-a" ? "bg-gray-100 dark:bg-gray-800" : ""} dark:hover:bg-gray-800 hover:bg-gray-100`}
                     >
                       Z-A
                     </button>
@@ -280,10 +310,12 @@ export default function CategoriesPage() {
               <button
                 className={`h-9 px-3 ${
                   viewMode === "grid"
-                    ? "bg-purple-600 text-white"
+                    ? "bg-purple-600 text-white dark:bg-[#00e5FF] dark:text-[#0a0a0a]"
                     : "bg-white text-gray-700 dark:bg-[#1A1A1A] dark:text-white"
                 }`}
                 onClick={() => setViewMode("grid")}
+                aria-label="Grid view"
+                aria-pressed={viewMode === "grid"}
               >
                 <Grid className="h-4 w-4" />
                 <span className="sr-only">Grid view</span>
@@ -292,10 +324,12 @@ export default function CategoriesPage() {
               <button
                 className={`h-9 px-3 ${
                   viewMode === "list"
-                    ? "bg-purple-600 text-white"
+                    ? "bg-purple-600 text-white dark:bg-[#00e5FF] dark:text-[#0a0a0a]"
                     : "bg-white text-gray-700 dark:bg-[#1A1A1A] dark:text-white"
                 }`}
                 onClick={() => setViewMode("list")}
+                aria-label="List view"
+                aria-pressed={viewMode === "list"}
               >
                 <List className="h-4 w-4" />
                 <span className="sr-only">List view</span>
@@ -306,7 +340,10 @@ export default function CategoriesPage() {
 
         <div className="flex flex-col md:flex-row gap-8">
           {/* Filters Sidebar - Desktop */}
-          <div className={`md:w-1/4 lg:w-1/5 space-y-6 md:block ${showMobileFilters ? "block" : "hidden"}`}>
+          <div
+            id="mobile-filters"
+            className={`md:w-1/4 lg:w-1/5 space-y-6 md:block ${showMobileFilters ? "block" : "hidden"}`}
+          >
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-lg font-semibold dark:text-white">Filters</h2>
               {activeFilters > 0 && (
@@ -407,7 +444,7 @@ export default function CategoriesPage() {
 
             {/* Mobile Close Button */}
             <button
-              className="w-full md:hidden mt-4 py-2 px-4 bg-purple-600 text-white rounded-md hover:bg-purple-700 transition-colors"
+              className="w-full md:hidden mt-4 py-2 px-4 bg-purple-600 text-white rounded-md hover:bg-purple-700 transition-colors dark:bg-[#00e5FF] dark:text-[#0a0a0a] dark:hover:bg-[#00e5FF]/90"
               onClick={() => setShowMobileFilters(false)}
             >
               Apply Filters
@@ -418,13 +455,13 @@ export default function CategoriesPage() {
           <div className="md:w-3/4 lg:w-4/5">
             {filteredCategories.length === 0 ? (
               <div className="text-center py-12">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-100 mb-4">
-                  <Search className="h-8 w-8 text-gray-500" />
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-100 dark:bg-gray-800 mb-4">
+                  <Search className="h-8 w-8 text-gray-500 dark:text-gray-400" />
                 </div>
                 <h3 className="text-lg font-medium mb-2 dark:text-white">No categories found</h3>
                 <p className="text-gray-500 mb-4 dark:text-gray-400">Try adjusting your search or filter criteria</p>
                 <button
-                  className="px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 transition-colors"
+                  className="px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 transition-colors dark:bg-[#00e5FF] dark:text-[#0a0a0a] dark:hover:bg-[#00e5FF]/90"
                   onClick={clearFilters}
                 >
                   Clear Filters
@@ -444,32 +481,33 @@ export default function CategoriesPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                     {filteredCategories.map((category) => (
                       <motion.div key={category.name} whileHover={{ y: -5 }} transition={{ duration: 0.2 }}>
-                        <Link href={`/category/${category.name.toLowerCase()}`} className="block">
-                          <div className="h-full overflow-hidden border rounded-lg hover:shadow-lg transition-shadow dark:border-gray-700 dark:bg-[#1A1A1A]">
-                            <div className="p-4 pb-2">
-                              <div className="flex items-center justify-between">
-                                <div className="flex items-center gap-2">
-                                  <div className="p-2 rounded-md bg-purple-100 dark:bg-[#00e5FF]/20">
-                                    <category.icon className="h-5 w-5 text-purple-600 dark:text-[#00e5FF]" />
-                                  </div>
-                                  <h3 className="text-xl font-semibold dark:text-white">{category.name}</h3>
+                        <div
+                          onClick={() => navigateToCategory(category.name)}
+                          className="h-full overflow-hidden border rounded-lg hover:shadow-lg transition-shadow dark:border-gray-700 dark:bg-[#1A1A1A] cursor-pointer"
+                        >
+                          <div className="p-4 pb-2">
+                            <div className="flex items-center justify-between">
+                              <div className="flex items-center gap-2">
+                                <div className="p-2 rounded-md bg-purple-100 dark:bg-[#00e5FF]/20">
+                                  <category.icon className="h-5 w-5 text-purple-600 dark:text-[#00e5FF]" />
                                 </div>
-                                {category.featured && (
-                                  <span className="ml-2 px-2 py-1 text-xs bg-purple-100 text-purple-800 dark:bg-[#00e5FF]/20 dark:text-[#00e5FF] rounded-full">
-                                    Featured
-                                  </span>
-                                )}
+                                <h3 className="text-xl font-semibold dark:text-white">{category.name}</h3>
                               </div>
-                              <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">{category.description}</p>
+                              {category.featured && (
+                                <span className="ml-2 px-2 py-1 text-xs bg-purple-100 text-purple-800 dark:bg-[#00e5FF]/20 dark:text-[#00e5FF] rounded-full">
+                                  Featured
+                                </span>
+                              )}
                             </div>
-                            <div className="p-4">
-                              <div className="flex items-center justify-between text-sm">
-                                <span className="text-gray-500 dark:text-gray-400">{category.count} posts</span>
-                                <span className="text-purple-600 dark:text-[#00e5FF] font-medium">View Category →</span>
-                              </div>
+                            <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">{category.description}</p>
+                          </div>
+                          <div className="p-4">
+                            <div className="flex items-center justify-between text-sm">
+                              <span className="text-gray-500 dark:text-gray-400">{category.count} posts</span>
+                              <span className="text-purple-600 dark:text-[#00e5FF] font-medium">View Category →</span>
                             </div>
                           </div>
-                        </Link>
+                        </div>
                       </motion.div>
                     ))}
                   </div>
@@ -477,34 +515,41 @@ export default function CategoriesPage() {
                   <div className="space-y-4">
                     {filteredCategories.map((category) => (
                       <motion.div key={category.name} whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                        <Link href={`/category/${category.name.toLowerCase()}`} className="block">
-                          <div className="overflow-hidden border rounded-lg hover:shadow-md transition-shadow dark:border-gray-700 dark:bg-[#1A1A1A]">
-                            <div className="flex items-center p-4">
-                              <div className="p-3 rounded-md bg-purple-100 mr-4 dark:bg-[#00e5FF]/20">
-                                <category.icon className="h-6 w-6 text-purple-600 dark:text-[#00e5FF]" />
+                        <div
+                          onClick={() => navigateToCategory(category.name)}
+                          className="overflow-hidden border rounded-lg hover:shadow-md transition-shadow dark:border-gray-700 dark:bg-[#1A1A1A] cursor-pointer"
+                        >
+                          <div className="flex items-center p-4">
+                            <div className="p-3 rounded-md bg-purple-100 mr-4 dark:bg-[#00e5FF]/20">
+                              <category.icon className="h-6 w-6 text-purple-600 dark:text-[#00e5FF]" />
+                            </div>
+                            <div className="flex-1">
+                              <div className="flex items-center justify-between">
+                                <h3 className="text-lg font-semibold dark:text-white">{category.name}</h3>
+                                {category.featured && (
+                                  <span className="px-2 py-1 text-xs bg-purple-100 text-purple-800 dark:bg-[#00e5FF]/20 dark:text-[#00e5FF] rounded-full">
+                                    Featured
+                                  </span>
+                                )}
                               </div>
-                              <div className="flex-1">
-                                <div className="flex items-center justify-between">
-                                  <h3 className="text-lg font-semibold dark:text-white">{category.name}</h3>
-                                  {category.featured && (
-                                    <span className="px-2 py-1 text-xs bg-purple-100 text-purple-800 dark:bg-[#00e5FF]/20 dark:text-[#00e5FF] rounded-full">
-                                      Featured
-                                    </span>
-                                  )}
-                                </div>
-                                <p className="text-gray-500 text-sm mt-1 dark:text-gray-400">{category.description}</p>
-                              </div>
-                              <div className="ml-4 flex items-center gap-4">
-                                <span className="px-2 py-1 text-xs border border-gray-200 rounded-full dark:border-gray-700 dark:text-gray-300">
-                                  {category.count} posts
-                                </span>
-                                <button className="text-sm text-purple-600 dark:text-[#00e5FF] px-3 py-1 hover:bg-purple-50 rounded">
-                                  View
-                                </button>
-                              </div>
+                              <p className="text-gray-500 text-sm mt-1 dark:text-gray-400">{category.description}</p>
+                            </div>
+                            <div className="ml-4 flex items-center gap-4">
+                              <span className="px-2 py-1 text-xs border border-gray-200 rounded-full dark:border-gray-700 dark:text-gray-300">
+                                {category.count} posts
+                              </span>
+                              <button
+                                className="text-sm text-purple-600 dark:text-[#00e5FF] px-3 py-1 hover:bg-purple-50 dark:hover:bg-[#00e5FF]/10 rounded"
+                                onClick={(e) => {
+                                  e.stopPropagation()
+                                  navigateToCategory(category.name)
+                                }}
+                              >
+                                View
+                              </button>
                             </div>
                           </div>
-                        </Link>
+                        </div>
                       </motion.div>
                     ))}
                   </div>
@@ -527,12 +572,13 @@ export default function CategoriesPage() {
 
           <div className="w-full max-w-4xl mx-auto">
             <div className="tabs flex overflow-x-auto mb-8">
-              {["academics", "technology", "research", "health", "events", "innovation"].map((tab, index) => (
+              {["academics", "technology", "research", "health", "events", "innovation"].map((tab) => (
                 <button
                   key={tab}
+                  onClick={() => handleTabChange(tab)}
                   className={`px-4 py-2 text-sm font-medium whitespace-nowrap ${
-                    index === 0
-                      ? "border-b-2 border-purple-600 text-purple-600"
+                    activeTab === tab
+                      ? "border-b-2 border-purple-600 text-purple-600 dark:border-[#00e5FF] dark:text-[#00e5FF]"
                       : "text-gray-600 hover:text-purple-600 dark:text-gray-300 dark:hover:text-[#00e5FF]"
                   }`}
                 >
@@ -546,30 +592,34 @@ export default function CategoriesPage() {
                 {[1, 2, 3].map((i) => (
                   <div
                     key={i}
-                    className="overflow-hidden border rounded-lg hover:shadow-lg transition-shadow dark:border-gray-700 dark:bg-[#1A1A1A]"
+                    className="overflow-hidden border rounded-lg hover:shadow-lg transition-shadow dark:border-gray-700 dark:bg-[#1A1A1A] cursor-pointer"
+                    onClick={() => navigateToCategory(activeTab)}
                   >
                     <div className="relative aspect-video overflow-hidden">
                       <Image
-                        src={`/placeholder.svg?height=200&width=400&text=Academics+${i}`}
-                        alt={`Academics post ${i}`}
+                        src={`/placeholder.svg?height=200&width=400&text=${activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}+${i}`}
+                        alt={`${activeTab} post ${i}`}
                         fill
                         className="object-cover transition-transform duration-500 hover:scale-105"
                       />
                     </div>
                     <div className="p-3 sm:p-4">
                       <h3 className="text-base sm:text-lg font-semibold line-clamp-1 dark:text-white">
-                        Academics Article {i}
+                        {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)} Article {i}
                       </h3>
                       <p className="text-xs sm:text-sm text-gray-500 line-clamp-2 mt-2 dark:text-gray-400">
-                        A sample article about academics showcasing the latest developments and insights.
+                        A sample article about {activeTab} showcasing the latest developments and insights.
                       </p>
                     </div>
                   </div>
                 ))}
               </div>
               <div className="text-center mt-6">
-                <button className="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors dark:border-gray-700 dark:text-gray-300 dark:hover:bg-[#1A1A1A]">
-                  View All Academics Posts
+                <button
+                  className="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors dark:border-gray-700 dark:text-gray-300 dark:hover:bg-[#1A1A1A]"
+                  onClick={() => navigateToCategory(activeTab)}
+                >
+                  View All {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)} Posts
                 </button>
               </div>
             </div>
@@ -586,7 +636,10 @@ export default function CategoriesPage() {
             content.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button className="px-6 py-3 bg-white text-purple-600 dark:bg-[#1A1A1A] dark:text-[#00e5FF] font-medium rounded-md hover:bg-white/90 dark:hover:bg-[#1A1A1A]/90 w-full sm:w-auto">
+            <button
+              className="px-6 py-3 bg-white text-purple-600 dark:bg-[#1A1A1A] dark:text-[#00e5FF] font-medium rounded-md hover:bg-white/90 dark:hover:bg-[#1A1A1A]/90 w-full sm:w-auto"
+              onClick={handleSuggestCategory}
+            >
               Suggest a Category
             </button>
             <Link

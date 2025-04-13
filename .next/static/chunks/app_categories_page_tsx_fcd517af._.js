@@ -13,6 +13,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/client/app-dir/link.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/image.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/navigation.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$search$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Search$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/search.js [app-client] (ecmascript) <export default as Search>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$funnel$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Filter$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/funnel.js [app-client] (ecmascript) <export default as Filter>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$up$2d$down$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowUpDown$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/arrow-up-down.js [app-client] (ecmascript) <export default as ArrowUpDown>");
@@ -40,8 +41,10 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
+;
 function CategoriesPage() {
     _s();
+    const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"])();
     const [searchQuery, setSearchQuery] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
     const [viewMode, setViewMode] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("grid");
     const [selectedCategories, setSelectedCategories] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
@@ -55,6 +58,7 @@ function CategoriesPage() {
     const [activeFilters, setActiveFilters] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(0);
     const [showMobileFilters, setShowMobileFilters] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [showSortDropdown, setShowSortDropdown] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [activeTab, setActiveTab] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("academics");
     // All available categories
     const allCategories = [
         {
@@ -200,12 +204,28 @@ function CategoriesPage() {
         setShowFeaturedOnly(false);
         setSortBy("popular");
     };
+    // Navigate to category detail page
+    const navigateToCategory = (categoryName)=>{
+        router.push(`/category/${categoryName.toLowerCase()}`);
+    };
+    // Handle tab change
+    const handleTabChange = (tab)=>{
+        setActiveTab(tab);
+    };
+    // Handle suggest category
+    const handleSuggestCategory = ()=>{
+        // In a real app, this would open a form or modal
+        alert("Suggest a category feature will be implemented soon!");
+    };
     // Close dropdowns when clicking outside
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "CategoriesPage.useEffect": ()=>{
             const handleClickOutside = {
-                "CategoriesPage.useEffect.handleClickOutside": ()=>{
-                    setShowSortDropdown(false);
+                "CategoriesPage.useEffect.handleClickOutside": (event)=>{
+                    const target = event.target;
+                    if (!target.closest('[data-dropdown="sort"]')) {
+                        setShowSortDropdown(false);
+                    }
                 }
             }["CategoriesPage.useEffect.handleClickOutside"];
             document.addEventListener("mousedown", handleClickOutside);
@@ -232,31 +252,31 @@ function CategoriesPage() {
                                 children: "Explore Categories"
                             }, void 0, false, {
                                 fileName: "[project]/app/categories/page.tsx",
-                                lineNumber: 163,
+                                lineNumber: 185,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "text-gray-600 text-lg",
+                                className: "text-gray-600 dark:text-gray-300 text-lg",
                                 children: "Discover content organized by topics that matter to you. Browse our collection of categories to find exactly what you're looking for."
                             }, void 0, false, {
                                 fileName: "[project]/app/categories/page.tsx",
-                                lineNumber: 164,
+                                lineNumber: 186,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/categories/page.tsx",
-                        lineNumber: 162,
+                        lineNumber: 184,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/app/categories/page.tsx",
-                    lineNumber: 161,
+                    lineNumber: 183,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/categories/page.tsx",
-                lineNumber: 160,
+                lineNumber: 182,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -272,7 +292,7 @@ function CategoriesPage() {
                                         className: "absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-500"
                                     }, void 0, false, {
                                         fileName: "[project]/app/categories/page.tsx",
-                                        lineNumber: 177,
+                                        lineNumber: 199,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -283,28 +303,29 @@ function CategoriesPage() {
                                         onChange: (e)=>setSearchQuery(e.target.value)
                                     }, void 0, false, {
                                         fileName: "[project]/app/categories/page.tsx",
-                                        lineNumber: 178,
+                                        lineNumber: 200,
                                         columnNumber: 13
                                     }, this),
                                     searchQuery && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                         className: "absolute right-3 top-1/2 transform -translate-y-1/2",
                                         onClick: ()=>setSearchQuery(""),
+                                        "aria-label": "Clear search",
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__X$3e$__["X"], {
                                             className: "h-4 w-4 text-gray-500"
                                         }, void 0, false, {
                                             fileName: "[project]/app/categories/page.tsx",
-                                            lineNumber: 190,
+                                            lineNumber: 213,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/app/categories/page.tsx",
-                                        lineNumber: 186,
+                                        lineNumber: 208,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/categories/page.tsx",
-                                lineNumber: 176,
+                                lineNumber: 198,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -313,31 +334,34 @@ function CategoriesPage() {
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                         className: "md:hidden flex items-center gap-1 px-3 py-2 border rounded-md text-sm font-medium dark:bg-[#1A1A1A] dark:border-gray-700 dark:text-white",
                                         onClick: ()=>setShowMobileFilters(!showMobileFilters),
+                                        "aria-expanded": showMobileFilters,
+                                        "aria-controls": "mobile-filters",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$funnel$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Filter$3e$__["Filter"], {
                                                 className: "h-4 w-4"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/categories/page.tsx",
-                                                lineNumber: 201,
+                                                lineNumber: 226,
                                                 columnNumber: 15
                                             }, this),
                                             "Filters",
                                             activeFilters > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                className: "ml-1 h-5 w-5 p-0 flex items-center justify-center bg-gray-200 text-gray-800 rounded-full text-xs",
+                                                className: "ml-1 h-5 w-5 p-0 flex items-center justify-center bg-gray-200 text-gray-800 rounded-full text-xs dark:bg-gray-700 dark:text-gray-200",
                                                 children: activeFilters
                                             }, void 0, false, {
                                                 fileName: "[project]/app/categories/page.tsx",
-                                                lineNumber: 204,
+                                                lineNumber: 229,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/categories/page.tsx",
-                                        lineNumber: 197,
+                                        lineNumber: 220,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "relative",
+                                        "data-dropdown": "sort",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                 className: "flex items-center gap-1 px-3 py-2 border rounded-md text-sm font-medium dark:bg-[#1A1A1A] dark:border-gray-700 dark:text-white",
@@ -345,22 +369,25 @@ function CategoriesPage() {
                                                     e.stopPropagation();
                                                     setShowSortDropdown(!showSortDropdown);
                                                 },
+                                                "aria-expanded": showSortDropdown,
+                                                "aria-controls": "sort-dropdown",
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$up$2d$down$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowUpDown$3e$__["ArrowUpDown"], {
                                                         className: "h-4 w-4"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/categories/page.tsx",
-                                                        lineNumber: 219,
+                                                        lineNumber: 246,
                                                         columnNumber: 17
                                                     }, this),
                                                     "Sort"
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/categories/page.tsx",
-                                                lineNumber: 212,
+                                                lineNumber: 237,
                                                 columnNumber: 15
                                             }, this),
                                             showSortDropdown && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                id: "sort-dropdown",
                                                 className: "absolute right-0 mt-1 w-48 bg-white dark:bg-[#1A1A1A] rounded-md shadow-lg z-10 border dark:border-gray-700",
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -368,7 +395,7 @@ function CategoriesPage() {
                                                         children: "Sort by"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/categories/page.tsx",
-                                                        lineNumber: 224,
+                                                        lineNumber: 254,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -379,11 +406,11 @@ function CategoriesPage() {
                                                                     setSortBy("popular");
                                                                     setShowSortDropdown(false);
                                                                 },
-                                                                className: `block px-4 py-2 text-sm w-full text-left ${sortBy === "popular" ? "bg-gray-100 dark:bg-gray-800" : ""} dark:hover:bg-gray-800`,
+                                                                className: `block px-4 py-2 text-sm w-full text-left ${sortBy === "popular" ? "bg-gray-100 dark:bg-gray-800" : ""} dark:hover:bg-gray-800 hover:bg-gray-100`,
                                                                 children: "Most Popular"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/categories/page.tsx",
-                                                                lineNumber: 226,
+                                                                lineNumber: 256,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -391,11 +418,11 @@ function CategoriesPage() {
                                                                     setSortBy("newest");
                                                                     setShowSortDropdown(false);
                                                                 },
-                                                                className: `block px-4 py-2 text-sm w-full text-left ${sortBy === "newest" ? "bg-gray-100 dark:bg-gray-800" : ""} dark:hover:bg-gray-800`,
+                                                                className: `block px-4 py-2 text-sm w-full text-left ${sortBy === "newest" ? "bg-gray-100 dark:bg-gray-800" : ""} dark:hover:bg-gray-800 hover:bg-gray-100`,
                                                                 children: "Newest"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/categories/page.tsx",
-                                                                lineNumber: 237,
+                                                                lineNumber: 267,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -403,11 +430,11 @@ function CategoriesPage() {
                                                                     setSortBy("oldest");
                                                                     setShowSortDropdown(false);
                                                                 },
-                                                                className: `block px-4 py-2 text-sm w-full text-left ${sortBy === "oldest" ? "bg-gray-100 dark:bg-gray-800" : ""} dark:hover:bg-gray-800`,
+                                                                className: `block px-4 py-2 text-sm w-full text-left ${sortBy === "oldest" ? "bg-gray-100 dark:bg-gray-800" : ""} dark:hover:bg-gray-800 hover:bg-gray-100`,
                                                                 children: "Oldest"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/categories/page.tsx",
-                                                                lineNumber: 246,
+                                                                lineNumber: 276,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -415,11 +442,11 @@ function CategoriesPage() {
                                                                     setSortBy("a-z");
                                                                     setShowSortDropdown(false);
                                                                 },
-                                                                className: `block px-4 py-2 text-sm w-full text-left ${sortBy === "a-z" ? "bg-gray-100 dark:bg-gray-800" : ""} dark:hover:bg-gray-800`,
+                                                                className: `block px-4 py-2 text-sm w-full text-left ${sortBy === "a-z" ? "bg-gray-100 dark:bg-gray-800" : ""} dark:hover:bg-gray-800 hover:bg-gray-100`,
                                                                 children: "A-Z"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/categories/page.tsx",
-                                                                lineNumber: 255,
+                                                                lineNumber: 285,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -427,43 +454,45 @@ function CategoriesPage() {
                                                                     setSortBy("z-a");
                                                                     setShowSortDropdown(false);
                                                                 },
-                                                                className: `block px-4 py-2 text-sm w-full text-left ${sortBy === "z-a" ? "bg-gray-100 dark:bg-gray-800" : ""} dark:hover:bg-gray-800`,
+                                                                className: `block px-4 py-2 text-sm w-full text-left ${sortBy === "z-a" ? "bg-gray-100 dark:bg-gray-800" : ""} dark:hover:bg-gray-800 hover:bg-gray-100`,
                                                                 children: "Z-A"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/categories/page.tsx",
-                                                                lineNumber: 264,
+                                                                lineNumber: 294,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/categories/page.tsx",
-                                                        lineNumber: 225,
+                                                        lineNumber: 255,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/categories/page.tsx",
-                                                lineNumber: 223,
+                                                lineNumber: 250,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/categories/page.tsx",
-                                        lineNumber: 211,
+                                        lineNumber: 236,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "flex items-center border rounded-md overflow-hidden dark:border-gray-700",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                className: `h-9 px-3 ${viewMode === "grid" ? "bg-purple-600 text-white" : "bg-white text-gray-700 dark:bg-[#1A1A1A] dark:text-white"}`,
+                                                className: `h-9 px-3 ${viewMode === "grid" ? "bg-purple-600 text-white dark:bg-[#00e5FF] dark:text-[#0a0a0a]" : "bg-white text-gray-700 dark:bg-[#1A1A1A] dark:text-white"}`,
                                                 onClick: ()=>setViewMode("grid"),
+                                                "aria-label": "Grid view",
+                                                "aria-pressed": viewMode === "grid",
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$grid$2d$3x3$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Grid$3e$__["Grid"], {
                                                         className: "h-4 w-4"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/categories/page.tsx",
-                                                        lineNumber: 288,
+                                                        lineNumber: 320,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -471,31 +500,33 @@ function CategoriesPage() {
                                                         children: "Grid view"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/categories/page.tsx",
-                                                        lineNumber: 289,
+                                                        lineNumber: 321,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/categories/page.tsx",
-                                                lineNumber: 280,
+                                                lineNumber: 310,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "w-px h-9 bg-gray-200 dark:bg-gray-700"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/categories/page.tsx",
-                                                lineNumber: 291,
+                                                lineNumber: 323,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                className: `h-9 px-3 ${viewMode === "list" ? "bg-purple-600 text-white" : "bg-white text-gray-700 dark:bg-[#1A1A1A] dark:text-white"}`,
+                                                className: `h-9 px-3 ${viewMode === "list" ? "bg-purple-600 text-white dark:bg-[#00e5FF] dark:text-[#0a0a0a]" : "bg-white text-gray-700 dark:bg-[#1A1A1A] dark:text-white"}`,
                                                 onClick: ()=>setViewMode("list"),
+                                                "aria-label": "List view",
+                                                "aria-pressed": viewMode === "list",
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$list$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__List$3e$__["List"], {
                                                         className: "h-4 w-4"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/categories/page.tsx",
-                                                        lineNumber: 300,
+                                                        lineNumber: 334,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -503,37 +534,38 @@ function CategoriesPage() {
                                                         children: "List view"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/categories/page.tsx",
-                                                        lineNumber: 301,
+                                                        lineNumber: 335,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/categories/page.tsx",
-                                                lineNumber: 292,
+                                                lineNumber: 324,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/categories/page.tsx",
-                                        lineNumber: 279,
+                                        lineNumber: 309,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/categories/page.tsx",
-                                lineNumber: 195,
+                                lineNumber: 218,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/categories/page.tsx",
-                        lineNumber: 175,
+                        lineNumber: 197,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "flex flex-col md:flex-row gap-8",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                id: "mobile-filters",
                                 className: `md:w-1/4 lg:w-1/5 space-y-6 md:block ${showMobileFilters ? "block" : "hidden"}`,
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -544,7 +576,7 @@ function CategoriesPage() {
                                                 children: "Filters"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/categories/page.tsx",
-                                                lineNumber: 311,
+                                                lineNumber: 348,
                                                 columnNumber: 15
                                             }, this),
                                             activeFilters > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -553,13 +585,13 @@ function CategoriesPage() {
                                                 children: "Clear All"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/categories/page.tsx",
-                                                lineNumber: 313,
+                                                lineNumber: 350,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/categories/page.tsx",
-                                        lineNumber: 310,
+                                        lineNumber: 347,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -570,7 +602,7 @@ function CategoriesPage() {
                                                 children: "Featured"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/categories/page.tsx",
-                                                lineNumber: 324,
+                                                lineNumber: 361,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -585,14 +617,14 @@ function CategoriesPage() {
                                                             onChange: ()=>setShowFeaturedOnly(!showFeaturedOnly)
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/categories/page.tsx",
-                                                            lineNumber: 327,
+                                                            lineNumber: 364,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                             className: "relative w-11 h-6 bg-gray-200 dark:bg-gray-700 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-300 dark:peer-focus:ring-purple-800 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600 dark:peer-checked:bg-[#00e5FF]"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/categories/page.tsx",
-                                                            lineNumber: 333,
+                                                            lineNumber: 370,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -600,31 +632,31 @@ function CategoriesPage() {
                                                             children: "Show featured only"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/categories/page.tsx",
-                                                            lineNumber: 334,
+                                                            lineNumber: 371,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/categories/page.tsx",
-                                                    lineNumber: 326,
+                                                    lineNumber: 363,
                                                     columnNumber: 17
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/app/categories/page.tsx",
-                                                lineNumber: 325,
+                                                lineNumber: 362,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/categories/page.tsx",
-                                        lineNumber: 323,
+                                        lineNumber: 360,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("hr", {
                                         className: "border-gray-200 dark:border-gray-700"
                                     }, void 0, false, {
                                         fileName: "[project]/app/categories/page.tsx",
-                                        lineNumber: 339,
+                                        lineNumber: 376,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -635,7 +667,7 @@ function CategoriesPage() {
                                                 children: "Categories"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/categories/page.tsx",
-                                                lineNumber: 343,
+                                                lineNumber: 380,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -662,7 +694,7 @@ function CategoriesPage() {
                                                                     }
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/categories/page.tsx",
-                                                                    lineNumber: 348,
+                                                                    lineNumber: 385,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -673,7 +705,7 @@ function CategoriesPage() {
                                                                             children: category.name
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/categories/page.tsx",
-                                                                            lineNumber: 365,
+                                                                            lineNumber: 402,
                                                                             columnNumber: 25
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -681,42 +713,42 @@ function CategoriesPage() {
                                                                             children: category.count
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/categories/page.tsx",
-                                                                            lineNumber: 366,
+                                                                            lineNumber: 403,
                                                                             columnNumber: 25
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/app/categories/page.tsx",
-                                                                    lineNumber: 361,
+                                                                    lineNumber: 398,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             ]
                                                         }, category.name, true, {
                                                             fileName: "[project]/app/categories/page.tsx",
-                                                            lineNumber: 347,
+                                                            lineNumber: 384,
                                                             columnNumber: 21
                                                         }, this))
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/categories/page.tsx",
-                                                    lineNumber: 345,
+                                                    lineNumber: 382,
                                                     columnNumber: 17
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/app/categories/page.tsx",
-                                                lineNumber: 344,
+                                                lineNumber: 381,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/categories/page.tsx",
-                                        lineNumber: 342,
+                                        lineNumber: 379,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("hr", {
                                         className: "border-gray-200 dark:border-gray-700"
                                     }, void 0, false, {
                                         fileName: "[project]/app/categories/page.tsx",
-                                        lineNumber: 376,
+                                        lineNumber: 413,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -730,7 +762,7 @@ function CategoriesPage() {
                                                         children: "Post Count"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/categories/page.tsx",
-                                                        lineNumber: 381,
+                                                        lineNumber: 418,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -742,13 +774,13 @@ function CategoriesPage() {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/categories/page.tsx",
-                                                        lineNumber: 382,
+                                                        lineNumber: 419,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/categories/page.tsx",
-                                                lineNumber: 380,
+                                                lineNumber: 417,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -767,7 +799,7 @@ function CategoriesPage() {
                                                         className: "w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/categories/page.tsx",
-                                                        lineNumber: 387,
+                                                        lineNumber: 424,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -783,34 +815,34 @@ function CategoriesPage() {
                                                         className: "w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer mt-2 dark:bg-gray-700"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/categories/page.tsx",
-                                                        lineNumber: 396,
+                                                        lineNumber: 433,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/categories/page.tsx",
-                                                lineNumber: 386,
+                                                lineNumber: 423,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/categories/page.tsx",
-                                        lineNumber: 379,
+                                        lineNumber: 416,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                        className: "w-full md:hidden mt-4 py-2 px-4 bg-purple-600 text-white rounded-md hover:bg-purple-700 transition-colors",
+                                        className: "w-full md:hidden mt-4 py-2 px-4 bg-purple-600 text-white rounded-md hover:bg-purple-700 transition-colors dark:bg-[#00e5FF] dark:text-[#0a0a0a] dark:hover:bg-[#00e5FF]/90",
                                         onClick: ()=>setShowMobileFilters(false),
                                         children: "Apply Filters"
                                     }, void 0, false, {
                                         fileName: "[project]/app/categories/page.tsx",
-                                        lineNumber: 409,
+                                        lineNumber: 446,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/categories/page.tsx",
-                                lineNumber: 309,
+                                lineNumber: 343,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -819,17 +851,17 @@ function CategoriesPage() {
                                     className: "text-center py-12",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-100 mb-4",
+                                            className: "inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-100 dark:bg-gray-800 mb-4",
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$search$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Search$3e$__["Search"], {
-                                                className: "h-8 w-8 text-gray-500"
+                                                className: "h-8 w-8 text-gray-500 dark:text-gray-400"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/categories/page.tsx",
-                                                lineNumber: 422,
+                                                lineNumber: 459,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/categories/page.tsx",
-                                            lineNumber: 421,
+                                            lineNumber: 458,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -837,7 +869,7 @@ function CategoriesPage() {
                                             children: "No categories found"
                                         }, void 0, false, {
                                             fileName: "[project]/app/categories/page.tsx",
-                                            lineNumber: 424,
+                                            lineNumber: 461,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -845,22 +877,22 @@ function CategoriesPage() {
                                             children: "Try adjusting your search or filter criteria"
                                         }, void 0, false, {
                                             fileName: "[project]/app/categories/page.tsx",
-                                            lineNumber: 425,
+                                            lineNumber: 462,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                            className: "px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 transition-colors",
+                                            className: "px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 transition-colors dark:bg-[#00e5FF] dark:text-[#0a0a0a] dark:hover:bg-[#00e5FF]/90",
                                             onClick: clearFilters,
                                             children: "Clear Filters"
                                         }, void 0, false, {
                                             fileName: "[project]/app/categories/page.tsx",
-                                            lineNumber: 426,
+                                            lineNumber: 463,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/categories/page.tsx",
-                                    lineNumber: 420,
+                                    lineNumber: 457,
                                     columnNumber: 15
                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
                                     children: [
@@ -876,7 +908,7 @@ function CategoriesPage() {
                                                         children: filteredCategories.length
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/categories/page.tsx",
-                                                        lineNumber: 438,
+                                                        lineNumber: 475,
                                                         columnNumber: 21
                                                     }, this),
                                                     " of",
@@ -886,19 +918,19 @@ function CategoriesPage() {
                                                         children: allCategories.length
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/categories/page.tsx",
-                                                        lineNumber: 439,
+                                                        lineNumber: 476,
                                                         columnNumber: 21
                                                     }, this),
                                                     " categories"
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/categories/page.tsx",
-                                                lineNumber: 436,
+                                                lineNumber: 473,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/categories/page.tsx",
-                                            lineNumber: 435,
+                                            lineNumber: 472,
                                             columnNumber: 17
                                         }, this),
                                         viewMode === "grid" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -910,131 +942,124 @@ function CategoriesPage() {
                                                     transition: {
                                                         duration: 0.2
                                                     },
-                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                                        href: `/category/${category.name.toLowerCase()}`,
-                                                        className: "block",
-                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: "h-full overflow-hidden border rounded-lg hover:shadow-lg transition-shadow dark:border-gray-700 dark:bg-[#1A1A1A]",
-                                                            children: [
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                    className: "p-4 pb-2",
-                                                                    children: [
-                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                            className: "flex items-center justify-between",
-                                                                            children: [
-                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                                    className: "flex items-center gap-2",
-                                                                                    children: [
-                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                                            className: "p-2 rounded-md bg-purple-100 dark:bg-[#00e5FF]/20",
-                                                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(category.icon, {
-                                                                                                className: "h-5 w-5 text-purple-600 dark:text-[#00e5FF]"
-                                                                                            }, void 0, false, {
-                                                                                                fileName: "[project]/app/categories/page.tsx",
-                                                                                                lineNumber: 453,
-                                                                                                columnNumber: 37
-                                                                                            }, this)
+                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        onClick: ()=>navigateToCategory(category.name),
+                                                        className: "h-full overflow-hidden border rounded-lg hover:shadow-lg transition-shadow dark:border-gray-700 dark:bg-[#1A1A1A] cursor-pointer",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "p-4 pb-2",
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                        className: "flex items-center justify-between",
+                                                                        children: [
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                                className: "flex items-center gap-2",
+                                                                                children: [
+                                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                                        className: "p-2 rounded-md bg-purple-100 dark:bg-[#00e5FF]/20",
+                                                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(category.icon, {
+                                                                                            className: "h-5 w-5 text-purple-600 dark:text-[#00e5FF]"
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/app/categories/page.tsx",
-                                                                                            lineNumber: 452,
-                                                                                            columnNumber: 35
-                                                                                        }, this),
-                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                                                            className: "text-xl font-semibold dark:text-white",
-                                                                                            children: category.name
-                                                                                        }, void 0, false, {
-                                                                                            fileName: "[project]/app/categories/page.tsx",
-                                                                                            lineNumber: 455,
+                                                                                            lineNumber: 492,
                                                                                             columnNumber: 35
                                                                                         }, this)
-                                                                                    ]
-                                                                                }, void 0, true, {
-                                                                                    fileName: "[project]/app/categories/page.tsx",
-                                                                                    lineNumber: 451,
-                                                                                    columnNumber: 33
-                                                                                }, this),
-                                                                                category.featured && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                                    className: "ml-2 px-2 py-1 text-xs bg-purple-100 text-purple-800 dark:bg-[#00e5FF]/20 dark:text-[#00e5FF] rounded-full",
-                                                                                    children: "Featured"
-                                                                                }, void 0, false, {
-                                                                                    fileName: "[project]/app/categories/page.tsx",
-                                                                                    lineNumber: 458,
-                                                                                    columnNumber: 35
-                                                                                }, this)
-                                                                            ]
-                                                                        }, void 0, true, {
-                                                                            fileName: "[project]/app/categories/page.tsx",
-                                                                            lineNumber: 450,
-                                                                            columnNumber: 31
-                                                                        }, this),
-                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                            className: "mt-2 text-sm text-gray-500 dark:text-gray-400",
-                                                                            children: category.description
-                                                                        }, void 0, false, {
-                                                                            fileName: "[project]/app/categories/page.tsx",
-                                                                            lineNumber: 463,
-                                                                            columnNumber: 31
-                                                                        }, this)
-                                                                    ]
-                                                                }, void 0, true, {
-                                                                    fileName: "[project]/app/categories/page.tsx",
-                                                                    lineNumber: 449,
-                                                                    columnNumber: 29
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                    className: "p-4",
-                                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                        className: "flex items-center justify-between text-sm",
-                                                                        children: [
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                                className: "text-gray-500 dark:text-gray-400",
-                                                                                children: [
-                                                                                    category.count,
-                                                                                    " posts"
+                                                                                    }, void 0, false, {
+                                                                                        fileName: "[project]/app/categories/page.tsx",
+                                                                                        lineNumber: 491,
+                                                                                        columnNumber: 33
+                                                                                    }, this),
+                                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                                                        className: "text-xl font-semibold dark:text-white",
+                                                                                        children: category.name
+                                                                                    }, void 0, false, {
+                                                                                        fileName: "[project]/app/categories/page.tsx",
+                                                                                        lineNumber: 494,
+                                                                                        columnNumber: 33
+                                                                                    }, this)
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/app/categories/page.tsx",
-                                                                                lineNumber: 467,
-                                                                                columnNumber: 33
+                                                                                lineNumber: 490,
+                                                                                columnNumber: 31
                                                                             }, this),
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                                className: "text-purple-600 dark:text-[#00e5FF] font-medium",
-                                                                                children: "View Category →"
+                                                                            category.featured && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                className: "ml-2 px-2 py-1 text-xs bg-purple-100 text-purple-800 dark:bg-[#00e5FF]/20 dark:text-[#00e5FF] rounded-full",
+                                                                                children: "Featured"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/categories/page.tsx",
-                                                                                lineNumber: 468,
+                                                                                lineNumber: 497,
                                                                                 columnNumber: 33
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/app/categories/page.tsx",
-                                                                        lineNumber: 466,
-                                                                        columnNumber: 31
+                                                                        lineNumber: 489,
+                                                                        columnNumber: 29
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                        className: "mt-2 text-sm text-gray-500 dark:text-gray-400",
+                                                                        children: category.description
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/app/categories/page.tsx",
+                                                                        lineNumber: 502,
+                                                                        columnNumber: 29
                                                                     }, this)
-                                                                }, void 0, false, {
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/app/categories/page.tsx",
+                                                                lineNumber: 488,
+                                                                columnNumber: 27
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "p-4",
+                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                    className: "flex items-center justify-between text-sm",
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                            className: "text-gray-500 dark:text-gray-400",
+                                                                            children: [
+                                                                                category.count,
+                                                                                " posts"
+                                                                            ]
+                                                                        }, void 0, true, {
+                                                                            fileName: "[project]/app/categories/page.tsx",
+                                                                            lineNumber: 506,
+                                                                            columnNumber: 31
+                                                                        }, this),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                            className: "text-purple-600 dark:text-[#00e5FF] font-medium",
+                                                                            children: "View Category →"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/app/categories/page.tsx",
+                                                                            lineNumber: 507,
+                                                                            columnNumber: 31
+                                                                        }, this)
+                                                                    ]
+                                                                }, void 0, true, {
                                                                     fileName: "[project]/app/categories/page.tsx",
-                                                                    lineNumber: 465,
+                                                                    lineNumber: 505,
                                                                     columnNumber: 29
                                                                 }, this)
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "[project]/app/categories/page.tsx",
-                                                            lineNumber: 448,
-                                                            columnNumber: 27
-                                                        }, this)
-                                                    }, void 0, false, {
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/app/categories/page.tsx",
+                                                                lineNumber: 504,
+                                                                columnNumber: 27
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
                                                         fileName: "[project]/app/categories/page.tsx",
-                                                        lineNumber: 447,
+                                                        lineNumber: 484,
                                                         columnNumber: 25
                                                     }, this)
                                                 }, category.name, false, {
                                                     fileName: "[project]/app/categories/page.tsx",
-                                                    lineNumber: 446,
+                                                    lineNumber: 483,
                                                     columnNumber: 23
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/app/categories/page.tsx",
-                                            lineNumber: 444,
+                                            lineNumber: 481,
                                             columnNumber: 19
                                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "space-y-4",
@@ -1045,141 +1070,138 @@ function CategoriesPage() {
                                                     transition: {
                                                         duration: 0.2
                                                     },
-                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                                        href: `/category/${category.name.toLowerCase()}`,
-                                                        className: "block",
+                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        onClick: ()=>navigateToCategory(category.name),
+                                                        className: "overflow-hidden border rounded-lg hover:shadow-md transition-shadow dark:border-gray-700 dark:bg-[#1A1A1A] cursor-pointer",
                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: "overflow-hidden border rounded-lg hover:shadow-md transition-shadow dark:border-gray-700 dark:bg-[#1A1A1A]",
-                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                className: "flex items-center p-4",
-                                                                children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                        className: "p-3 rounded-md bg-purple-100 mr-4 dark:bg-[#00e5FF]/20",
-                                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(category.icon, {
-                                                                            className: "h-6 w-6 text-purple-600 dark:text-[#00e5FF]"
-                                                                        }, void 0, false, {
-                                                                            fileName: "[project]/app/categories/page.tsx",
-                                                                            lineNumber: 484,
-                                                                            columnNumber: 33
-                                                                        }, this)
+                                                            className: "flex items-center p-4",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                    className: "p-3 rounded-md bg-purple-100 mr-4 dark:bg-[#00e5FF]/20",
+                                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(category.icon, {
+                                                                        className: "h-6 w-6 text-purple-600 dark:text-[#00e5FF]"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/categories/page.tsx",
-                                                                        lineNumber: 483,
-                                                                        columnNumber: 31
-                                                                    }, this),
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                        className: "flex-1",
-                                                                        children: [
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                                className: "flex items-center justify-between",
-                                                                                children: [
-                                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                                                        className: "text-lg font-semibold dark:text-white",
-                                                                                        children: category.name
-                                                                                    }, void 0, false, {
-                                                                                        fileName: "[project]/app/categories/page.tsx",
-                                                                                        lineNumber: 488,
-                                                                                        columnNumber: 35
-                                                                                    }, this),
-                                                                                    category.featured && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                                        className: "px-2 py-1 text-xs bg-purple-100 text-purple-800 dark:bg-[#00e5FF]/20 dark:text-[#00e5FF] rounded-full",
-                                                                                        children: "Featured"
-                                                                                    }, void 0, false, {
-                                                                                        fileName: "[project]/app/categories/page.tsx",
-                                                                                        lineNumber: 490,
-                                                                                        columnNumber: 37
-                                                                                    }, this)
-                                                                                ]
-                                                                            }, void 0, true, {
-                                                                                fileName: "[project]/app/categories/page.tsx",
-                                                                                lineNumber: 487,
-                                                                                columnNumber: 33
-                                                                            }, this),
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                                className: "text-gray-500 text-sm mt-1 dark:text-gray-400",
-                                                                                children: category.description
-                                                                            }, void 0, false, {
-                                                                                fileName: "[project]/app/categories/page.tsx",
-                                                                                lineNumber: 495,
-                                                                                columnNumber: 33
-                                                                            }, this)
-                                                                        ]
-                                                                    }, void 0, true, {
-                                                                        fileName: "[project]/app/categories/page.tsx",
-                                                                        lineNumber: 486,
-                                                                        columnNumber: 31
-                                                                    }, this),
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                        className: "ml-4 flex items-center gap-4",
-                                                                        children: [
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                                className: "px-2 py-1 text-xs border border-gray-200 rounded-full dark:border-gray-700 dark:text-gray-300",
-                                                                                children: [
-                                                                                    category.count,
-                                                                                    " posts"
-                                                                                ]
-                                                                            }, void 0, true, {
-                                                                                fileName: "[project]/app/categories/page.tsx",
-                                                                                lineNumber: 498,
-                                                                                columnNumber: 33
-                                                                            }, this),
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                                                className: "text-sm text-purple-600 dark:text-[#00e5FF] px-3 py-1 hover:bg-purple-50 rounded",
-                                                                                children: "View"
-                                                                            }, void 0, false, {
-                                                                                fileName: "[project]/app/categories/page.tsx",
-                                                                                lineNumber: 501,
-                                                                                columnNumber: 33
-                                                                            }, this)
-                                                                        ]
-                                                                    }, void 0, true, {
-                                                                        fileName: "[project]/app/categories/page.tsx",
-                                                                        lineNumber: 497,
+                                                                        lineNumber: 524,
                                                                         columnNumber: 31
                                                                     }, this)
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/app/categories/page.tsx",
-                                                                lineNumber: 482,
-                                                                columnNumber: 29
-                                                            }, this)
-                                                        }, void 0, false, {
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/app/categories/page.tsx",
+                                                                    lineNumber: 523,
+                                                                    columnNumber: 29
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                    className: "flex-1",
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                            className: "flex items-center justify-between",
+                                                                            children: [
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                                                    className: "text-lg font-semibold dark:text-white",
+                                                                                    children: category.name
+                                                                                }, void 0, false, {
+                                                                                    fileName: "[project]/app/categories/page.tsx",
+                                                                                    lineNumber: 528,
+                                                                                    columnNumber: 33
+                                                                                }, this),
+                                                                                category.featured && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                    className: "px-2 py-1 text-xs bg-purple-100 text-purple-800 dark:bg-[#00e5FF]/20 dark:text-[#00e5FF] rounded-full",
+                                                                                    children: "Featured"
+                                                                                }, void 0, false, {
+                                                                                    fileName: "[project]/app/categories/page.tsx",
+                                                                                    lineNumber: 530,
+                                                                                    columnNumber: 35
+                                                                                }, this)
+                                                                            ]
+                                                                        }, void 0, true, {
+                                                                            fileName: "[project]/app/categories/page.tsx",
+                                                                            lineNumber: 527,
+                                                                            columnNumber: 31
+                                                                        }, this),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                            className: "text-gray-500 text-sm mt-1 dark:text-gray-400",
+                                                                            children: category.description
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/app/categories/page.tsx",
+                                                                            lineNumber: 535,
+                                                                            columnNumber: 31
+                                                                        }, this)
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/app/categories/page.tsx",
+                                                                    lineNumber: 526,
+                                                                    columnNumber: 29
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                    className: "ml-4 flex items-center gap-4",
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                            className: "px-2 py-1 text-xs border border-gray-200 rounded-full dark:border-gray-700 dark:text-gray-300",
+                                                                            children: [
+                                                                                category.count,
+                                                                                " posts"
+                                                                            ]
+                                                                        }, void 0, true, {
+                                                                            fileName: "[project]/app/categories/page.tsx",
+                                                                            lineNumber: 538,
+                                                                            columnNumber: 31
+                                                                        }, this),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                                            className: "text-sm text-purple-600 dark:text-[#00e5FF] px-3 py-1 hover:bg-purple-50 dark:hover:bg-[#00e5FF]/10 rounded",
+                                                                            onClick: (e)=>{
+                                                                                e.stopPropagation();
+                                                                                navigateToCategory(category.name);
+                                                                            },
+                                                                            children: "View"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/app/categories/page.tsx",
+                                                                            lineNumber: 541,
+                                                                            columnNumber: 31
+                                                                        }, this)
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/app/categories/page.tsx",
+                                                                    lineNumber: 537,
+                                                                    columnNumber: 29
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
                                                             fileName: "[project]/app/categories/page.tsx",
-                                                            lineNumber: 481,
+                                                            lineNumber: 522,
                                                             columnNumber: 27
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/categories/page.tsx",
-                                                        lineNumber: 480,
+                                                        lineNumber: 518,
                                                         columnNumber: 25
                                                     }, this)
                                                 }, category.name, false, {
                                                     fileName: "[project]/app/categories/page.tsx",
-                                                    lineNumber: 479,
+                                                    lineNumber: 517,
                                                     columnNumber: 23
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/app/categories/page.tsx",
-                                            lineNumber: 477,
+                                            lineNumber: 515,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true)
                             }, void 0, false, {
                                 fileName: "[project]/app/categories/page.tsx",
-                                lineNumber: 418,
+                                lineNumber: 455,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/categories/page.tsx",
-                        lineNumber: 307,
+                        lineNumber: 341,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/categories/page.tsx",
-                lineNumber: 173,
+                lineNumber: 195,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -1195,7 +1217,7 @@ function CategoriesPage() {
                                     children: "Popular Categories"
                                 }, void 0, false, {
                                     fileName: "[project]/app/categories/page.tsx",
-                                    lineNumber: 522,
+                                    lineNumber: 567,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1203,13 +1225,13 @@ function CategoriesPage() {
                                     children: "Explore our most popular categories with the highest engagement"
                                 }, void 0, false, {
                                     fileName: "[project]/app/categories/page.tsx",
-                                    lineNumber: 523,
+                                    lineNumber: 568,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/categories/page.tsx",
-                            lineNumber: 521,
+                            lineNumber: 566,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1224,17 +1246,18 @@ function CategoriesPage() {
                                         "health",
                                         "events",
                                         "innovation"
-                                    ].map((tab, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                            className: `px-4 py-2 text-sm font-medium whitespace-nowrap ${index === 0 ? "border-b-2 border-purple-600 text-purple-600" : "text-gray-600 hover:text-purple-600 dark:text-gray-300 dark:hover:text-[#00e5FF]"}`,
+                                    ].map((tab)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                            onClick: ()=>handleTabChange(tab),
+                                            className: `px-4 py-2 text-sm font-medium whitespace-nowrap ${activeTab === tab ? "border-b-2 border-purple-600 text-purple-600 dark:border-[#00e5FF] dark:text-[#00e5FF]" : "text-gray-600 hover:text-purple-600 dark:text-gray-300 dark:hover:text-[#00e5FF]"}`,
                                             children: tab.charAt(0).toUpperCase() + tab.slice(1)
                                         }, tab, false, {
                                             fileName: "[project]/app/categories/page.tsx",
-                                            lineNumber: 531,
+                                            lineNumber: 576,
                                             columnNumber: 17
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/app/categories/page.tsx",
-                                    lineNumber: 529,
+                                    lineNumber: 574,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1247,23 +1270,24 @@ function CategoriesPage() {
                                                 2,
                                                 3
                                             ].map((i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "overflow-hidden border rounded-lg hover:shadow-lg transition-shadow dark:border-gray-700 dark:bg-[#1A1A1A]",
+                                                    className: "overflow-hidden border rounded-lg hover:shadow-lg transition-shadow dark:border-gray-700 dark:bg-[#1A1A1A] cursor-pointer",
+                                                    onClick: ()=>navigateToCategory(activeTab),
                                                     children: [
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                             className: "relative aspect-video overflow-hidden",
                                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                                                src: `/placeholder.svg?height=200&width=400&text=Academics+${i}`,
-                                                                alt: `Academics post ${i}`,
+                                                                src: `/placeholder.svg?height=200&width=400&text=${activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}+${i}`,
+                                                                alt: `${activeTab} post ${i}`,
                                                                 fill: true,
                                                                 className: "object-cover transition-transform duration-500 hover:scale-105"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/categories/page.tsx",
-                                                                lineNumber: 552,
+                                                                lineNumber: 599,
                                                                 columnNumber: 23
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/categories/page.tsx",
-                                                            lineNumber: 551,
+                                                            lineNumber: 598,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1272,75 +1296,85 @@ function CategoriesPage() {
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
                                                                     className: "text-base sm:text-lg font-semibold line-clamp-1 dark:text-white",
                                                                     children: [
-                                                                        "Academics Article ",
+                                                                        activeTab.charAt(0).toUpperCase() + activeTab.slice(1),
+                                                                        " Article ",
                                                                         i
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/app/categories/page.tsx",
-                                                                    lineNumber: 560,
+                                                                    lineNumber: 607,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                                     className: "text-xs sm:text-sm text-gray-500 line-clamp-2 mt-2 dark:text-gray-400",
-                                                                    children: "A sample article about academics showcasing the latest developments and insights."
-                                                                }, void 0, false, {
+                                                                    children: [
+                                                                        "A sample article about ",
+                                                                        activeTab,
+                                                                        " showcasing the latest developments and insights."
+                                                                    ]
+                                                                }, void 0, true, {
                                                                     fileName: "[project]/app/categories/page.tsx",
-                                                                    lineNumber: 563,
+                                                                    lineNumber: 610,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/categories/page.tsx",
-                                                            lineNumber: 559,
+                                                            lineNumber: 606,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, i, true, {
                                                     fileName: "[project]/app/categories/page.tsx",
-                                                    lineNumber: 547,
+                                                    lineNumber: 593,
                                                     columnNumber: 19
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/app/categories/page.tsx",
-                                            lineNumber: 545,
+                                            lineNumber: 591,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "text-center mt-6",
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                 className: "px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors dark:border-gray-700 dark:text-gray-300 dark:hover:bg-[#1A1A1A]",
-                                                children: "View All Academics Posts"
-                                            }, void 0, false, {
+                                                onClick: ()=>navigateToCategory(activeTab),
+                                                children: [
+                                                    "View All ",
+                                                    activeTab.charAt(0).toUpperCase() + activeTab.slice(1),
+                                                    " Posts"
+                                                ]
+                                            }, void 0, true, {
                                                 fileName: "[project]/app/categories/page.tsx",
-                                                lineNumber: 571,
+                                                lineNumber: 618,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/categories/page.tsx",
-                                            lineNumber: 570,
+                                            lineNumber: 617,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/categories/page.tsx",
-                                    lineNumber: 544,
+                                    lineNumber: 590,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/categories/page.tsx",
-                            lineNumber: 528,
+                            lineNumber: 573,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/categories/page.tsx",
-                    lineNumber: 520,
+                    lineNumber: 565,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/categories/page.tsx",
-                lineNumber: 519,
+                lineNumber: 564,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -1353,7 +1387,7 @@ function CategoriesPage() {
                             children: "Can't Find What You're Looking For?"
                         }, void 0, false, {
                             fileName: "[project]/app/categories/page.tsx",
-                            lineNumber: 583,
+                            lineNumber: 633,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1361,7 +1395,7 @@ function CategoriesPage() {
                             children: "Suggest a new category or topic that you'd like to see on our platform. We're always looking to expand our content."
                         }, void 0, false, {
                             fileName: "[project]/app/categories/page.tsx",
-                            lineNumber: 584,
+                            lineNumber: 634,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1369,10 +1403,11 @@ function CategoriesPage() {
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                     className: "px-6 py-3 bg-white text-purple-600 dark:bg-[#1A1A1A] dark:text-[#00e5FF] font-medium rounded-md hover:bg-white/90 dark:hover:bg-[#1A1A1A]/90 w-full sm:w-auto",
+                                    onClick: handleSuggestCategory,
                                     children: "Suggest a Category"
                                 }, void 0, false, {
                                     fileName: "[project]/app/categories/page.tsx",
-                                    lineNumber: 589,
+                                    lineNumber: 639,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -1381,34 +1416,38 @@ function CategoriesPage() {
                                     children: "Contact Us"
                                 }, void 0, false, {
                                     fileName: "[project]/app/categories/page.tsx",
-                                    lineNumber: 592,
+                                    lineNumber: 645,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/categories/page.tsx",
-                            lineNumber: 588,
+                            lineNumber: 638,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/categories/page.tsx",
-                    lineNumber: 582,
+                    lineNumber: 632,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/categories/page.tsx",
-                lineNumber: 581,
+                lineNumber: 631,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/categories/page.tsx",
-        lineNumber: 158,
+        lineNumber: 180,
         columnNumber: 5
     }, this);
 }
-_s(CategoriesPage, "hxjJt9KTjzD9mrkBcmj031m9OfE=");
+_s(CategoriesPage, "Qi4sR6vWoQsLAs8ISY87AL5eEtQ=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"]
+    ];
+});
 _c = CategoriesPage;
 var _c;
 __turbopack_context__.k.register(_c, "CategoriesPage");
