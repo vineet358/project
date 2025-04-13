@@ -1,8 +1,6 @@
 "use client"
 
 import { useRouter } from "next/navigation";
-import Footer from "../components/layout/footer";
-import Header from "../components/layout/header";
 import BlogSection from "../components/sections/blog-section";
 import HorizonLandingPage from "../components/sections/FeaturedCrausel";
 import MiddleSection from "../components/sections/midSection";
@@ -19,14 +17,12 @@ export default function LandingHomePage() {
   
   return (
     <div className="relative min-h-screen">
-      <Header />
       <main>
         <HorizonLandingPage />
         <MiddleSection />
         <BlogSection />
         <StorySection />
       </main>
-      <Footer />
       <FloatingActionButton
         label="Write Blog"
         onClick={handleWriteClick}
