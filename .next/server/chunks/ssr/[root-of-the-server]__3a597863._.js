@@ -73,7 +73,7 @@ const MOCK_USER = {
     uid: "mock-user-id",
     email: "user@example.com",
     displayName: "John Doe",
-    photoURL: "/placeholder.svg?height=40&width=40"
+    photoURL: "https://picsum.photos/50/50"
 };
 const navItems = [
     {
@@ -138,14 +138,14 @@ const mockNotifications = [
         message: 'John commented on your post "Getting Started with Next.js"',
         time: "2 min ago",
         read: false,
-        avatar: "/placeholder.svg?height=40&width=40"
+        avatar: "https://picsum.photos/50/50"
     },
     {
         id: 2,
         message: "Sarah liked your article about Tailwind CSS",
         time: "1 hour ago",
         read: false,
-        avatar: "/placeholder.svg?height=40&width=40"
+        avatar: "https://picsum.photos/50/50"
     },
     {
         id: 3,
@@ -159,13 +159,13 @@ const mockSearchResults = [
         id: 1,
         title: "Getting Started with Next.js",
         type: "blog",
-        image: "/placeholder.svg?height=40&width=40"
+        image: "https://picsum.photos/50/50"
     },
     {
         id: 2,
         title: "Tailwind CSS Tips and Tricks",
         type: "blog",
-        image: "/placeholder.svg?height=40&width=40"
+        image: "https://picsum.photos/50/50"
     },
     {
         id: 3,
@@ -176,7 +176,7 @@ const mockSearchResults = [
         id: 4,
         title: "React Hooks Explained",
         type: "blog",
-        image: "/placeholder.svg?height=40&width=40"
+        image: "https://picsum.photos/50/50"
     }
 ];
 function Header() {
@@ -485,7 +485,7 @@ function Header() {
                                                             result.image && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                 className: "flex-shrink-0 mr-3",
                                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                                                                    src: result.image || "/placeholder.svg",
+                                                                    src: result.image || "https://picsum.photos/50/50",
                                                                     alt: result.title,
                                                                     width: 30,
                                                                     height: 30,
@@ -653,7 +653,7 @@ function Header() {
                                                                         notification.avatar && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                             className: "flex-shrink-0 mr-3",
                                                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                                                                                src: notification.avatar || "/placeholder.svg",
+                                                                                src: notification.avatar || "https://picsum.photos/50/50",
                                                                                 alt: "User Avatar",
                                                                                 width: 36,
                                                                                 height: 36,
@@ -777,7 +777,7 @@ function Header() {
                                                         className: "relative w-8 h-8 rounded-full overflow-hidden border-1 border-blue-500/30 transition-transform duration-200",
                                                         children: [
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                                                                src: user.photoURL || "/placeholder.svg?height=32&width=32",
+                                                                src: user.photoURL || "https://picsum.photos/50/50",
                                                                 alt: user.displayName || "User Avatar",
                                                                 width: 32,
                                                                 height: 32,
@@ -1192,7 +1192,7 @@ function Header() {
                                                     result.image && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                         className: "flex-shrink-0 mr-3",
                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                                                            src: result.image || "/placeholder.svg",
+                                                            src: result.image || "https://picsum.photos/50/50",
                                                             alt: result.title,
                                                             width: 30,
                                                             height: 30,
