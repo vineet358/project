@@ -11,8 +11,6 @@ import {
   Menu,
   Search,
   X,
-  Sun,
-  Moon,
   ChevronDown,
   LogOut,
   Settings,
@@ -219,7 +217,7 @@ export default function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-white/90 dark:bg-[#0a0a0a] shadow-sm transition-colors duration-300 border-b border-gray-200 dark:border-gray-800">
+    <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-white/90 dark:bg-[#0a0a0a] shadow-sm transition-colors duration-300 border-b-[0.5px] border-gray-200 dark:border-[#333333]">
       {usingMockAuth && process.env.NODE_ENV === "development" && (
         <div className="bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-200 text-xs text-center py-1">
           Using mock authentication - Firebase keys not configured
@@ -269,8 +267,8 @@ export default function Header() {
                   href={item.href}
                   className={`flex items-center px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
                     pathname === item.href
-                      ? "bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300"
-                      : "text-gray-700 hover:bg-gray-50 hover:text-indigo-600 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-indigo-400"
+                      ? "bg-indigo-50 text-blue-600 dark:bg-[#00e5ff] dark:text-[#0a0a0a]"
+                      : "text-gray-700 hover:bg-gray-50 hover:text-blue-500 dark:text-gray-300 dark:hover:bg-[#1A1A1A] dark:hover:text-[#00e5ff]"
                   }`}
                 >
                   {item.icon}
@@ -296,9 +294,9 @@ export default function Header() {
                   placeholder="Search..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-64 pl-10 pr-4 py-2 rounded-full border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 transition-all duration-200"
+                  className="w-64 pl-10 pr-4 py-2 rounded-full border border-gray-300 dark:border-[#333333] bg-gray-50 dark:bg-[#1A1A1A] text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-[#00e5ff] transition-all duration-200"
                 />
-                <Search className="absolute left-3 top-2.5 h-4 w-4 text-gray-400 dark:text-gray-500" />
+                <Search className="absolute left-3 top-3 h-4 w-4 text-gray-400 dark:text-gray-500" />
               </div>
 
               {/* Search Results */}
@@ -309,12 +307,12 @@ export default function Header() {
                     initial="hidden"
                     animate="visible"
                     exit="exit"
-                    className="absolute mt-1 w-full bg-white dark:bg-gray-800 rounded-md shadow-lg py-1 z-10 border border-gray-200 dark:border-gray-700 overflow-hidden"
+                    className="absolute mt-1 w-full bg-white dark:bg-[#1A1A1A] rounded-md shadow-lg py-1 z-10 border border-gray-200 dark:border-[#333333] overflow-hidden"
                   >
                     {searchResults.map((result) => (
                       <motion.div
                         key={result.id}
-                        className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer flex items-center"
+                        className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-[#0a0a0a] cursor-pointer flex items-center"
                         whileHover={{ x: 5 }}
                       >
                         {result.image && (
@@ -330,7 +328,7 @@ export default function Header() {
                         )}
                         <div>
                           <span className="text-gray-900 dark:text-gray-100">{result.title}</span>
-                          <span className="ml-2 text-xs px-2 py-0.5 rounded-full bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300">
+                          <span className="ml-2 text-xs px-2 py-0.5 rounded-full bg-indigo-100 dark:bg-[#00e5FF] text-blue-700 dark:text-black">
                             {result.type}
                           </span>
                         </div>
@@ -351,7 +349,7 @@ export default function Header() {
                     >
                       <motion.button
                         onClick={() => setIsNotificationsOpen(!isNotificationsOpen)}
-                        className="p-2 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-900 transition-all duration-200"
+                        className="p-2 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-[#00e5FF] dark:focus:ring-offset-gray-900 transition-all duration-200"
                         aria-label="Notifications"
                         variants={iconButtonVariants}
                         whileHover="hover"
@@ -381,13 +379,13 @@ export default function Header() {
                             initial="hidden"
                             animate="visible"
                             exit="exit"
-                            className="absolute right-0 mt-2 w-80 bg-white dark:bg-gray-800 rounded-md shadow-lg py-1 z-10 border border-gray-200 dark:border-gray-700 overflow-hidden"
+                            className="absolute right-0 mt-2 w-80 bg-white dark:bg-[#1A1A1A] rounded-md shadow-lg py-1 z-10 border border-gray-200 dark:border-[#333333] overflow-hidden"
                           >
-                            <div className="px-4 py-2 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
+                            <div className="px-4 py-2 border-b border-gray-200 dark:border-[#333333] flex justify-between items-center">
                               <h3 className="text-sm font-medium text-gray-900 dark:text-white">Notifications</h3>
                               <button
                                 onClick={markAllAsRead}
-                                className="text-xs text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 font-medium"
+                                className="text-xs text-blue-600 dark:text-[#00e5FF] hover:text-blue-800 dark:hover:text-[#00aeff] font-medium"
                               >
                                 Mark all as read
                               </button>
@@ -398,9 +396,8 @@ export default function Header() {
                                   <motion.div
                                     key={notification.id}
                                     className={`px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer ${
-                                      !notification.read ? "bg-indigo-50 dark:bg-indigo-900/20" : ""
+                                      !notification.read ? "bg-indigo-50 dark:bg-blue-950/50" : ""
                                     }`}
-                                    whileHover={{ x: 5 }}
                                   >
                                     <div className="flex items-start">
                                       {notification.avatar && (
@@ -422,7 +419,7 @@ export default function Header() {
                                       </div>
                                       {!notification.read && (
                                         <div className="ml-3 flex-shrink-0">
-                                          <div className="h-2 w-2 rounded-full bg-indigo-500"></div>
+                                          <div className="h-2 w-2 rounded-full bg-blue-500"></div>
                                         </div>
                                       )}
                                     </div>
@@ -458,7 +455,7 @@ export default function Header() {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      <div className="relative w-8 h-8 rounded-full overflow-hidden border-2 border-indigo-500 transition-transform duration-200">
+                      <div className="relative w-8 h-8 rounded-full overflow-hidden border-1 border-blue-500/30 transition-transform duration-200">
                         <Image
                           src={user.photoURL || "/placeholder.svg?height=32&width=32"}
                           alt={user.displayName || "User Avatar"}
@@ -501,7 +498,7 @@ export default function Header() {
                     initial="hidden"
                     animate="visible"
                     exit="exit"
-                    className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg py-1 z-10 border border-gray-200 dark:border-gray-700 overflow-hidden"
+                    className="absolute right-0 mt-2 w-48 bg-white dark:bg-[#1A1A1A] rounded-md shadow-lg py-1 z-10 border border-gray-200 dark:border-[#333333] overflow-hidden"
                   >
                     <div className="px-4 py-3 border-b border-gray-200 dark:border-gray-700">
                       <p className="text-sm font-medium text-gray-900 dark:text-white">{user.displayName || "User"}</p>
@@ -549,7 +546,7 @@ export default function Header() {
           >
             <motion.button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 dark:focus:ring-indigo-400"
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 dark:focus:ring-blue-400"
               aria-expanded="false"
               variants={iconButtonVariants}
               whileHover="hover"
@@ -588,7 +585,7 @@ export default function Header() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 overflow-hidden"
+            className="md:hidden bg-white dark:bg-[#1A1A1A] border-t border-gray-200 dark:border-[#333333] overflow-hidden"
             variants={mobileMenuVariants}
             initial="hidden"
             animate="visible"
@@ -606,7 +603,7 @@ export default function Header() {
                     href={item.href}
                     className={`flex items-center px-3 py-2 rounded-md text-base font-medium ${
                       pathname === item.href
-                        ? "bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300"
+                        ? "bg-indigo-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300"
                         : "text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800"
                     }`}
                   >
@@ -619,7 +616,7 @@ export default function Header() {
 
             {/* Mobile search */}
             <motion.div
-              className="px-4 py-3 border-t border-gray-200 dark:border-gray-800"
+              className="px-4 py-3 border-t border-gray-200 dark:border-[#333333]"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.3 }}
@@ -630,7 +627,7 @@ export default function Header() {
                   placeholder="Search..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2 rounded-full border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400"
+                  className="w-full pl-10 pr-4 py-2 rounded-full border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-1 focus:ring-blue-500 dark:focus:ring-blue-400"
                 />
                 <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400 dark:text-gray-500" />
               </div>
@@ -639,7 +636,7 @@ export default function Header() {
               <AnimatePresence>
                 {searchResults.length > 0 && (
                   <motion.div
-                    className="mt-2 bg-white dark:bg-gray-800 rounded-md shadow-lg py-1 z-10 border border-gray-200 dark:border-gray-700"
+                    className="mt-2 bg-white dark:bg-[#333333] rounded-md shadow-lg py-1 z-10 border border-gray-200 dark:border-[#333333]"
                     variants={dropdownVariants}
                     initial="hidden"
                     animate="visible"
@@ -649,7 +646,6 @@ export default function Header() {
                       <motion.div
                         key={result.id}
                         className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer flex items-center"
-                        whileHover={{ x: 5 }}
                       >
                         {result.image && (
                           <div className="flex-shrink-0 mr-3">
@@ -689,7 +685,7 @@ export default function Header() {
                       <>
                         <div className="flex items-center">
                           <div className="flex-shrink-0">
-                            <div className="relative h-10 w-10 rounded-full overflow-hidden border-2 border-indigo-500">
+                            <div className="relative h-10 w-10 rounded-full overflow-hidden border-1 border-blue-500">
                               <Image
                                 src={user.photoURL || "/placeholder.svg?height=40&width=40"}
                                 alt={user.displayName || "User Avatar"}

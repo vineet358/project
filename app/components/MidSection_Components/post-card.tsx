@@ -26,7 +26,7 @@ export default function PostCard({
         <div className="relative w-full h-52">
           <Image src={imageSrc} alt={title} fill className="object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-          <span className="absolute top-4 left-4 px-3 py-1 text-xs font-medium rounded-full bg-[#0077B6] dark:bg-[#0A1A2F] text-white shadow-md">
+          <span className="absolute top-4 left-4 px-3 py-1 text-xs font-medium rounded-full bg-[#0077B6] dark:bg-blue-600 text-white shadow-md">
             {category}
           </span>
         </div>

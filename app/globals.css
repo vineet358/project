@@ -5,13 +5,101 @@
   font-weight: 400;
   font-style: normal;
 }
-
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  
+  --bg-white: #ffffff;
+  --text-color: #374151;
+  --primary: #3b82f6;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --card-hover-shadow: rgba(0, 0, 0, 0.1);
+  --slider-thumb-bg: #3b82f6;
+  --switch-bg: #3b82f6;
+  --checkbox-bg: #3b82f6;
+
+  --scrollbar-bg: transparent;
+  --scrollbar-thumb: #cbd5e1;
+  --scrollbar-thumb-hover: #94a3b8;
 }
 
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #171717;
+    --foreground: #ffffff;
+    --bg-white: #1f2937;
+    --text-color: #d1d5db;
+    --card-shadow: rgba(255, 255, 255, 0.05);
+    --card-hover-shadow: rgba(255, 255, 255, 0.1);
+
+    --scrollbar-thumb: #4b5563;
+    --scrollbar-thumb-hover: #6b7280;
+  }
+}
+
+/* --------------------------------
+   DESKTOP: Auto-hide Scrollbar
+   -------------------------------- */
+@media (hover: hover) {
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+  }
+
+  *:hover {
+    scrollbar-color: var(--scrollbar-thumb) transparent;
+  }
+
+  /* WebKit (Chrome, Safari, Edge) */
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+  }
+
+  *:hover::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb);
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-thumb-hover);
+  }
+}
+
+/* --------------------------------
+   MOBILE/TABLET: Fully Hide Scrollbar
+   -------------------------------- */
+@media (pointer: coarse) {
+  * {
+    scrollbar-width: none !important;           /* Firefox */
+    -ms-overflow-style: none !important;        /* IE 10+ */
+  }
+
+  *::-webkit-scrollbar {
+    display: none !important;                   /* Chrome/Safari/Edge */
+  }
+}
+
+.dark {
+  --bg-white: #1f2937;
+  --text-color: #d1d5db;
+  --primary: #60a5fa;
+  --card-shadow: rgba(255, 255, 255, 0.05);
+  --card-hover-shadow: rgba(255, 255, 255, 0.1);
+  --slider-thumb-bg: #60a5fa;
+  --switch-bg: #60a5fa;
+  --checkbox-bg: #60a5fa;
+}
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -168,15 +256,16 @@ body {
 
 .custom-card {
   transition: all 0.2s ease;
-  background: white;
+  background: var(--bg-white); /* controlled via theme variables */
   border-radius: 0.5rem;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 3px var(--card-shadow);
 }
 
 .custom-card:hover {
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px var(--card-hover-shadow);
   transform: translateY(-2px);
 }
+
 
 .custom-badge {
   display: inline-block;
@@ -184,21 +273,20 @@ body {
   border-radius: 9999px;
   font-size: 0.875rem;
   font-weight: 500;
-  background-color: #f3f4f6;
-  color: #374151;
+  color: var(--text-color);
 }
 
 .custom-tab[data-state='active'] {
-  border-bottom: 2px solid #3b82f6;
-  color: #3b82f6;
+  border-bottom: 2px solid var(--primary);
+  color: var(--primary);
 }
 
 .custom-slider {
   -webkit-appearance: none;
   width: 100%;
   height: 4px;
-  background: #e5e7eb;
   border-radius: 4px;
+  background: var(--card-shadow);
 }
 
 .custom-slider::-webkit-slider-thumb {
@@ -206,7 +294,7 @@ body {
   appearance: none;
   width: 16px;
   height: 16px;
-  background: #3b82f6;
+  background: var(--slider-thumb-bg);
   border-radius: 50%;
   cursor: pointer;
 }
@@ -231,9 +319,9 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #e5e7eb;
   transition: .4s;
   border-radius: 24px;
+  background-color: #ccc;
 }
 
 .custom-switch-slider:before {
@@ -249,7 +337,7 @@ body {
 }
 
 input:checked + .custom-switch-slider {
-  background-color: #3b82f6;
+  background-color: var(--switch-bg);
 }
 
 input:checked + .custom-switch-slider:before {
@@ -257,6 +345,6 @@ input:checked + .custom-switch-slider:before {
 }
 
 .custom-checkbox:checked {
-  background-color: #3b82f6;
-  border-color: #3b82f6;
+  background-color: var(--checkbox-bg);
+  border-color: var(--checkbox-bg);
 }

@@ -38,7 +38,7 @@ export default function FormattingHelper() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-white dark:bg-gray-900 rounded-lg shadow-xl max-w-md w-full max-h-[80vh] overflow-auto"
+            className="bg-white dark:bg-[#1A1A1A] rounded-lg shadow-xl max-w-md w-full max-h-[80vh] overflow-auto"
           >
             <div className="p-4 border-b border-gray-200 dark:border-gray-800 flex justify-between items-center">
               <h2 className="text-xl font-bold">Formatting Help</h2>
