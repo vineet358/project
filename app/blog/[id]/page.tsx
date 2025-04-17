@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import {
@@ -19,11 +19,7 @@ import {
   ChevronLeft,
   MoreHorizontal,
   Tag,
-  Instagram,
-  Youtube,
-  Mail,
 } from "lucide-react"
-import { motion } from "framer-motion"
 
 // Mock blog post data
 const blogPost = {
@@ -201,295 +197,6 @@ const popularTags = [
   { tag: "Adaptive Learning", count: 10 },
 ]
 
-// Type definitions for custom components
-interface CustomButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "default" | "outline" | "ghost" | "link" | "icon"
-  size?: "default" | "sm" | "lg" | "icon"
-  children: React.ReactNode
-}
-
-interface CustomInputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
-
-interface CustomTextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
-
-interface CustomAvatarProps {
-  src?: string
-  alt?: string
-  fallback?: string
-  size?: "sm" | "default" | "lg"
-  className?: string
-}
-
-interface CustomBadgeProps {
-  children: React.ReactNode
-  variant?: "default" | "secondary" | "outline"
-  className?: string
-}
-
-interface CustomCardProps {
-  children: React.ReactNode
-  className?: string
-}
-
-interface CustomCardHeaderProps {
-  children: React.ReactNode
-  className?: string
-}
-
-interface CustomCardContentProps {
-  children: React.ReactNode
-  className?: string
-}
-
-interface CustomCardFooterProps {
-  children: React.ReactNode
-  className?: string
-}
-
-interface CustomDropdownProps {
-  trigger: React.ReactNode
-  children: React.ReactNode
-  align?: "center" | "start" | "end"
-}
-
-interface CustomDropdownItemProps {
-  children: React.ReactNode
-  onClick?: () => void
-}
-
-interface CustomPopoverProps {
-  trigger: React.ReactNode
-  content: React.ReactNode
-  align?: "center" | "start" | "end"
-}
-
-interface CustomSeparatorProps {
-  className?: string
-  orientation?: "horizontal" | "vertical"
-}
-
-// Custom components
-const CustomButton: React.FC<CustomButtonProps> = ({
-  children,
-  variant = "default",
-  size = "default",
-  className = "",
-  onClick,
-  ...props
-}) => {
-  const baseStyles =
-    "inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none"
-
-  const variantStyles = {
-    default: "bg-gray-900 text-white hover:bg-gray-800 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-200",
-    outline: "border border-gray-200 bg-transparent hover:bg-gray-100 dark:border-gray-800 dark:hover:bg-gray-800",
-    ghost: "bg-transparent hover:bg-gray-100 dark:hover:bg-gray-800",
-    link: "text-gray-900 underline-offset-4 hover:underline dark:text-gray-50",
-    icon: "h-9 w-9 p-0",
-  }
-
-  const sizeStyles = {
-    default: "h-10 px-4 py-2",
-    sm: "h-8 rounded-md px-3 text-xs",
-    lg: "h-11 rounded-md px-8",
-    icon: "h-9 w-9 p-0",
-  }
-
-  return (
-    <button
-      className={`${baseStyles} ${variantStyles[variant]} ${sizeStyles[size === "icon" ? "icon" : size]} ${className}`}
-      onClick={onClick}
-      {...props}
-    >
-      {children}
-    </button>
-  )
-}
-
-const CustomInput: React.FC<CustomInputProps> = ({ className = "", ...props }) => {
-  return (
-    <input
-      className={`flex h-10 w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-800 dark:bg-gray-950 dark:text-gray-50 dark:placeholder:text-gray-500 dark:focus:ring-gray-300 ${className}`}
-      {...props}
-    />
-  )
-}
-
-const CustomTextarea: React.FC<CustomTextareaProps> = ({ className = "", ...props }) => {
-  return (
-    <textarea
-      className={`flex min-h-[80px] w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-800 dark:bg-gray-950 dark:text-gray-50 dark:placeholder:text-gray-500 dark:focus:ring-gray-300 ${className}`}
-      {...props}
-    />
-  )
-}
-
-const CustomAvatar: React.FC<CustomAvatarProps> = ({ src, alt, fallback, size = "default", className = "" }) => {
-  const [imgError, setImgError] = useState(false)
-
-  const sizeStyles = {
-    sm: "h-8 w-8",
-    default: "h-10 w-10",
-    lg: "h-16 w-16",
-  }
-
-  return (
-    <div className={`relative flex shrink-0 overflow-hidden rounded-full ${sizeStyles[size]} ${className}`}>
-      {!imgError && src ? (
-        <Image
-          src={src || "/placeholder.svg"}
-          alt={alt || "Avatar"}
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover"
-          onError={() => setImgError(true)}
-        />
-      ) : (
-        <div className="flex h-full w-full items-center justify-center bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 font-medium">
-          {fallback || alt?.charAt(0) || "U"}
-        </div>
-      )}
-    </div>
-  )
-}
-
-const CustomBadge: React.FC<CustomBadgeProps> = ({ children, variant = "default", className = "" }) => {
-  const variantStyles = {
-    default: "bg-gray-900 text-gray-50 dark:bg-gray-50 dark:text-gray-900",
-    secondary: "bg-gray-100 text-gray-900 dark:bg-gray-800 dark:text-gray-50",
-    outline: "border border-gray-200 dark:border-gray-800 text-gray-900 dark:text-gray-50",
-  }
-
-  return (
-    <span
-      className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${variantStyles[variant]} ${className}`}
-    >
-      {children}
-    </span>
-  )
-}
-
-const CustomCard: React.FC<CustomCardProps> = ({ children, className = "" }) => {
-  return (
-    <div
-      className={`rounded-lg border border-gray-200 bg-white shadow-sm dark:border-gray-800 dark:bg-gray-950 ${className}`}
-    >
-      {children}
-    </div>
-  )
-}
-
-const CustomCardHeader: React.FC<CustomCardHeaderProps> = ({ children, className = "" }) => {
-  return <div className={`flex flex-col space-y-1.5 p-6 ${className}`}>{children}</div>
-}
-
-const CustomCardContent: React.FC<CustomCardContentProps> = ({ children, className = "" }) => {
-  return <div className={`p-6 pt-0 ${className}`}>{children}</div>
-}
-
-const CustomCardFooter: React.FC<CustomCardFooterProps> = ({ children, className = "" }) => {
-  return <div className={`flex items-center p-6 pt-0 ${className}`}>{children}</div>
-}
-
-const CustomDropdown: React.FC<CustomDropdownProps> = ({ trigger, children, align = "center" }) => {
-  const [isOpen, setIsOpen] = useState(false)
-  const dropdownRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsOpen(false)
-      }
-    }
-
-    if (typeof window !== "undefined") {
-      document.addEventListener("mousedown", handleClickOutside)
-      return () => {
-        document.removeEventListener("mousedown", handleClickOutside)
-      }
-    }
-  }, [dropdownRef])
-
-  const alignStyles = {
-    center: "left-1/2 -translate-x-1/2",
-    start: "left-0",
-    end: "right-0",
-  }
-
-  return (
-    <div className="relative" ref={dropdownRef}>
-      <div onClick={() => setIsOpen(!isOpen)}>{trigger}</div>
-
-      {isOpen && (
-        <div
-          className={`absolute z-50 mt-2 min-w-[8rem] overflow-hidden rounded-md border border-gray-200 bg-white p-1 shadow-md animate-in fade-in-80 dark:border-gray-800 dark:bg-gray-950 ${alignStyles[align]}`}
-        >
-          {children}
-        </div>
-      )}
-    </div>
-  )
-}
-
-const CustomDropdownItem: React.FC<CustomDropdownItemProps> = ({ children, onClick }) => {
-  return (
-    <button
-      className="relative flex w-full cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none hover:bg-gray-100 dark:hover:bg-gray-800"
-      onClick={onClick}
-    >
-      {children}
-    </button>
-  )
-}
-
-const CustomPopover: React.FC<CustomPopoverProps> = ({ trigger, content, align = "center" }) => {
-  const [isOpen, setIsOpen] = useState(false)
-  const popoverRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (popoverRef.current && !popoverRef.current.contains(event.target as Node)) {
-        setIsOpen(false)
-      }
-    }
-
-    if (typeof window !== "undefined") {
-      document.addEventListener("mousedown", handleClickOutside)
-      return () => {
-        document.removeEventListener("mousedown", handleClickOutside)
-      }
-    }
-  }, [popoverRef])
-
-  const alignStyles = {
-    center: "left-1/2 -translate-x-1/2",
-    start: "left-0",
-    end: "right-0",
-  }
-
-  return (
-    <div className="relative" ref={popoverRef}>
-      <div onClick={() => setIsOpen(!isOpen)}>{trigger}</div>
-
-      {isOpen && (
-        <div
-          className={`absolute z-50 mt-2 overflow-hidden rounded-md border border-gray-200 bg-white p-1 shadow-md animate-in fade-in-80 dark:border-gray-800 dark:bg-gray-950 ${alignStyles[align]}`}
-        >
-          {content}
-        </div>
-      )}
-    </div>
-  )
-}
-
-const CustomSeparator: React.FC<CustomSeparatorProps> = ({ className = "", orientation = "horizontal" }) => {
-  return orientation === "horizontal" ? (
-    <div className={`h-[1px] w-full bg-gray-200 dark:bg-gray-800 ${className}`} />
-  ) : (
-    <div className={`h-full w-[1px] bg-gray-200 dark:bg-gray-800 ${className}`} />
-  )
-}
-
 export default function BlogPostPage() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [searchQuery, setSearchQuery] = useState("")
@@ -524,7 +231,11 @@ export default function BlogPostPage() {
     }
 
     // Check system preference for theme
-    if (typeof window !== "undefined" && window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    if (
+      typeof window !== "undefined" &&
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    ) {
       setTheme("dark")
     }
 
@@ -670,73 +381,64 @@ export default function BlogPostPage() {
           <div className="flex flex-col lg:flex-row gap-8">
             {/* Social Sharing - Desktop (Left Side) */}
             <div className="hidden lg:flex flex-col items-center sticky top-24 h-fit space-y-4 pt-10">
-              <CustomButton
-                variant="ghost"
-                size="icon"
-                className={`rounded-full ${isLiked ? "text-red-500" : ""}`}
+              <button
+                className={`rounded-full p-2 hover:bg-gray-100 dark:hover:bg-gray-800 ${isLiked ? "text-red-500" : ""}`}
                 onClick={handleLike}
               >
                 <Heart className={`h-5 w-5 ${isLiked ? "fill-current" : ""}`} />
                 <span className="sr-only">Like</span>
-              </CustomButton>
+              </button>
               <span className="text-xs font-medium">{likeCount}</span>
 
-              <CustomButton
-                variant="ghost"
-                size="icon"
-                className="rounded-full"
+              <button
+                className="rounded-full p-2 hover:bg-gray-100 dark:hover:bg-gray-800"
                 onClick={() => setShowShareOptions(!showShareOptions)}
               >
                 <Share2 className="h-5 w-5" />
                 <span className="sr-only">Share</span>
-              </CustomButton>
+              </button>
 
               {showShareOptions && (
                 <div className="flex flex-col space-y-2 items-center">
-                  <CustomButton
-                    variant="ghost"
-                    size="icon"
-                    className="rounded-full bg-[#1877F2] text-white hover:bg-[#1877F2]/90"
+                  <button
+                    className="rounded-full p-2 bg-[#1877F2] text-white hover:bg-[#1877F2]/90"
                     onClick={() => handleShare("Facebook")}
                   >
                     <Facebook className="h-4 w-4" />
-                  </CustomButton>
-                  <CustomButton
-                    variant="ghost"
-                    size="icon"
-                    className="rounded-full bg-[#1DA1F2] text-white hover:bg-[#1DA1F2]/90"
+                  </button>
+                  <button
+                    className="rounded-full p-2 bg-[#1DA1F2] text-white hover:bg-[#1DA1F2]/90"
                     onClick={() => handleShare("Twitter")}
                   >
                     <Twitter className="h-4 w-4" />
-                  </CustomButton>
-                  <CustomButton
-                    variant="ghost"
-                    size="icon"
-                    className="rounded-full bg-[#0A66C2] text-white hover:bg-[#0A66C2]/90"
+                  </button>
+                  <button
+                    className="rounded-full p-2 bg-[#0A66C2] text-white hover:bg-[#0A66C2]/90"
                     onClick={() => handleShare("LinkedIn")}
                   >
                     <Linkedin className="h-4 w-4" />
-                  </CustomButton>
-                  <CustomButton variant="ghost" size="icon" className="rounded-full" onClick={handleCopyLink}>
+                  </button>
+                  <button
+                    className="rounded-full p-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+                    onClick={handleCopyLink}
+                  >
                     <Copy className="h-4 w-4" />
-                  </CustomButton>
+                  </button>
                 </div>
               )}
 
-              <CustomButton
-                variant="ghost"
-                size="icon"
-                className={`rounded-full ${isBookmarked ? "text-gray-900 dark:text-gray-50" : ""}`}
+              <button
+                className={`rounded-full p-2 hover:bg-gray-100 dark:hover:bg-gray-800 ${isBookmarked ? "text-gray-900 dark:text-gray-50" : ""}`}
                 onClick={handleBookmark}
               >
                 <Bookmark className={`h-5 w-5 ${isBookmarked ? "fill-current" : ""}`} />
                 <span className="sr-only">Bookmark</span>
-              </CustomButton>
+              </button>
 
-              <CustomButton variant="ghost" size="icon" className="rounded-full">
+              <button className="rounded-full p-2 hover:bg-gray-100 dark:hover:bg-gray-800">
                 <MessageSquare className="h-5 w-5" />
                 <span className="sr-only">Comment</span>
-              </CustomButton>
+              </button>
               <span className="text-xs font-medium">{blogPost.comments}</span>
             </div>
 
@@ -744,9 +446,9 @@ export default function BlogPostPage() {
             <div className="lg:flex-1">
               {/* Category and Date */}
               <div className="flex items-center space-x-3 mb-4">
-                <CustomBadge className="bg-gray-900 dark:bg-gray-50 text-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-200">
+                <span className="bg-gray-900 dark:bg-gray-50 text-white dark:text-gray-900 px-2.5 py-0.5 rounded-full text-xs font-medium">
                   {blogPost.category}
-                </CustomBadge>
+                </span>
                 <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
                   <Clock className="h-4 w-4 mr-1" />
                   <span>
@@ -760,7 +462,14 @@ export default function BlogPostPage() {
 
               {/* Author Info */}
               <div className="flex items-center space-x-3 mb-8">
-                <CustomAvatar src={blogPost.authorAvatar} alt={blogPost.author} fallback={blogPost.author.charAt(0)} />
+                <div className="relative h-10 w-10 rounded-full overflow-hidden">
+                  <Image
+                    src={blogPost.authorAvatar || "/placeholder.svg"}
+                    alt={blogPost.author}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
                 <div>
                   <div className="font-medium">{blogPost.author}</div>
                 </div>
@@ -768,13 +477,12 @@ export default function BlogPostPage() {
 
               {/* Featured Image */}
               <div className="relative aspect-[16/9] w-full mb-8 rounded-xl overflow-hidden">
-                <Image 
-                  src={blogPost.image || "/placeholder.svg"} 
-                  alt={blogPost.title} 
-                  fill 
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                <Image
+                  src={blogPost.image || "/placeholder.svg"}
+                  alt={blogPost.title}
+                  fill
                   priority
-                  className="object-cover" 
+                  className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
               </div>
@@ -782,77 +490,71 @@ export default function BlogPostPage() {
               {/* Social Sharing - Mobile */}
               <div className="flex lg:hidden items-center justify-between mb-8 border-y border-gray-200 dark:border-gray-800 py-3">
                 <div className="flex items-center space-x-4">
-                  <CustomButton
-                    variant="ghost"
-                    size="icon"
-                    className={`rounded-full ${isLiked ? "text-red-500" : ""}`}
+                  <button
+                    className={`rounded-full p-2 hover:bg-gray-100 dark:hover:bg-gray-800 ${isLiked ? "text-red-500" : ""}`}
                     onClick={handleLike}
                   >
                     <Heart className={`h-5 w-5 ${isLiked ? "fill-current" : ""}`} />
                     <span className="sr-only">Like</span>
-                  </CustomButton>
+                  </button>
                   <span className="text-sm">{likeCount}</span>
 
-                  <CustomButton variant="ghost" size="icon" className="rounded-full">
+                  <button className="rounded-full p-2 hover:bg-gray-100 dark:hover:bg-gray-800">
                     <MessageSquare className="h-5 w-5" />
                     <span className="sr-only">Comment</span>
-                  </CustomButton>
+                  </button>
                   <span className="text-sm">{blogPost.comments}</span>
                 </div>
 
                 <div className="flex items-center space-x-2">
-                  <CustomPopover
-                    trigger={
-                      <CustomButton variant="ghost" size="icon" className="rounded-full">
-                        <Share2 className="h-5 w-5" />
-                        <span className="sr-only">Share</span>
-                      </CustomButton>
-                    }
-                    content={
-                      <div className="p-2">
+                  <div className="relative">
+                    <button
+                      className="rounded-full p-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+                      onClick={() => setShowShareOptions(!showShareOptions)}
+                    >
+                      <Share2 className="h-5 w-5" />
+                      <span className="sr-only">Share</span>
+                    </button>
+
+                    {showShareOptions && (
+                      <div className="absolute right-0 z-10 mt-2 p-2 bg-white dark:bg-gray-900 rounded-md shadow-md border border-gray-200 dark:border-gray-700">
                         <div className="flex space-x-2">
-                          <CustomButton
-                            variant="ghost"
-                            size="icon"
-                            className="rounded-full bg-[#1877F2] text-white hover:bg-[#1877F2]/90"
+                          <button
+                            className="rounded-full p-2 bg-[#1877F2] text-white hover:bg-[#1877F2]/90"
                             onClick={() => handleShare("Facebook")}
                           >
                             <Facebook className="h-4 w-4" />
-                          </CustomButton>
-                          <CustomButton
-                            variant="ghost"
-                            size="icon"
-                            className="rounded-full bg-[#1DA1F2] text-white hover:bg-[#1DA1F2]/90"
+                          </button>
+                          <button
+                            className="rounded-full p-2 bg-[#1DA1F2] text-white hover:bg-[#1DA1F2]/90"
                             onClick={() => handleShare("Twitter")}
                           >
                             <Twitter className="h-4 w-4" />
-                          </CustomButton>
-                          <CustomButton
-                            variant="ghost"
-                            size="icon"
-                            className="rounded-full bg-[#0A66C2] text-white hover:bg-[#0A66C2]/90"
+                          </button>
+                          <button
+                            className="rounded-full p-2 bg-[#0A66C2] text-white hover:bg-[#0A66C2]/90"
                             onClick={() => handleShare("LinkedIn")}
                           >
                             <Linkedin className="h-4 w-4" />
-                          </CustomButton>
-                          <CustomButton variant="ghost" size="icon" className="rounded-full" onClick={handleCopyLink}>
+                          </button>
+                          <button
+                            className="rounded-full p-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+                            onClick={handleCopyLink}
+                          >
                             <Copy className="h-4 w-4" />
-                          </CustomButton>
+                          </button>
                         </div>
                       </div>
-                    }
-                    align="end"
-                  />
+                    )}
+                  </div>
 
-                  <CustomButton
-                    variant="ghost"
-                    size="icon"
-                    className={`rounded-full ${isBookmarked ? "text-gray-900 dark:text-gray-50" : ""}`}
+                  <button
+                    className={`rounded-full p-2 hover:bg-gray-100 dark:hover:bg-gray-800 ${isBookmarked ? "text-gray-900 dark:text-gray-50" : ""}`}
                     onClick={handleBookmark}
                   >
                     <Bookmark className={`h-5 w-5 ${isBookmarked ? "fill-current" : ""}`} />
                     <span className="sr-only">Bookmark</span>
-                  </CustomButton>
+                  </button>
                 </div>
               </div>
 
@@ -865,25 +567,26 @@ export default function BlogPostPage() {
               {/* Tags */}
               <div className="flex flex-wrap gap-2 mb-10">
                 {blogPost.tags.map((tag) => (
-                  <CustomBadge
+                  <span
                     key={tag}
-                    variant="outline"
-                    className="hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer"
+                    className="inline-flex items-center rounded-full border border-gray-200 dark:border-gray-800 px-2.5 py-0.5 text-xs font-medium hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer"
                   >
                     {tag}
-                  </CustomBadge>
+                  </span>
                 ))}
               </div>
 
               {/* Author Bio - Mobile */}
               <div className="lg:hidden bg-gray-100 dark:bg-gray-800/50 rounded-lg p-6 mb-10">
                 <div className="flex items-center space-x-4 mb-4">
-                  <CustomAvatar
-                    src={blogPost.authorAvatar}
-                    alt={blogPost.author}
-                    fallback={blogPost.author.charAt(0)}
-                    size="lg"
-                  />
+                  <div className="relative h-16 w-16 rounded-full overflow-hidden">
+                    <Image
+                      src={blogPost.authorAvatar || "/placeholder.svg"}
+                      alt={blogPost.author}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
                   <div>
                     <h3 className="font-bold text-lg">About the Author</h3>
                     <p className="text-sm text-gray-500 dark:text-gray-400">{blogPost.author}</p>
@@ -899,18 +602,29 @@ export default function BlogPostPage() {
                 {/* Comment Form */}
                 <form onSubmit={handleCommentSubmit} className="mb-10">
                   <div className="flex items-start space-x-4">
-                    <CustomAvatar src="/placeholder.svg?height=40&width=40" alt="Your Avatar" fallback="JD" />
+                    <div className="relative h-10 w-10 rounded-full overflow-hidden">
+                      <Image
+                        src="/placeholder.svg?height=40&width=40"
+                        alt="Your Avatar"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
                     <div className="flex-1">
-                      <CustomTextarea
+                      <textarea
                         placeholder="Add a comment..."
-                        className="mb-3 resize-none"
+                        className="min-h-[80px] w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent dark:border-gray-800 dark:bg-gray-950 dark:text-gray-50 dark:placeholder:text-gray-500 dark:focus:ring-gray-300 mb-3 resize-none"
                         value={commentText}
                         onChange={(e) => setCommentText(e.target.value)}
                         rows={3}
                       />
-                      <CustomButton type="submit" disabled={!commentText.trim()}>
+                      <button
+                        type="submit"
+                        disabled={!commentText.trim()}
+                        className="inline-flex items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-white hover:bg-gray-800 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none"
+                      >
                         Post Comment
-                      </CustomButton>
+                      </button>
                     </div>
                   </div>
                 </form>
@@ -920,62 +634,72 @@ export default function BlogPostPage() {
                   {comments.map((comment) => (
                     <div key={comment.id} className="border-b border-gray-200 dark:border-gray-800 pb-8">
                       <div className="flex items-start space-x-4">
-                        <CustomAvatar src={comment.userAvatar} alt={comment.user} fallback={comment.user.charAt(0)} />
+                        <div className="relative h-10 w-10 rounded-full overflow-hidden">
+                          <Image
+                            src={comment.userAvatar || "/placeholder.svg"}
+                            alt={comment.user}
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
                         <div className="flex-1">
                           <div className="flex items-center justify-between mb-1">
                             <div>
                               <span className="font-medium">{comment.user}</span>
                               <span className="text-xs text-gray-500 dark:text-gray-400 ml-2">{comment.date}</span>
                             </div>
-                            <CustomButton variant="ghost" size="icon" className="h-8 w-8">
+                            <button className="h-8 w-8 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 flex items-center justify-center">
                               <MoreHorizontal className="h-4 w-4" />
-                            </CustomButton>
+                            </button>
                           </div>
                           <p className="text-sm mb-3">{comment.content}</p>
                           <div className="flex items-center space-x-4">
-                            <CustomButton variant="ghost" size="sm" className="h-8 text-xs">
+                            <button className="inline-flex items-center rounded-md bg-transparent px-3 py-1 text-xs font-medium hover:bg-gray-100 dark:hover:bg-gray-800">
                               <ThumbsUp className="h-3 w-3 mr-1" />
                               Like ({comment.likes})
-                            </CustomButton>
-                            <CustomButton
-                              variant="ghost"
-                              size="sm"
-                              className="h-8 text-xs"
+                            </button>
+                            <button
+                              className="inline-flex items-center rounded-md bg-transparent px-3 py-1 text-xs font-medium hover:bg-gray-100 dark:hover:bg-gray-800"
                               onClick={() => setReplyingTo(replyingTo === comment.id ? null : comment.id)}
                             >
                               <MessageSquare className="h-3 w-3 mr-1" />
                               Reply
-                            </CustomButton>
+                            </button>
                           </div>
 
                           {/* Reply Form */}
                           {replyingTo === comment.id && (
                             <div className="mt-4 flex items-start space-x-4">
-                              <CustomAvatar
-                                src="/placeholder.svg?height=32&width=32"
-                                alt="Your Avatar"
-                                fallback="JD"
-                                size="sm"
-                              />
+                              <div className="relative h-8 w-8 rounded-full overflow-hidden">
+                                <Image
+                                  src="/placeholder.svg?height=32&width=32"
+                                  alt="Your Avatar"
+                                  fill
+                                  className="object-cover"
+                                />
+                              </div>
                               <div className="flex-1">
-                                <CustomTextarea
+                                <textarea
                                   placeholder="Write a reply..."
-                                  className="mb-2 resize-none text-sm"
+                                  className="min-h-[60px] w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent dark:border-gray-800 dark:bg-gray-950 dark:text-gray-50 dark:placeholder:text-gray-500 dark:focus:ring-gray-300 mb-2 resize-none text-sm"
                                   value={replyText}
                                   onChange={(e) => setReplyText(e.target.value)}
                                   rows={2}
                                 />
                                 <div className="flex justify-end space-x-2">
-                                  <CustomButton variant="outline" size="sm" onClick={() => setReplyingTo(null)}>
+                                  <button
+                                    className="inline-flex items-center justify-center rounded-md border border-gray-200 bg-transparent px-3 py-1 text-xs font-medium hover:bg-gray-100 dark:border-gray-800 dark:hover:bg-gray-800"
+                                    onClick={() => setReplyingTo(null)}
+                                  >
                                     Cancel
-                                  </CustomButton>
-                                  <CustomButton
-                                    size="sm"
+                                  </button>
+                                  <button
+                                    className="inline-flex items-center justify-center rounded-md bg-gray-900 px-3 py-1 text-xs font-medium text-white hover:bg-gray-800 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none"
                                     onClick={() => handleReplySubmit(comment.id)}
                                     disabled={!replyText.trim()}
                                   >
                                     Reply
-                                  </CustomButton>
+                                  </button>
                                 </div>
                               </div>
                             </div>
@@ -987,12 +711,14 @@ export default function BlogPostPage() {
                               {comment.replies.map((reply) => (
                                 <div key={reply.id} className="pt-4">
                                   <div className="flex items-start space-x-3">
-                                    <CustomAvatar
-                                      src={reply.userAvatar}
-                                      alt={reply.user}
-                                      fallback={reply.user.charAt(0)}
-                                      size="sm"
-                                    />
+                                    <div className="relative h-8 w-8 rounded-full overflow-hidden">
+                                      <Image
+                                        src={reply.userAvatar || "/placeholder.svg"}
+                                        alt={reply.user}
+                                        fill
+                                        className="object-cover"
+                                      />
+                                    </div>
                                     <div className="flex-1">
                                       <div className="flex items-center justify-between mb-1">
                                         <div>
@@ -1001,15 +727,15 @@ export default function BlogPostPage() {
                                             {reply.date}
                                           </span>
                                         </div>
-                                        <CustomButton variant="ghost" size="icon" className="h-6 w-6">
+                                        <button className="h-6 w-6 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 flex items-center justify-center">
                                           <MoreHorizontal className="h-3 w-3" />
-                                        </CustomButton>
+                                        </button>
                                       </div>
                                       <p className="text-sm">{reply.content}</p>
-                                      <CustomButton variant="ghost" size="sm" className="h-7 text-xs mt-1">
+                                      <button className="inline-flex items-center rounded-md bg-transparent px-2 py-1 text-xs font-medium hover:bg-gray-100 dark:hover:bg-gray-800 mt-1">
                                         <ThumbsUp className="h-3 w-3 mr-1" />
                                         Like ({reply.likes})
-                                      </CustomButton>
+                                      </button>
                                     </div>
                                   </div>
                                 </div>
@@ -1024,41 +750,41 @@ export default function BlogPostPage() {
               </div>
             </div>
 
-         
             {/* Sidebar */}
             <div className="hidden lg:block lg:w-1/3">
               <div className="sticky top-24 space-y-8">
                 {/* Author Bio */}
-                <CustomCard>
-                  <CustomCardHeader>
+                <div className="rounded-lg border border-gray-200 bg-white shadow-sm dark:border-gray-800 dark:bg-gray-950">
+                  <div className="flex flex-col space-y-1.5 p-6">
                     <h3 className="text-xl font-bold">About the Author</h3>
-                  </CustomCardHeader>
-                  <CustomCardContent>
+                  </div>
+                  <div className="p-6 pt-0">
                     <div className="flex flex-col items-center text-center mb-4">
-                      <CustomAvatar
-                        src={blogPost.authorAvatar}
-                        alt={blogPost.author}
-                        fallback={blogPost.author.charAt(0)}
-                        size="lg"
-                        className="mb-4"
-                      />
+                      <div className="relative h-16 w-16 rounded-full overflow-hidden mb-4">
+                        <Image
+                          src={blogPost.authorAvatar || "/placeholder.svg"}
+                          alt={blogPost.author}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
                       <h3 className="font-bold text-lg">{blogPost.author}</h3>
                     </div>
                     <p className="text-sm text-gray-500 dark:text-gray-400">{blogPost.authorBio}</p>
-                  </CustomCardContent>
-                  <CustomCardFooter>
-                    <CustomButton variant="outline" className="w-full">
+                  </div>
+                  <div className="flex items-center p-6 pt-0">
+                    <button className="w-full inline-flex items-center justify-center rounded-md border border-gray-200 bg-transparent px-4 py-2 text-sm font-medium hover:bg-gray-100 dark:border-gray-800 dark:hover:bg-gray-800">
                       View Profile
-                    </CustomButton>
-                  </CustomCardFooter>
-                </CustomCard>
+                    </button>
+                  </div>
+                </div>
 
                 {/* Related Posts */}
-                <CustomCard>
-                  <CustomCardHeader>
+                <div className="rounded-lg border border-gray-200 bg-white shadow-sm dark:border-gray-800 dark:bg-gray-950">
+                  <div className="flex flex-col space-y-1.5 p-6">
                     <h3 className="text-xl font-bold">Related Posts</h3>
-                  </CustomCardHeader>
-                  <CustomCardContent className="space-y-4">
+                  </div>
+                  <div className="p-6 pt-0 space-y-4">
                     {relatedPosts.map((post) => (
                       <Link key={post.id} href={`/blog/${post.id}`}>
                         <div className="flex items-start space-x-3 group">
@@ -1079,47 +805,52 @@ export default function BlogPostPage() {
                         </div>
                       </Link>
                     ))}
-                  </CustomCardContent>
-                </CustomCard>
+                  </div>
+                </div>
 
                 {/* Popular Tags */}
-                <CustomCard>
-                  <CustomCardHeader>
+                <div className="rounded-lg border border-gray-200 bg-white shadow-sm dark:border-gray-800 dark:bg-gray-950">
+                  <div className="flex flex-col space-y-1.5 p-6">
                     <h3 className="text-xl font-bold flex items-center">
                       <Tag className="h-5 w-5 mr-2 text-gray-900 dark:text-gray-50" />
                       Popular Tags
                     </h3>
-                  </CustomCardHeader>
-                  <CustomCardContent>
+                  </div>
+                  <div className="p-6 pt-0">
                     <div className="flex flex-wrap gap-2">
                       {popularTags.map(({ tag, count }) => (
-                        <CustomBadge
+                        <span
                           key={tag}
-                          variant="outline"
-                          className="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800"
+                          className="inline-flex items-center rounded-full border border-gray-200 dark:border-gray-800 px-2.5 py-0.5 text-xs font-medium cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800"
                         >
                           {tag} ({count})
-                        </CustomBadge>
+                        </span>
                       ))}
                     </div>
-                  </CustomCardContent>
-                </CustomCard>
+                  </div>
+                </div>
 
                 {/* Newsletter */}
-                <CustomCard className="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800/50 dark:to-gray-700/50 border-none">
-                  <CustomCardHeader>
+                <div className="rounded-lg bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800/50 dark:to-gray-700/50 border-none shadow-sm">
+                  <div className="flex flex-col space-y-1.5 p-6">
                     <h3 className="text-xl font-bold">Subscribe to Newsletter</h3>
                     <p className="text-sm text-gray-500 dark:text-gray-400">
                       Get the latest posts delivered right to your inbox
                     </p>
-                  </CustomCardHeader>
-                  <CustomCardContent>
+                  </div>
+                  <div className="p-6 pt-0">
                     <div className="flex flex-col space-y-2">
-                      <CustomInput placeholder="Your email address" type="email" />
-                      <CustomButton className="w-full">Subscribe</CustomButton>
+                      <input
+                        placeholder="Your email address"
+                        type="email"
+                        className="flex h-10 w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-800 dark:bg-gray-950 dark:text-gray-50 dark:placeholder:text-gray-500 dark:focus:ring-gray-300"
+                      />
+                      <button className="inline-flex items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-white hover:bg-gray-800 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-200 w-full">
+                        Subscribe
+                      </button>
                     </div>
-                  </CustomCardContent>
-                </CustomCard>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
