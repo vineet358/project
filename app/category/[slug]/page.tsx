@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react"
 import { useParams, useRouter } from "next/navigation"
-import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import {
@@ -27,20 +26,191 @@ import {
   Zap,
   X,
 } from "lucide-react"
+import PostCard from "@/app/components/MidSection_Components/post-card"
 
-// Mock data for category posts
-const generateCategoryPosts = (category: string, count = 12) => {
-  return Array.from({ length: count }, (_, i) => ({
-    id: `${category}-${i + 1}`,
-    title: `${category.charAt(0).toUpperCase() + category.slice(1)} Article ${i + 1}`,
-    excerpt: `This is a sample article about ${category} showcasing the latest developments and insights.`,
-    image: `/placeholder.svg?height=200&width=400&text=${category.charAt(0).toUpperCase() + category.slice(1)}+${i + 1}`,
-    date: new Date(Date.now() - i * 86400000).toISOString(), // Random dates
-    author: `Author ${(i % 5) + 1}`,
-    readTime: `${Math.floor(Math.random() * 10) + 2} min read`,
-    featured: i < 3, // First 3 posts are featured
-  }))
-}
+// Mock data for blog posts
+const allBlogPosts = [
+  {
+    id: 1,
+    title: "The Future of AI in Education",
+    excerpt:
+      "Exploring how artificial intelligence is transforming the educational landscape and creating new opportunities for personalized learning experiences.",
+    image: "https://picsum.photos/600/400?random=1",
+    author: "Dr. Sarah Johnson",
+    authorAvatar: "https://picsum.photos/40/40?random=11",
+    date: "May 15, 2023",
+    category: "Technology",
+    readTime: "8 min read",
+    likes: 245,
+    comments: 32,
+    tags: ["AI", "Education", "Technology", "Future"],
+  },
+  {
+    id: 2,
+    title: "Student Success Stories: From Campus to Career",
+    excerpt:
+      "Inspiring journeys of recent graduates who found success in their chosen fields through determination and the support of mentors.",
+    image: "https://picsum.photos/600/400?random=2",
+    author: "Prof. Michael Chen",
+    authorAvatar: "https://picsum.photos/40/40?random=12",
+    date: "June 2, 2023",
+    category: "Career",
+    readTime: "6 min read",
+    likes: 189,
+    comments: 24,
+    tags: ["Career", "Success", "Students", "Inspiration"],
+  },
+  {
+    id: 3,
+    title: "Research Breakthroughs: What's New in 2023",
+    excerpt:
+      "A roundup of the most significant research developments from our institution that are pushing the boundaries of knowledge.",
+    image: "https://picsum.photos/600/400?random=3",
+    author: "Dr. Emily Rodriguez",
+    authorAvatar: "https://picsum.photos/40/40?random=13",
+    date: "June 10, 2023",
+    category: "Research",
+    readTime: "10 min read",
+    likes: 312,
+    comments: 45,
+    tags: ["Research", "Innovation", "Science", "Discovery"],
+  },
+  {
+    id: 4,
+    title: "Campus Sustainability Initiatives: Making a Difference",
+    excerpt:
+      "How our campus is working towards a greener future with innovative sustainability programs and community involvement.",
+    image: "https://picsum.photos/600/400?random=4",
+    author: "Environmental Committee",
+    authorAvatar: "https://picsum.photos/40/40?random=14",
+    date: "June 12, 2023",
+    category: "Campus Life",
+    readTime: "5 min read",
+    likes: 178,
+    comments: 19,
+    tags: ["Sustainability", "Environment", "Campus", "Green"],
+  },
+  {
+    id: 5,
+    title: "The Impact of Virtual Reality on Learning Outcomes",
+    excerpt:
+      "New study reveals significant improvements in student engagement and retention with VR-enhanced educational experiences.",
+    image: "https://picsum.photos/600/400?random=5",
+    author: "Tech Research Team",
+    authorAvatar: "https://picsum.photos/40/40?random=15",
+    date: "June 10, 2023",
+    category: "Technology",
+    readTime: "7 min read",
+    likes: 203,
+    comments: 28,
+    tags: ["VR", "Education", "Technology", "Learning"],
+  },
+  {
+    id: 6,
+    title: "Alumni Spotlight: Leading Innovation in Healthcare",
+    excerpt:
+      "Meet the graduate who's revolutionizing patient care with AI-powered diagnostics and personalized treatment plans.",
+    image: "https://picsum.photos/600/400?random=6",
+    author: "Alumni Association",
+    authorAvatar: "https://picsum.photos/40/40?random=16",
+    date: "June 8, 2023",
+    category: "Alumni",
+    readTime: "6 min read",
+    likes: 156,
+    comments: 17,
+    tags: ["Healthcare", "Innovation", "Alumni", "AI"],
+  },
+  {
+    id: 7,
+    title: "Student Mental Health: Resources and Support",
+    excerpt:
+      "Comprehensive guide to mental health services available to all students, with insights from wellness experts.",
+    image: "https://picsum.photos/600/400?random=7",
+    author: "Wellness Center",
+    authorAvatar: "https://picsum.photos/40/40?random=17",
+    date: "June 5, 2023",
+    category: "Health",
+    readTime: "4 min read",
+    likes: 289,
+    comments: 42,
+    tags: ["Mental Health", "Wellness", "Support", "Students"],
+  },
+  {
+    id: 8,
+    title: "Faculty Research Receives Major Grant Funding",
+    excerpt:
+      "Groundbreaking research project secures $2.5 million in federal funding to explore new frontiers in quantum computing.",
+    image: "https://picsum.photos/600/400?random=8",
+    author: "Research Office",
+    authorAvatar: "https://picsum.photos/40/40?random=18",
+    date: "June 3, 2023",
+    category: "Research",
+    readTime: "5 min read",
+    likes: 134,
+    comments: 15,
+    tags: ["Research", "Funding", "Quantum Computing", "Faculty"],
+  },
+  {
+    id: 9,
+    title: "International Exchange Programs Expanding in 2023",
+    excerpt:
+      "New partnerships offer students more opportunities to study abroad and gain valuable global perspectives.",
+    image: "https://picsum.photos/600/400?random=9",
+    author: "International Office",
+    authorAvatar: "https://picsum.photos/40/40?random=19",
+    date: "June 1, 2023",
+    category: "Global",
+    readTime: "6 min read",
+    likes: 167,
+    comments: 23,
+    tags: ["International", "Study Abroad", "Global", "Exchange"],
+  },
+  {
+    id: 10,
+    title: "The Art of Effective Study Habits",
+    excerpt:
+      "Expert advice on developing study habits that maximize retention and minimize stress during exam periods.",
+    image: "https://picsum.photos/600/400?random=10",
+    author: "Academic Success Center",
+    authorAvatar: "https://picsum.photos/40/40?random=20",
+    date: "May 28, 2023",
+    category: "Academics",
+    readTime: "7 min read",
+    likes: 276,
+    comments: 38,
+    tags: ["Study", "Academics", "Success", "Tips"],
+  },
+  {
+    id: 11,
+    title: "Campus Architecture: Blending Tradition with Innovation",
+    excerpt:
+      "Exploring the design philosophy behind our campus buildings and how they enhance the learning environment.",
+    image: "https://picsum.photos/600/400?random=21",
+    author: "Facilities Department",
+    authorAvatar: "https://picsum.photos/40/40?random=31",
+    date: "May 25, 2023",
+    category: "Campus Life",
+    readTime: "8 min read",
+    likes: 142,
+    comments: 19,
+    tags: ["Architecture", "Campus", "Design", "Innovation"],
+  },
+  {
+    id: 12,
+    title: "Diversity and Inclusion: Building a Stronger Community",
+    excerpt:
+      "Initiatives and programs that are fostering a more inclusive campus environment where everyone can thrive.",
+    image: "https://picsum.photos/600/400?random=22",
+    author: "Diversity Office",
+    authorAvatar: "https://picsum.photos/40/40?random=32",
+    date: "May 22, 2023",
+    category: "Community",
+    readTime: "9 min read",
+    likes: 231,
+    comments: 34,
+    tags: ["Diversity", "Inclusion", "Community", "Equity"],
+  },
+]
 
 // Category icons mapping
 const categoryIcons: Record<string, any> = {
@@ -65,23 +235,24 @@ export default function CategoryPage() {
   const categoryName = slug.charAt(0).toUpperCase() + slug.slice(1)
 
   const [posts, setPosts] = useState<any[]>([])
+  const [mounted, setMounted] = useState(false)
+
+  // Filter posts by category when component mounts or slug changes
+  useEffect(() => {
+    const categoryPosts = allBlogPosts.filter((post) => post.category.toLowerCase() === slug.toLowerCase())
+    setPosts(categoryPosts)
+    setMounted(true)
+  }, [slug])
+
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid")
   const [searchQuery, setSearchQuery] = useState("")
   const [sortBy, setSortBy] = useState<"newest" | "oldest" | "popular">("newest")
   const [showSortDropdown, setShowSortDropdown] = useState(false)
   const [showMobileFilters, setShowMobileFilters] = useState(false)
   const [filterFeatured, setFilterFeatured] = useState(false)
-  const [mounted, setMounted] = useState(false)
 
   // Get the appropriate icon component
   const IconComponent = categoryIcons[slug.toLowerCase()] || BookOpen
-
-  useEffect(() => {
-    // Generate mock posts for this category
-    const categoryPosts = generateCategoryPosts(slug, 12)
-    setPosts(categoryPosts)
-    setMounted(true)
-  }, [slug])
 
   // Filter and sort posts
   const filteredPosts = posts
@@ -117,6 +288,11 @@ export default function CategoryPage() {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside)
     }
+  }, [])
+
+  // Add useEffect to set mounted state if it's not already there
+  useEffect(() => {
+    setMounted(true)
   }, [])
 
   if (!mounted) return null
@@ -355,31 +531,16 @@ export default function CategoryPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                     {filteredPosts.map((post) => (
                       <motion.div key={post.id} whileHover={{ y: -5 }} transition={{ duration: 0.2 }}>
-                        <div className="h-full overflow-hidden border rounded-lg hover:shadow-lg transition-shadow dark:border-gray-700 dark:bg-[#1A1A1A] cursor-pointer">
-                          <div className="relative aspect-video overflow-hidden">
-                            <Image
-                              src={post.image || "/placeholder.svg"}
-                              alt={post.title}
-                              fill
-                              className="object-cover transition-transform duration-500 hover:scale-105"
-                            />
-                            {post.featured && (
-                              <div className="absolute top-2 right-2">
-                                <span className="px-2 py-1 text-xs bg-purple-100 text-purple-800 dark:bg-[#00e5FF]/20 dark:text-[#00e5FF] rounded-full">
-                                  Featured
-                                </span>
-                              </div>
-                            )}
-                          </div>
-                          <div className="p-4">
-                            <h3 className="text-lg font-semibold line-clamp-1 dark:text-white">{post.title}</h3>
-                            <p className="text-sm text-gray-500 line-clamp-2 mt-2 dark:text-gray-400">{post.excerpt}</p>
-                            <div className="flex items-center justify-between mt-4 text-xs text-gray-500 dark:text-gray-400">
-                              <span>{new Date(post.date).toLocaleDateString()}</span>
-                              <span>{post.readTime}</span>
-                            </div>
-                          </div>
-                        </div>
+                        <PostCard
+                          id={post.id.toString()}
+                          category={post.category}
+                          title={post.title}
+                          author={post.author}
+                          date={post.date}
+                          readTime={post.readTime}
+                          excerpt={post.excerpt}
+                          imageSrc={post.image}
+                        />
                       </motion.div>
                     ))}
                   </div>
@@ -387,40 +548,16 @@ export default function CategoryPage() {
                   <div className="space-y-4">
                     {filteredPosts.map((post) => (
                       <motion.div key={post.id} whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                        <div className="overflow-hidden border rounded-lg hover:shadow-md transition-shadow dark:border-gray-700 dark:bg-[#1A1A1A] cursor-pointer">
-                          <div className="flex flex-col sm:flex-row">
-                            <div className="relative sm:w-48 h-40">
-                              <Image
-                                src={post.image || "/placeholder.svg"}
-                                alt={post.title}
-                                fill
-                                className="object-cover"
-                              />
-                            </div>
-                            <div className="p-4 flex-1">
-                              <div className="flex items-center justify-between">
-                                <h3 className="text-lg font-semibold dark:text-white">{post.title}</h3>
-                                {post.featured && (
-                                  <span className="px-2 py-1 text-xs bg-purple-100 text-purple-800 dark:bg-[#00e5FF]/20 dark:text-[#00e5FF] rounded-full">
-                                    Featured
-                                  </span>
-                                )}
-                              </div>
-                              <p className="text-gray-500 text-sm mt-1 dark:text-gray-400 line-clamp-2">
-                                {post.excerpt}
-                              </p>
-                              <div className="flex items-center justify-between mt-4 text-xs text-gray-500 dark:text-gray-400">
-                                <div className="flex items-center gap-4">
-                                  <span>{new Date(post.date).toLocaleDateString()}</span>
-                                  <span>{post.readTime}</span>
-                                </div>
-                                <button className="text-sm text-purple-600 dark:text-[#00e5FF] hover:underline">
-                                  Read More
-                                </button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                        <PostCard
+                          id={post.id.toString()}
+                          category={post.category}
+                          title={post.title}
+                          author={post.author}
+                          date={post.date}
+                          readTime={post.readTime}
+                          excerpt={post.excerpt}
+                          imageSrc={post.image}
+                        />
                       </motion.div>
                     ))}
                   </div>

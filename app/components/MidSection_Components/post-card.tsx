@@ -1,7 +1,9 @@
 import Image from "next/image";
 import { Heart, MessageSquare, Share2 } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 interface PostCardProps {
+  id:string;
   category: string;
   title: string;
   author: string;
@@ -12,6 +14,7 @@ interface PostCardProps {
 }
 
 export default function PostCard({
+  id,
   category,
   title,
   author,
@@ -20,6 +23,11 @@ export default function PostCard({
   excerpt,
   imageSrc,
 }: PostCardProps) {
+  const router = useRouter(); // Initialize router
+
+  const handleReadMore = () => {
+    router.push(`/blog/${id}`); // Navigate to dynamic route
+  };
   return (
     <div className="bg-[#F4F4F4] dark:bg-[#1A1A1A] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 h-full flex flex-col border border-[#E0E0E0] dark:border-[#333333]">
       {imageSrc && (
@@ -49,9 +57,12 @@ export default function PostCard({
           {excerpt}
         </p>
         <div className="flex justify-between items-center mt-auto">
-          <button className="text-[#0077ff] dark:text-[#8A2BE2] hover:underline transition-all font-bold">
-            Read More
-          </button>
+        <button 
+          onClick={handleReadMore}
+          className="text-[#0077ff] dark:text-[#8A2BE2] hover:underline transition-all font-bold"
+        >
+          Read More
+        </button>
           <div className="flex gap-2">
             {[
               { icon: Heart, label: "Like" },
