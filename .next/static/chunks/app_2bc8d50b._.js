@@ -13,10 +13,18 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$imag
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$heart$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Heart$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/heart.js [app-client] (ecmascript) <export default as Heart>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$message$2d$square$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__MessageSquare$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/message-square.js [app-client] (ecmascript) <export default as MessageSquare>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$share$2d$2$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Share2$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/share-2.js [app-client] (ecmascript) <export default as Share2>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/navigation.js [app-client] (ecmascript)");
+;
+var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
-function PostCard({ category, title, author, date, readTime, excerpt, imageSrc }) {
+function PostCard({ id, category, title, author, date, readTime, excerpt, imageSrc }) {
+    _s();
+    const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"])(); // Initialize router
+    const handleReadMore = ()=>{
+        router.push(`/blog/${id}`); // Navigate to dynamic route
+    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "bg-[#F4F4F4] dark:bg-[#1A1A1A] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 h-full flex flex-col border border-[#E0E0E0] dark:border-[#333333]",
         children: [
@@ -30,14 +38,14 @@ function PostCard({ category, title, author, date, readTime, excerpt, imageSrc }
                         className: "object-cover"
                     }, void 0, false, {
                         fileName: "[project]/app/components/MidSection_Components/post-card.tsx",
-                        lineNumber: 27,
+                        lineNumber: 35,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
                     }, void 0, false, {
                         fileName: "[project]/app/components/MidSection_Components/post-card.tsx",
-                        lineNumber: 28,
+                        lineNumber: 36,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -45,13 +53,13 @@ function PostCard({ category, title, author, date, readTime, excerpt, imageSrc }
                         children: category
                     }, void 0, false, {
                         fileName: "[project]/app/components/MidSection_Components/post-card.tsx",
-                        lineNumber: 29,
+                        lineNumber: 37,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/components/MidSection_Components/post-card.tsx",
-                lineNumber: 26,
+                lineNumber: 34,
                 columnNumber: 9
             }, this),
             !imageSrc && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -61,12 +69,12 @@ function PostCard({ category, title, author, date, readTime, excerpt, imageSrc }
                     children: category
                 }, void 0, false, {
                     fileName: "[project]/app/components/MidSection_Components/post-card.tsx",
-                    lineNumber: 36,
+                    lineNumber: 44,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/components/MidSection_Components/post-card.tsx",
-                lineNumber: 35,
+                lineNumber: 43,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -77,7 +85,7 @@ function PostCard({ category, title, author, date, readTime, excerpt, imageSrc }
                         children: title
                     }, void 0, false, {
                         fileName: "[project]/app/components/MidSection_Components/post-card.tsx",
-                        lineNumber: 42,
+                        lineNumber: 50,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -89,7 +97,7 @@ function PostCard({ category, title, author, date, readTime, excerpt, imageSrc }
                                 children: author
                             }, void 0, false, {
                                 fileName: "[project]/app/components/MidSection_Components/post-card.tsx",
-                                lineNumber: 46,
+                                lineNumber: 54,
                                 columnNumber: 14
                             }, this),
                             " • ",
@@ -100,7 +108,7 @@ function PostCard({ category, title, author, date, readTime, excerpt, imageSrc }
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/components/MidSection_Components/post-card.tsx",
-                        lineNumber: 45,
+                        lineNumber: 53,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -108,19 +116,20 @@ function PostCard({ category, title, author, date, readTime, excerpt, imageSrc }
                         children: excerpt
                     }, void 0, false, {
                         fileName: "[project]/app/components/MidSection_Components/post-card.tsx",
-                        lineNumber: 48,
+                        lineNumber: 56,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "flex justify-between items-center mt-auto",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                onClick: handleReadMore,
                                 className: "text-[#0077ff] dark:text-[#8A2BE2] hover:underline transition-all font-bold",
                                 children: "Read More"
                             }, void 0, false, {
                                 fileName: "[project]/app/components/MidSection_Components/post-card.tsx",
-                                lineNumber: 52,
-                                columnNumber: 11
+                                lineNumber: 60,
+                                columnNumber: 9
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "flex gap-2",
@@ -145,38 +154,43 @@ function PostCard({ category, title, author, date, readTime, excerpt, imageSrc }
                                             className: "text-[#555555] dark:text-[#CCCCCC] transition-transform duration-200 hover:scale-110"
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/MidSection_Components/post-card.tsx",
-                                            lineNumber: 66,
+                                            lineNumber: 77,
                                             columnNumber: 17
                                         }, this)
                                     }, label, false, {
                                         fileName: "[project]/app/components/MidSection_Components/post-card.tsx",
-                                        lineNumber: 61,
+                                        lineNumber: 72,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/app/components/MidSection_Components/post-card.tsx",
-                                lineNumber: 55,
+                                lineNumber: 66,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/components/MidSection_Components/post-card.tsx",
-                        lineNumber: 51,
+                        lineNumber: 59,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/components/MidSection_Components/post-card.tsx",
-                lineNumber: 41,
+                lineNumber: 49,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/components/MidSection_Components/post-card.tsx",
-        lineNumber: 24,
+        lineNumber: 32,
         columnNumber: 5
     }, this);
 }
+_s(PostCard, "fN7XvhJ+p5oE6+Xlo0NJmXpxjC8=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"]
+    ];
+});
 _c = PostCard;
 var _c;
 __turbopack_context__.k.register(_c, "PostCard");

@@ -6,6 +6,7 @@ import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
+import { useRouter } from 'next/navigation';
 import {
   Bell,
   Menu,
@@ -122,6 +123,12 @@ export default function Header() {
   const profileRef = useRef<HTMLDivElement>(null)
   const notificationRef = useRef<HTMLDivElement>(null)
 
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push('/notifications');
+  };
+
   // Handle search functionality
   useEffect(() => {
     if (searchQuery.length > 0) {
@@ -232,7 +239,7 @@ export default function Header() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <Link href="/" className="flex items-center">
+            <Link href="/landing_homepage" className="flex items-center">
               <div className="relative h-10 w-10 overflow-hidden rounded-lg bg-gradient-to-br from-indigo-500 to-blue-600 p-1">
                 <motion.div
                   animate={{ rotate: 360 }}
@@ -423,6 +430,7 @@ export default function Header() {
                                         </div>
                                       )}
                                     </div>
+                                    
                                   </motion.div>
                                 ))
                               ) : (
@@ -430,6 +438,11 @@ export default function Header() {
                                   No notifications yet
                                 </div>
                               )}
+                            </div>
+                            <div className="p-2 border-t-[0.5px]">
+                              <button className="cursor-pointer dark:hover:text-blue-500 text-sm w-full justify-center" onClick={handleClick}>
+                                View all notifications
+                              </button>
                             </div>
                           </motion.div>
                         )}
