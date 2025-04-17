@@ -1740,6 +1740,11 @@
     border-top-width: 1px;
   }
 
+  .border-t-\[0\.5px\] {
+    border-top-style: var(--tw-border-style);
+    border-top-width: .5px;
+  }
+
   .border-b {
     border-bottom-style: var(--tw-border-style);
     border-bottom-width: 1px;

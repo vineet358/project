@@ -423,6 +423,7 @@ export default function Header() {
                                         </div>
                                       )}
                                     </div>
+                                    
                                   </motion.div>
                                 ))
                               ) : (
@@ -430,6 +431,11 @@ export default function Header() {
                                   No notifications yet
                                 </div>
                               )}
+                            </div>
+                            <div className="p-2 border-t-[0.5px]">
+                              <button className="cursor-pointer dark:hover:text-blue-500 text-sm w-full justify-center">
+                                View all notifications
+                              </button>
                             </div>
                           </motion.div>
                         )}
