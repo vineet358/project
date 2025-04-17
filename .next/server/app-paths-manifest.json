@@ -1,5 +1,11 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
+  "/about/page": "app/about/page.js",
+  "/blogs/page": "app/blogs/page.js",
+  "/categories/page": "app/categories/page.js",
+  "/contact/page": "app/contact/page.js",
   "/landing_homepage/page": "app/landing_homepage/page.js",
-  "/page": "app/page.js"
+  "/notifications/page": "app/notifications/page.js",
+  "/page": "app/page.js",
+  "/settings/page": "app/settings/page.js"
 }
