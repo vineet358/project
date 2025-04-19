@@ -9,64 +9,72 @@ __turbopack_context__.s({
     "default": (()=>Settings)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
-// pages/settings.tsx
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/navigation.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$moon$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Moon$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/moon.js [app-ssr] (ecmascript) <export default as Moon>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$sun$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Sun$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/sun.js [app-ssr] (ecmascript) <export default as Sun>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$user$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__User$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/user.js [app-ssr] (ecmascript) <export default as User>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$bell$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Bell$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/bell.js [app-ssr] (ecmascript) <export default as Bell>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$lock$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Lock$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/lock.js [app-ssr] (ecmascript) <export default as Lock>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$palette$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Palette$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/palette.js [app-ssr] (ecmascript) <export default as Palette>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$layers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Layers$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/layers.js [app-ssr] (ecmascript) <export default as Layers>");
 "use client";
+;
 ;
 ;
 ;
 // Mock data for available categories and languages
 const availableCategories = [
-    'Technology',
-    'Travel',
-    'Food',
-    'Fashion',
-    'Health',
-    'Fitness',
-    'Business',
-    'Finance',
-    'Art',
-    'Science'
+    "Technology",
+    "Travel",
+    "Food",
+    "Fashion",
+    "Health",
+    "Fitness",
+    "Business",
+    "Finance",
+    "Art",
+    "Science"
 ];
 const availableLanguages = [
     {
-        code: 'en',
-        name: 'English'
+        code: "en",
+        name: "English"
     },
     {
-        code: 'es',
-        name: 'Spanish'
+        code: "es",
+        name: "Spanish"
     },
     {
-        code: 'fr',
-        name: 'French'
+        code: "fr",
+        name: "French"
     },
     {
-        code: 'de',
-        name: 'German'
+        code: "de",
+        name: "German"
     },
     {
-        code: 'ja',
-        name: 'Japanese'
+        code: "ja",
+        name: "Japanese"
     },
     {
-        code: 'zh',
-        name: 'Chinese'
+        code: "zh",
+        name: "Chinese"
     }
 ];
 function Settings() {
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRouter"])();
-    const [activeTab, setActiveTab] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('profile');
+    const [activeTab, setActiveTab] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("profile");
     const [isSaving, setIsSaving] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
-    const [saveMessage, setSaveMessage] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('');
+    const [saveMessage, setSaveMessage] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
     const [imagePreview, setImagePreview] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [theme, setTheme] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("system");
     // Initialize with default settings
     const [settings, setSettings] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])({
-        displayName: 'John Doe',
-        email: 'johndoe@example.com',
-        bio: 'I love writing about technology and travel.',
-        profilePicture: '/default-avatar.png',
+        displayName: "John Doe",
+        email: "johndoe@example.com",
+        bio: "I love writing about technology and travel.",
+        profilePicture: "/default-avatar.png",
         notificationPreferences: {
             emailNotifications: true,
             pushNotifications: true,
@@ -75,24 +83,43 @@ function Settings() {
             newFollowers: true
         },
         privacySettings: {
-            profileVisibility: 'public',
+            profileVisibility: "public",
             showEmail: false,
             allowComments: true,
             allowSharing: true
         },
         appearanceSettings: {
-            theme: 'system',
-            fontSize: 'medium',
+            theme: "system",
+            fontSize: "medium",
             compactView: false
         },
         contentPreferences: {
             categories: [
-                'Technology',
-                'Travel'
+                "Technology",
+                "Travel"
             ],
-            language: 'en'
+            language: "en"
         }
     });
+    // Effect to update theme when settings change
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        setTheme(settings.appearanceSettings.theme);
+        // Apply theme to document
+        if (settings.appearanceSettings.theme === "dark") {
+            document.documentElement.classList.add("dark");
+        } else if (settings.appearanceSettings.theme === "light") {
+            document.documentElement.classList.remove("dark");
+        } else {
+            // System preference
+            if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                document.documentElement.classList.add("dark");
+            } else {
+                document.documentElement.classList.remove("dark");
+            }
+        }
+    }, [
+        settings.appearanceSettings.theme
+    ]);
     // Handle input changes
     const handleInputChange = (e)=>{
         const { name, value } = e.target;
@@ -164,18 +191,18 @@ function Settings() {
                     profilePicture: imagePreview
                 });
             }
-            setSaveMessage('Settings saved successfully!');
-            setTimeout(()=>setSaveMessage(''), 3000);
+            setSaveMessage("Settings saved successfully!");
+            setTimeout(()=>setSaveMessage(""), 3000);
         } catch (error) {
-            setSaveMessage('Error saving settings. Please try again.');
+            setSaveMessage("Error saving settings. Please try again.");
         } finally{
             setIsSaving(false);
         }
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "min-h-screen bg-gray-50",
+        className: "min-h-screen bg-gray-50 dark:bg-[#1A1A1A] text-gray-900 dark:text-gray-100 transition-colors duration-200",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "max-w-7xl mx-auto py-10 sm:px-6 lg:px-8",
+            className: "max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:px-8",
             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "md:grid md:grid-cols-3 md:gap-6",
                 children: [
@@ -185,115 +212,37 @@ function Settings() {
                             className: "px-4 sm:px-0",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                    className: "text-lg font-medium leading-6 text-gray-900",
+                                    className: "text-2xl font-bold leading-7 text-gray-900 dark:text-white",
                                     children: "Settings"
                                 }, void 0, false, {
                                     fileName: "[project]/app/settings/page.tsx",
-                                    lineNumber: 182,
+                                    lineNumber: 210,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    className: "mt-1 text-sm text-gray-600",
+                                    className: "mt-2 text-sm text-gray-600 dark:text-gray-400",
                                     children: "Manage your account settings and preferences."
                                 }, void 0, false, {
                                     fileName: "[project]/app/settings/page.tsx",
-                                    lineNumber: 183,
+                                    lineNumber: 211,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
-                                    className: "mt-5 space-y-1",
+                                    className: "mt-8 space-y-2",
                                     "aria-label": "Settings",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                            onClick: ()=>setActiveTab('profile'),
-                                            className: `${activeTab === 'profile' ? 'bg-indigo-50 border-indigo-500 text-indigo-700' : 'border-transparent text-gray-600 hover:bg-gray-50 hover:text-gray-900'} flex items-center px-3 py-2 text-sm font-medium border-l-4 w-full text-left`,
+                                            onClick: ()=>setActiveTab("profile"),
+                                            className: `${activeTab === "profile" ? "bg-cyan-50 dark:bg-[#00e5FF]/10 border-[#00e5FF] text-[#00e5FF] dark:text-[#00e5FF]" : "border-transparent text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-200"} flex items-center px-4 py-3 text-sm font-medium border-l-4 w-full text-left rounded-r-md transition-all duration-200`,
                                             children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                                                    className: "mr-3 h-5 w-5",
-                                                    xmlns: "http://www.w3.org/2000/svg",
-                                                    fill: "none",
-                                                    viewBox: "0 0 24 24",
-                                                    stroke: "currentColor",
-                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                                                        strokeLinecap: "round",
-                                                        strokeLinejoin: "round",
-                                                        strokeWidth: 2,
-                                                        d: "M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/app/settings/page.tsx",
-                                                        lineNumber: 198,
-                                                        columnNumber: 21
-                                                    }, this)
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/settings/page.tsx",
-                                                    lineNumber: 197,
-                                                    columnNumber: 19
-                                                }, this),
-                                                "Profile"
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/app/settings/page.tsx",
-                                            lineNumber: 189,
-                                            columnNumber: 17
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                            onClick: ()=>setActiveTab('notifications'),
-                                            className: `${activeTab === 'notifications' ? 'bg-indigo-50 border-indigo-500 text-indigo-700' : 'border-transparent text-gray-600 hover:bg-gray-50 hover:text-gray-900'} flex items-center px-3 py-2 text-sm font-medium border-l-4 w-full text-left`,
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                                                    className: "mr-3 h-5 w-5",
-                                                    xmlns: "http://www.w3.org/2000/svg",
-                                                    fill: "none",
-                                                    viewBox: "0 0 24 24",
-                                                    stroke: "currentColor",
-                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                                                        strokeLinecap: "round",
-                                                        strokeLinejoin: "round",
-                                                        strokeWidth: 2,
-                                                        d: "M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/app/settings/page.tsx",
-                                                        lineNumber: 212,
-                                                        columnNumber: 21
-                                                    }, this)
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/settings/page.tsx",
-                                                    lineNumber: 211,
-                                                    columnNumber: 19
-                                                }, this),
-                                                "Notifications"
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/app/settings/page.tsx",
-                                            lineNumber: 203,
-                                            columnNumber: 17
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                            onClick: ()=>setActiveTab('privacy'),
-                                            className: `${activeTab === 'privacy' ? 'bg-indigo-50 border-indigo-500 text-indigo-700' : 'border-transparent text-gray-600 hover:bg-gray-50 hover:text-gray-900'} flex items-center px-3 py-2 text-sm font-medium border-l-4 w-full text-left`,
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                                                    className: "mr-3 h-5 w-5",
-                                                    xmlns: "http://www.w3.org/2000/svg",
-                                                    fill: "none",
-                                                    viewBox: "0 0 24 24",
-                                                    stroke: "currentColor",
-                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                                                        strokeLinecap: "round",
-                                                        strokeLinejoin: "round",
-                                                        strokeWidth: 2,
-                                                        d: "M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/app/settings/page.tsx",
-                                                        lineNumber: 226,
-                                                        columnNumber: 21
-                                                    }, this)
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$user$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__User$3e$__["User"], {
+                                                    className: "mr-3 h-5 w-5"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/settings/page.tsx",
                                                     lineNumber: 225,
                                                     columnNumber: 19
                                                 }, this),
-                                                "Privacy & Security"
+                                                "Profile"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/settings/page.tsx",
@@ -301,103 +250,111 @@ function Settings() {
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                            onClick: ()=>setActiveTab('appearance'),
-                                            className: `${activeTab === 'appearance' ? 'bg-indigo-50 border-indigo-500 text-indigo-700' : 'border-transparent text-gray-600 hover:bg-gray-50 hover:text-gray-900'} flex items-center px-3 py-2 text-sm font-medium border-l-4 w-full text-left`,
+                                            onClick: ()=>setActiveTab("notifications"),
+                                            className: `${activeTab === "notifications" ? "bg-cyan-50 dark:bg-[#00e5FF]/10 border-[#00e5FF] text-[#00e5FF] dark:text-[#00e5FF]" : "border-transparent text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-200"} flex items-center px-4 py-3 text-sm font-medium border-l-4 w-full text-left rounded-r-md transition-all duration-200`,
                                             children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                                                    className: "mr-3 h-5 w-5",
-                                                    xmlns: "http://www.w3.org/2000/svg",
-                                                    fill: "none",
-                                                    viewBox: "0 0 24 24",
-                                                    stroke: "currentColor",
-                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                                                        strokeLinecap: "round",
-                                                        strokeLinejoin: "round",
-                                                        strokeWidth: 2,
-                                                        d: "M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/app/settings/page.tsx",
-                                                        lineNumber: 240,
-                                                        columnNumber: 21
-                                                    }, this)
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$bell$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Bell$3e$__["Bell"], {
+                                                    className: "mr-3 h-5 w-5"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/settings/page.tsx",
-                                                    lineNumber: 239,
+                                                    lineNumber: 237,
+                                                    columnNumber: 19
+                                                }, this),
+                                                "Notifications"
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/app/settings/page.tsx",
+                                            lineNumber: 229,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                            onClick: ()=>setActiveTab("privacy"),
+                                            className: `${activeTab === "privacy" ? "bg-cyan-50 dark:bg-[#00e5FF]/10 border-[#00e5FF] text-[#00e5FF] dark:text-[#00e5FF]" : "border-transparent text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-200"} flex items-center px-4 py-3 text-sm font-medium border-l-4 w-full text-left rounded-r-md transition-all duration-200`,
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$lock$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Lock$3e$__["Lock"], {
+                                                    className: "mr-3 h-5 w-5"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/settings/page.tsx",
+                                                    lineNumber: 249,
+                                                    columnNumber: 19
+                                                }, this),
+                                                "Privacy & Security"
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/app/settings/page.tsx",
+                                            lineNumber: 241,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                            onClick: ()=>setActiveTab("appearance"),
+                                            className: `${activeTab === "appearance" ? "bg-cyan-50 dark:bg-[#00e5FF]/10 border-[#00e5FF] text-[#00e5FF] dark:text-[#00e5FF]" : "border-transparent text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-200"} flex items-center px-4 py-3 text-sm font-medium border-l-4 w-full text-left rounded-r-md transition-all duration-200`,
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$palette$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Palette$3e$__["Palette"], {
+                                                    className: "mr-3 h-5 w-5"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/settings/page.tsx",
+                                                    lineNumber: 261,
                                                     columnNumber: 19
                                                 }, this),
                                                 "Appearance"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/settings/page.tsx",
-                                            lineNumber: 231,
+                                            lineNumber: 253,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                            onClick: ()=>setActiveTab('content'),
-                                            className: `${activeTab === 'content' ? 'bg-indigo-50 border-indigo-500 text-indigo-700' : 'border-transparent text-gray-600 hover:bg-gray-50 hover:text-gray-900'} flex items-center px-3 py-2 text-sm font-medium border-l-4 w-full text-left`,
+                                            onClick: ()=>setActiveTab("content"),
+                                            className: `${activeTab === "content" ? "bg-cyan-50 dark:bg-[#00e5FF]/10 border-[#00e5FF] text-[#00e5FF] dark:text-[#00e5FF]" : "border-transparent text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-200"} flex items-center px-4 py-3 text-sm font-medium border-l-4 w-full text-left rounded-r-md transition-all duration-200`,
                                             children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                                                    className: "mr-3 h-5 w-5",
-                                                    xmlns: "http://www.w3.org/2000/svg",
-                                                    fill: "none",
-                                                    viewBox: "0 0 24 24",
-                                                    stroke: "currentColor",
-                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                                                        strokeLinecap: "round",
-                                                        strokeLinejoin: "round",
-                                                        strokeWidth: 2,
-                                                        d: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/app/settings/page.tsx",
-                                                        lineNumber: 254,
-                                                        columnNumber: 21
-                                                    }, this)
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$layers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Layers$3e$__["Layers"], {
+                                                    className: "mr-3 h-5 w-5"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/settings/page.tsx",
-                                                    lineNumber: 253,
+                                                    lineNumber: 273,
                                                     columnNumber: 19
                                                 }, this),
                                                 "Content Preferences"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/settings/page.tsx",
-                                            lineNumber: 245,
+                                            lineNumber: 265,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/settings/page.tsx",
-                                    lineNumber: 188,
+                                    lineNumber: 216,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/settings/page.tsx",
-                            lineNumber: 181,
+                            lineNumber: 209,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/settings/page.tsx",
-                        lineNumber: 180,
+                        lineNumber: 208,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "mt-5 md:mt-0 md:col-span-2",
+                        className: "mt-8 md:mt-0 md:col-span-2",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "shadow sm:rounded-md",
+                            className: "shadow overflow-hidden sm:rounded-lg",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "px-4 py-5 bg-white sm:p-6",
+                                    className: "px-6 py-6 bg-white dark:bg-[#0a0a0a] sm:p-6 rounded-xl",
                                     children: [
-                                        activeTab === 'profile' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        activeTab === "profile" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "space-y-6",
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                    className: "text-lg font-medium leading-6 text-gray-900",
+                                                    className: "text-xl font-semibold leading-6 text-gray-900 dark:text-white",
                                                     children: "Profile Information"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/settings/page.tsx",
-                                                    lineNumber: 268,
+                                                    lineNumber: 286,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -408,11 +365,11 @@ function Settings() {
                                                             children: [
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                                                     htmlFor: "displayName",
-                                                                    className: "block text-sm font-medium text-gray-700",
+                                                                    className: "block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1",
                                                                     children: "Display Name"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/settings/page.tsx",
-                                                                    lineNumber: 271,
+                                                                    lineNumber: 291,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -421,16 +378,16 @@ function Settings() {
                                                                     id: "displayName",
                                                                     value: settings.displayName,
                                                                     onChange: handleInputChange,
-                                                                    className: "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                                                    className: "px-4 py-2.5 mt-1 focus:ring-[#00e5FF] focus:border-[#00e5FF] block w-full shadow-sm sm:text-sm border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/settings/page.tsx",
-                                                                    lineNumber: 274,
+                                                                    lineNumber: 297,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/settings/page.tsx",
-                                                            lineNumber: 270,
+                                                            lineNumber: 290,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -438,11 +395,11 @@ function Settings() {
                                                             children: [
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                                                     htmlFor: "email",
-                                                                    className: "block text-sm font-medium text-gray-700",
+                                                                    className: "block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1",
                                                                     children: "Email Address"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/settings/page.tsx",
-                                                                    lineNumber: 285,
+                                                                    lineNumber: 308,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -451,16 +408,16 @@ function Settings() {
                                                                     id: "email",
                                                                     value: settings.email,
                                                                     onChange: handleInputChange,
-                                                                    className: "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                                                    className: "px-4 py-2.5 mt-1 focus:ring-[#00e5FF] focus:border-[#00e5FF] block w-full shadow-sm sm:text-sm border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/settings/page.tsx",
-                                                                    lineNumber: 288,
+                                                                    lineNumber: 314,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/settings/page.tsx",
-                                                            lineNumber: 284,
+                                                            lineNumber: 307,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -468,11 +425,11 @@ function Settings() {
                                                             children: [
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                                                     htmlFor: "bio",
-                                                                    className: "block text-sm font-medium text-gray-700",
+                                                                    className: "block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1",
                                                                     children: "Bio"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/settings/page.tsx",
-                                                                    lineNumber: 299,
+                                                                    lineNumber: 325,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
@@ -481,35 +438,35 @@ function Settings() {
                                                                     rows: 3,
                                                                     value: settings.bio,
                                                                     onChange: handleInputChange,
-                                                                    className: "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                                                    className: "px-4 py-2.5 mt-1 focus:ring-[#00e5FF] focus:border-[#00e5FF] block w-full shadow-sm sm:text-sm border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/settings/page.tsx",
-                                                                    lineNumber: 302,
+                                                                    lineNumber: 331,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                    className: "mt-2 text-sm text-gray-500",
+                                                                    className: "mt-2 text-sm text-gray-500 dark:text-gray-400",
                                                                     children: "Brief description for your profile. URLs are hyperlinked."
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/settings/page.tsx",
-                                                                    lineNumber: 310,
+                                                                    lineNumber: 339,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/settings/page.tsx",
-                                                            lineNumber: 298,
+                                                            lineNumber: 324,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                             className: "col-span-6",
                                                             children: [
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                                                    className: "block text-sm font-medium text-gray-700",
+                                                                    className: "block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1",
                                                                     children: "Profile Picture"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/settings/page.tsx",
-                                                                    lineNumber: 316,
+                                                                    lineNumber: 345,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -518,46 +475,46 @@ function Settings() {
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                             className: "flex-shrink-0",
                                                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                                className: "relative h-16 w-16 rounded-full overflow-hidden bg-gray-100",
+                                                                                className: "relative h-20 w-20 rounded-full overflow-hidden bg-gray-100 dark:bg-gray-700 border-2 border-white dark:border-gray-600 shadow-sm",
                                                                                 children: imagePreview ? // eslint-disable-next-line @next/next/no-img-element
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                                                                    src: imagePreview,
+                                                                                    src: imagePreview || "/placeholder.svg",
                                                                                     alt: "Profile preview",
                                                                                     className: "h-full w-full object-cover"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/app/settings/page.tsx",
-                                                                                    lineNumber: 324,
+                                                                                    lineNumber: 353,
                                                                                     columnNumber: 33
                                                                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                                    className: "h-full w-full flex items-center justify-center text-indigo-600 text-xl font-bold",
+                                                                                    className: "h-full w-full flex items-center justify-center text-[#00e5FF] dark:text-[#00e5FF] text-xl font-bold",
                                                                                     children: settings.displayName.charAt(0)
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/app/settings/page.tsx",
-                                                                                    lineNumber: 326,
+                                                                                    lineNumber: 359,
                                                                                     columnNumber: 33
                                                                                 }, this)
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/settings/page.tsx",
-                                                                                lineNumber: 321,
+                                                                                lineNumber: 350,
                                                                                 columnNumber: 29
                                                                             }, this)
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/settings/page.tsx",
-                                                                            lineNumber: 320,
+                                                                            lineNumber: 349,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                            className: "flex text-sm text-gray-600",
+                                                                            className: "flex text-sm text-gray-600 dark:text-gray-400",
                                                                             children: [
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                                                                     htmlFor: "profile-photo",
-                                                                                    className: "relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none",
+                                                                                    className: "relative cursor-pointer bg-white dark:bg-gray-700 rounded-md font-medium text-[#00e5FF] dark:text-[#00e5FF] hover:text-[#00e5FF]/80 dark:hover:text-[#00e5FF]/80 focus-within:outline-none px-4 py-2 border border-gray-300 dark:border-gray-600 shadow-sm transition-colors",
                                                                                     children: [
                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                                             children: "Change"
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/app/settings/page.tsx",
-                                                                                            lineNumber: 337,
+                                                                                            lineNumber: 370,
                                                                                             columnNumber: 31
                                                                                         }, this),
                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -569,66 +526,66 @@ function Settings() {
                                                                                             onChange: handleFileChange
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/app/settings/page.tsx",
-                                                                                            lineNumber: 338,
+                                                                                            lineNumber: 371,
                                                                                             columnNumber: 31
                                                                                         }, this)
                                                                                     ]
                                                                                 }, void 0, true, {
                                                                                     fileName: "[project]/app/settings/page.tsx",
-                                                                                    lineNumber: 333,
+                                                                                    lineNumber: 366,
                                                                                     columnNumber: 29
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                                    className: "pl-1",
+                                                                                    className: "pl-3 self-center",
                                                                                     children: "or drag and drop"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/app/settings/page.tsx",
-                                                                                    lineNumber: 347,
+                                                                                    lineNumber: 380,
                                                                                     columnNumber: 29
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/app/settings/page.tsx",
-                                                                            lineNumber: 332,
+                                                                            lineNumber: 365,
                                                                             columnNumber: 27
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/app/settings/page.tsx",
-                                                                    lineNumber: 319,
+                                                                    lineNumber: 348,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/settings/page.tsx",
-                                                            lineNumber: 315,
+                                                            lineNumber: 344,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/settings/page.tsx",
-                                                    lineNumber: 269,
+                                                    lineNumber: 289,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/settings/page.tsx",
-                                            lineNumber: 267,
+                                            lineNumber: 285,
                                             columnNumber: 19
                                         }, this),
-                                        activeTab === 'notifications' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        activeTab === "notifications" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "space-y-6",
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                    className: "text-lg font-medium leading-6 text-gray-900",
+                                                    className: "text-xl font-semibold leading-6 text-gray-900 dark:text-white",
                                                     children: "Notification Preferences"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/settings/page.tsx",
-                                                    lineNumber: 358,
+                                                    lineNumber: 391,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "space-y-4",
+                                                    className: "space-y-5",
                                                     children: [
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                             className: "flex items-start",
@@ -640,16 +597,16 @@ function Settings() {
                                                                         name: "emailNotifications",
                                                                         type: "checkbox",
                                                                         checked: settings.notificationPreferences.emailNotifications,
-                                                                        onChange: ()=>handleCheckboxChange('notificationPreferences', 'emailNotifications'),
-                                                                        className: "focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                                                                        onChange: ()=>handleCheckboxChange("notificationPreferences", "emailNotifications"),
+                                                                        className: "focus:ring-[#00e5FF] h-5 w-5 text-[#00e5FF] border-gray-300 dark:border-gray-600 rounded"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/settings/page.tsx",
-                                                                        lineNumber: 362,
+                                                                        lineNumber: 397,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/settings/page.tsx",
-                                                                    lineNumber: 361,
+                                                                    lineNumber: 396,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -657,31 +614,31 @@ function Settings() {
                                                                     children: [
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                                                             htmlFor: "emailNotifications",
-                                                                            className: "font-medium text-gray-700",
+                                                                            className: "font-medium text-gray-700 dark:text-gray-300",
                                                                             children: "Email Notifications"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/settings/page.tsx",
-                                                                            lineNumber: 372,
+                                                                            lineNumber: 407,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                            className: "text-gray-500",
+                                                                            className: "text-gray-500 dark:text-gray-400 mt-1",
                                                                             children: "Receive email notifications for important updates."
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/settings/page.tsx",
-                                                                            lineNumber: 375,
+                                                                            lineNumber: 410,
                                                                             columnNumber: 27
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/app/settings/page.tsx",
-                                                                    lineNumber: 371,
+                                                                    lineNumber: 406,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/settings/page.tsx",
-                                                            lineNumber: 360,
+                                                            lineNumber: 395,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -694,16 +651,16 @@ function Settings() {
                                                                         name: "pushNotifications",
                                                                         type: "checkbox",
                                                                         checked: settings.notificationPreferences.pushNotifications,
-                                                                        onChange: ()=>handleCheckboxChange('notificationPreferences', 'pushNotifications'),
-                                                                        className: "focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                                                                        onChange: ()=>handleCheckboxChange("notificationPreferences", "pushNotifications"),
+                                                                        className: "focus:ring-[#00e5FF] h-5 w-5 text-[#00e5FF] border-gray-300 dark:border-gray-600 rounded"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/settings/page.tsx",
-                                                                        lineNumber: 381,
+                                                                        lineNumber: 418,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/settings/page.tsx",
-                                                                    lineNumber: 380,
+                                                                    lineNumber: 417,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -711,31 +668,31 @@ function Settings() {
                                                                     children: [
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                                                             htmlFor: "pushNotifications",
-                                                                            className: "font-medium text-gray-700",
+                                                                            className: "font-medium text-gray-700 dark:text-gray-300",
                                                                             children: "Push Notifications"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/settings/page.tsx",
-                                                                            lineNumber: 391,
+                                                                            lineNumber: 428,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                            className: "text-gray-500",
+                                                                            className: "text-gray-500 dark:text-gray-400 mt-1",
                                                                             children: "Allow browser push notifications."
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/settings/page.tsx",
-                                                                            lineNumber: 394,
+                                                                            lineNumber: 431,
                                                                             columnNumber: 27
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/app/settings/page.tsx",
-                                                                    lineNumber: 390,
+                                                                    lineNumber: 427,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/settings/page.tsx",
-                                                            lineNumber: 379,
+                                                            lineNumber: 416,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -748,16 +705,16 @@ function Settings() {
                                                                         name: "newsletterSubscription",
                                                                         type: "checkbox",
                                                                         checked: settings.notificationPreferences.newsletterSubscription,
-                                                                        onChange: ()=>handleCheckboxChange('notificationPreferences', 'newsletterSubscription'),
-                                                                        className: "focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                                                                        onChange: ()=>handleCheckboxChange("notificationPreferences", "newsletterSubscription"),
+                                                                        className: "focus:ring-[#00e5FF] h-5 w-5 text-[#00e5FF] border-gray-300 dark:border-gray-600 rounded"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/settings/page.tsx",
-                                                                        lineNumber: 400,
+                                                                        lineNumber: 437,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/settings/page.tsx",
-                                                                    lineNumber: 399,
+                                                                    lineNumber: 436,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -765,31 +722,31 @@ function Settings() {
                                                                     children: [
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                                                             htmlFor: "newsletterSubscription",
-                                                                            className: "font-medium text-gray-700",
+                                                                            className: "font-medium text-gray-700 dark:text-gray-300",
                                                                             children: "Newsletter Subscription"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/settings/page.tsx",
-                                                                            lineNumber: 410,
+                                                                            lineNumber: 447,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                            className: "text-gray-500",
+                                                                            className: "text-gray-500 dark:text-gray-400 mt-1",
                                                                             children: "Receive our weekly newsletter with the best content."
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/settings/page.tsx",
-                                                                            lineNumber: 413,
+                                                                            lineNumber: 453,
                                                                             columnNumber: 27
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/app/settings/page.tsx",
-                                                                    lineNumber: 409,
+                                                                    lineNumber: 446,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/settings/page.tsx",
-                                                            lineNumber: 398,
+                                                            lineNumber: 435,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -802,16 +759,16 @@ function Settings() {
                                                                         name: "commentReplies",
                                                                         type: "checkbox",
                                                                         checked: settings.notificationPreferences.commentReplies,
-                                                                        onChange: ()=>handleCheckboxChange('notificationPreferences', 'commentReplies'),
-                                                                        className: "focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                                                                        onChange: ()=>handleCheckboxChange("notificationPreferences", "commentReplies"),
+                                                                        className: "focus:ring-[#00e5FF] h-5 w-5 text-[#00e5FF] border-gray-300 dark:border-gray-600 rounded"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/settings/page.tsx",
-                                                                        lineNumber: 419,
+                                                                        lineNumber: 461,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/settings/page.tsx",
-                                                                    lineNumber: 418,
+                                                                    lineNumber: 460,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -819,31 +776,31 @@ function Settings() {
                                                                     children: [
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                                                             htmlFor: "commentReplies",
-                                                                            className: "font-medium text-gray-700",
+                                                                            className: "font-medium text-gray-700 dark:text-gray-300",
                                                                             children: "Comment Replies"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/settings/page.tsx",
-                                                                            lineNumber: 429,
+                                                                            lineNumber: 471,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                            className: "text-gray-500",
+                                                                            className: "text-gray-500 dark:text-gray-400 mt-1",
                                                                             children: "Get notified when someone replies to your comments."
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/settings/page.tsx",
-                                                                            lineNumber: 432,
+                                                                            lineNumber: 474,
                                                                             columnNumber: 27
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/app/settings/page.tsx",
-                                                                    lineNumber: 428,
+                                                                    lineNumber: 470,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/settings/page.tsx",
-                                                            lineNumber: 417,
+                                                            lineNumber: 459,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -856,142 +813,8 @@ function Settings() {
                                                                         name: "newFollowers",
                                                                         type: "checkbox",
                                                                         checked: settings.notificationPreferences.newFollowers,
-                                                                        onChange: ()=>handleCheckboxChange('notificationPreferences', 'newFollowers'),
-                                                                        className: "focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/app/settings/page.tsx",
-                                                                        lineNumber: 438,
-                                                                        columnNumber: 27
-                                                                    }, this)
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/app/settings/page.tsx",
-                                                                    lineNumber: 437,
-                                                                    columnNumber: 25
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                    className: "ml-3 text-sm",
-                                                                    children: [
-                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                                                            htmlFor: "newFollowers",
-                                                                            className: "font-medium text-gray-700",
-                                                                            children: "New Followers"
-                                                                        }, void 0, false, {
-                                                                            fileName: "[project]/app/settings/page.tsx",
-                                                                            lineNumber: 448,
-                                                                            columnNumber: 27
-                                                                        }, this),
-                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                            className: "text-gray-500",
-                                                                            children: "Get notified when someone follows you."
-                                                                        }, void 0, false, {
-                                                                            fileName: "[project]/app/settings/page.tsx",
-                                                                            lineNumber: 451,
-                                                                            columnNumber: 27
-                                                                        }, this)
-                                                                    ]
-                                                                }, void 0, true, {
-                                                                    fileName: "[project]/app/settings/page.tsx",
-                                                                    lineNumber: 447,
-                                                                    columnNumber: 25
-                                                                }, this)
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "[project]/app/settings/page.tsx",
-                                                            lineNumber: 436,
-                                                            columnNumber: 23
-                                                        }, this)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/app/settings/page.tsx",
-                                                    lineNumber: 359,
-                                                    columnNumber: 21
-                                                }, this)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/app/settings/page.tsx",
-                                            lineNumber: 357,
-                                            columnNumber: 19
-                                        }, this),
-                                        activeTab === 'privacy' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "space-y-6",
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                    className: "text-lg font-medium leading-6 text-gray-900",
-                                                    children: "Privacy Settings"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/settings/page.tsx",
-                                                    lineNumber: 461,
-                                                    columnNumber: 21
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "space-y-4",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            children: [
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                                                    htmlFor: "profileVisibility",
-                                                                    className: "block text-sm font-medium text-gray-700",
-                                                                    children: "Profile Visibility"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/app/settings/page.tsx",
-                                                                    lineNumber: 464,
-                                                                    columnNumber: 25
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
-                                                                    id: "profileVisibility",
-                                                                    name: "profileVisibility",
-                                                                    value: settings.privacySettings.profileVisibility,
-                                                                    onChange: (e)=>handleSelectChange('privacySettings', 'profileVisibility', e.target.value),
-                                                                    className: "mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm",
-                                                                    children: [
-                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                                                            value: "public",
-                                                                            children: "Public - Anyone can view your profile"
-                                                                        }, void 0, false, {
-                                                                            fileName: "[project]/app/settings/page.tsx",
-                                                                            lineNumber: 474,
-                                                                            columnNumber: 27
-                                                                        }, this),
-                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                                                            value: "private",
-                                                                            children: "Private - Only you can view your profile"
-                                                                        }, void 0, false, {
-                                                                            fileName: "[project]/app/settings/page.tsx",
-                                                                            lineNumber: 475,
-                                                                            columnNumber: 27
-                                                                        }, this),
-                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                                                            value: "followers",
-                                                                            children: "Followers Only - Only followers can view your profile"
-                                                                        }, void 0, false, {
-                                                                            fileName: "[project]/app/settings/page.tsx",
-                                                                            lineNumber: 476,
-                                                                            columnNumber: 27
-                                                                        }, this)
-                                                                    ]
-                                                                }, void 0, true, {
-                                                                    fileName: "[project]/app/settings/page.tsx",
-                                                                    lineNumber: 467,
-                                                                    columnNumber: 25
-                                                                }, this)
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "[project]/app/settings/page.tsx",
-                                                            lineNumber: 463,
-                                                            columnNumber: 23
-                                                        }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: "flex items-start",
-                                                            children: [
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                    className: "flex items-center h-5",
-                                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                                                        id: "showEmail",
-                                                                        name: "showEmail",
-                                                                        type: "checkbox",
-                                                                        checked: settings.privacySettings.showEmail,
-                                                                        onChange: ()=>handleCheckboxChange('privacySettings', 'showEmail'),
-                                                                        className: "focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                                                                        onChange: ()=>handleCheckboxChange("notificationPreferences", "newFollowers"),
+                                                                        className: "focus:ring-[#00e5FF] h-5 w-5 text-[#00e5FF] border-gray-300 dark:border-gray-600 rounded"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/settings/page.tsx",
                                                                         lineNumber: 482,
@@ -1006,17 +829,17 @@ function Settings() {
                                                                     className: "ml-3 text-sm",
                                                                     children: [
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                                                            htmlFor: "showEmail",
-                                                                            className: "font-medium text-gray-700",
-                                                                            children: "Show Email"
+                                                                            htmlFor: "newFollowers",
+                                                                            className: "font-medium text-gray-700 dark:text-gray-300",
+                                                                            children: "New Followers"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/settings/page.tsx",
                                                                             lineNumber: 492,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                            className: "text-gray-500",
-                                                                            children: "Display your email address on your public profile."
+                                                                            className: "text-gray-500 dark:text-gray-400 mt-1",
+                                                                            children: "Get notified when someone follows you."
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/settings/page.tsx",
                                                                             lineNumber: 495,
@@ -1033,6 +856,140 @@ function Settings() {
                                                             fileName: "[project]/app/settings/page.tsx",
                                                             lineNumber: 480,
                                                             columnNumber: 23
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/app/settings/page.tsx",
+                                                    lineNumber: 394,
+                                                    columnNumber: 21
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/app/settings/page.tsx",
+                                            lineNumber: 390,
+                                            columnNumber: 19
+                                        }, this),
+                                        activeTab === "privacy" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "space-y-6",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                    className: "text-xl font-semibold leading-6 text-gray-900 dark:text-white",
+                                                    children: "Privacy Settings"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/settings/page.tsx",
+                                                    lineNumber: 507,
+                                                    columnNumber: 21
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "space-y-5",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                                    htmlFor: "profileVisibility",
+                                                                    className: "block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1",
+                                                                    children: "Profile Visibility"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/app/settings/page.tsx",
+                                                                    lineNumber: 510,
+                                                                    columnNumber: 25
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
+                                                                    id: "profileVisibility",
+                                                                    name: "profileVisibility",
+                                                                    value: settings.privacySettings.profileVisibility,
+                                                                    onChange: (e)=>handleSelectChange("privacySettings", "profileVisibility", e.target.value),
+                                                                    className: "px-4 py-2.5 mt-1 block w-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-[#00e5FF] focus:border-[#00e5FF] sm:text-sm text-gray-900 dark:text-white",
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                                            value: "public",
+                                                                            children: "Public - Anyone can view your profile"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/app/settings/page.tsx",
+                                                                            lineNumber: 523,
+                                                                            columnNumber: 27
+                                                                        }, this),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                                            value: "private",
+                                                                            children: "Private - Only you can view your profile"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/app/settings/page.tsx",
+                                                                            lineNumber: 524,
+                                                                            columnNumber: 27
+                                                                        }, this),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                                            value: "followers",
+                                                                            children: "Followers Only - Only followers can view your profile"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/app/settings/page.tsx",
+                                                                            lineNumber: 525,
+                                                                            columnNumber: 27
+                                                                        }, this)
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/app/settings/page.tsx",
+                                                                    lineNumber: 516,
+                                                                    columnNumber: 25
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/app/settings/page.tsx",
+                                                            lineNumber: 509,
+                                                            columnNumber: 23
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "flex items-start",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                    className: "flex items-center h-5",
+                                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                                        id: "showEmail",
+                                                                        name: "showEmail",
+                                                                        type: "checkbox",
+                                                                        checked: settings.privacySettings.showEmail,
+                                                                        onChange: ()=>handleCheckboxChange("privacySettings", "showEmail"),
+                                                                        className: "focus:ring-[#00e5FF] h-5 w-5 text-[#00e5FF] border-gray-300 dark:border-gray-600 rounded"
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/app/settings/page.tsx",
+                                                                        lineNumber: 531,
+                                                                        columnNumber: 27
+                                                                    }, this)
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/app/settings/page.tsx",
+                                                                    lineNumber: 530,
+                                                                    columnNumber: 25
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                    className: "ml-3 text-sm",
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                                            htmlFor: "showEmail",
+                                                                            className: "font-medium text-gray-700 dark:text-gray-300",
+                                                                            children: "Show Email"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/app/settings/page.tsx",
+                                                                            lineNumber: 541,
+                                                                            columnNumber: 27
+                                                                        }, this),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                            className: "text-gray-500 dark:text-gray-400 mt-1",
+                                                                            children: "Display your email address on your public profile."
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/app/settings/page.tsx",
+                                                                            lineNumber: 544,
+                                                                            columnNumber: 27
+                                                                        }, this)
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/app/settings/page.tsx",
+                                                                    lineNumber: 540,
+                                                                    columnNumber: 25
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/app/settings/page.tsx",
+                                                            lineNumber: 529,
+                                                            columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                             className: "flex items-start",
@@ -1044,16 +1001,16 @@ function Settings() {
                                                                         name: "allowComments",
                                                                         type: "checkbox",
                                                                         checked: settings.privacySettings.allowComments,
-                                                                        onChange: ()=>handleCheckboxChange('privacySettings', 'allowComments'),
-                                                                        className: "focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                                                                        onChange: ()=>handleCheckboxChange("privacySettings", "allowComments"),
+                                                                        className: "focus:ring-[#00e5FF] h-5 w-5 text-[#00e5FF] border-gray-300 dark:border-gray-600 rounded"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/settings/page.tsx",
-                                                                        lineNumber: 501,
+                                                                        lineNumber: 552,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/settings/page.tsx",
-                                                                    lineNumber: 500,
+                                                                    lineNumber: 551,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1061,31 +1018,31 @@ function Settings() {
                                                                     children: [
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                                                             htmlFor: "allowComments",
-                                                                            className: "font-medium text-gray-700",
+                                                                            className: "font-medium text-gray-700 dark:text-gray-300",
                                                                             children: "Allow Comments"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/settings/page.tsx",
-                                                                            lineNumber: 511,
+                                                                            lineNumber: 562,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                            className: "text-gray-500",
+                                                                            className: "text-gray-500 dark:text-gray-400 mt-1",
                                                                             children: "Allow others to comment on your posts."
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/settings/page.tsx",
-                                                                            lineNumber: 514,
+                                                                            lineNumber: 565,
                                                                             columnNumber: 27
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/app/settings/page.tsx",
-                                                                    lineNumber: 510,
+                                                                    lineNumber: 561,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/settings/page.tsx",
-                                                            lineNumber: 499,
+                                                            lineNumber: 550,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1098,16 +1055,16 @@ function Settings() {
                                                                         name: "allowSharing",
                                                                         type: "checkbox",
                                                                         checked: settings.privacySettings.allowSharing,
-                                                                        onChange: ()=>handleCheckboxChange('privacySettings', 'allowSharing'),
-                                                                        className: "focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                                                                        onChange: ()=>handleCheckboxChange("privacySettings", "allowSharing"),
+                                                                        className: "focus:ring-[#00e5FF] h-5 w-5 text-[#00e5FF] border-gray-300 dark:border-gray-600 rounded"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/settings/page.tsx",
-                                                                        lineNumber: 520,
+                                                                        lineNumber: 573,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/settings/page.tsx",
-                                                                    lineNumber: 519,
+                                                                    lineNumber: 572,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1115,215 +1072,253 @@ function Settings() {
                                                                     children: [
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                                                             htmlFor: "allowSharing",
-                                                                            className: "font-medium text-gray-700",
+                                                                            className: "font-medium text-gray-700 dark:text-gray-300",
                                                                             children: "Allow Sharing"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/settings/page.tsx",
-                                                                            lineNumber: 530,
+                                                                            lineNumber: 583,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                            className: "text-gray-500",
+                                                                            className: "text-gray-500 dark:text-gray-400 mt-1",
                                                                             children: "Allow others to share your posts on social media."
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/settings/page.tsx",
-                                                                            lineNumber: 533,
+                                                                            lineNumber: 586,
                                                                             columnNumber: 27
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/app/settings/page.tsx",
-                                                                    lineNumber: 529,
+                                                                    lineNumber: 582,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/settings/page.tsx",
-                                                            lineNumber: 518,
+                                                            lineNumber: 571,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: "pt-4",
+                                                            className: "pt-5",
                                                             children: [
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
-                                                                    className: "text-md font-medium text-gray-900",
+                                                                    className: "text-lg font-medium text-gray-900 dark:text-white mb-4",
                                                                     children: "Security Options"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/settings/page.tsx",
-                                                                    lineNumber: 538,
+                                                                    lineNumber: 593,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                    className: "mt-4",
-                                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                                        type: "button",
-                                                                        className: "inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
-                                                                        children: "Change Password"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/app/settings/page.tsx",
-                                                                        lineNumber: 540,
-                                                                        columnNumber: 27
-                                                                    }, this)
-                                                                }, void 0, false, {
+                                                                    className: "space-y-3",
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                                            type: "button",
+                                                                            className: "inline-flex items-center px-5 py-2.5 border border-gray-300 dark:border-gray-600 shadow-sm text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#00e5FF] transition-colors",
+                                                                            children: "Change Password"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/app/settings/page.tsx",
+                                                                            lineNumber: 595,
+                                                                            columnNumber: 27
+                                                                        }, this),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                                            type: "button",
+                                                                            className: "ml-2 inline-flex items-center px-5 py-2.5 border border-gray-300 dark:border-gray-600 shadow-sm text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#00e5FF] transition-colors",
+                                                                            children: "Enable Two-Factor Authentication"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/app/settings/page.tsx",
+                                                                            lineNumber: 601,
+                                                                            columnNumber: 27
+                                                                        }, this)
+                                                                    ]
+                                                                }, void 0, true, {
                                                                     fileName: "[project]/app/settings/page.tsx",
-                                                                    lineNumber: 539,
-                                                                    columnNumber: 25
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                    className: "mt-4",
-                                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                                        type: "button",
-                                                                        className: "inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
-                                                                        children: "Enable Two-Factor Authentication"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/app/settings/page.tsx",
-                                                                        lineNumber: 548,
-                                                                        columnNumber: 27
-                                                                    }, this)
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/app/settings/page.tsx",
-                                                                    lineNumber: 547,
+                                                                    lineNumber: 594,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/settings/page.tsx",
-                                                            lineNumber: 537,
+                                                            lineNumber: 592,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/settings/page.tsx",
-                                                    lineNumber: 462,
+                                                    lineNumber: 508,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/settings/page.tsx",
-                                            lineNumber: 460,
+                                            lineNumber: 506,
                                             columnNumber: 19
                                         }, this),
-                                        activeTab === 'appearance' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        activeTab === "appearance" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "space-y-6",
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                    className: "text-lg font-medium leading-6 text-gray-900",
+                                                    className: "text-xl font-semibold leading-6 text-gray-900 dark:text-white",
                                                     children: "Appearance Settings"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/settings/page.tsx",
-                                                    lineNumber: 563,
-                                                    columnNumber: 11
+                                                    lineNumber: 616,
+                                                    columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "space-y-4",
+                                                    className: "space-y-5",
                                                     children: [
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                             children: [
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                                                     htmlFor: "theme",
-                                                                    className: "block text-sm font-medium text-gray-700",
+                                                                    className: "block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1",
                                                                     children: "Theme"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/settings/page.tsx",
-                                                                    lineNumber: 566,
-                                                                    columnNumber: 15
+                                                                    lineNumber: 621,
+                                                                    columnNumber: 25
                                                                 }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
-                                                                    id: "theme",
-                                                                    name: "theme",
-                                                                    value: settings.appearanceSettings.theme,
-                                                                    onChange: (e)=>handleSelectChange('appearanceSettings', 'theme', e.target.value),
-                                                                    className: "mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm",
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                    className: "mt-2 grid grid-cols-3 gap-3",
                                                                     children: [
-                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                                                            value: "system",
-                                                                            children: "System Preference"
-                                                                        }, void 0, false, {
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                                            type: "button",
+                                                                            onClick: ()=>handleSelectChange("appearanceSettings", "theme", "light"),
+                                                                            className: `relative px-4 py-3 flex items-center justify-center text-sm font-medium uppercase rounded-md border ${settings.appearanceSettings.theme === "light" ? "bg-cyan-50 dark:bg-[#00e5FF]/10 border-[#00e5FF] text-[#00e5FF] dark:text-[#00e5FF]" : "border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 bg-white dark:bg-gray-700"} transition-colors`,
+                                                                            children: [
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$sun$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Sun$3e$__["Sun"], {
+                                                                                    className: "h-5 w-5 mr-2"
+                                                                                }, void 0, false, {
+                                                                                    fileName: "[project]/app/settings/page.tsx",
+                                                                                    lineNumber: 637,
+                                                                                    columnNumber: 29
+                                                                                }, this),
+                                                                                "Light"
+                                                                            ]
+                                                                        }, void 0, true, {
                                                                             fileName: "[project]/app/settings/page.tsx",
-                                                                            lineNumber: 576,
-                                                                            columnNumber: 17
+                                                                            lineNumber: 628,
+                                                                            columnNumber: 27
                                                                         }, this),
-                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                                                            value: "light",
-                                                                            children: "Light Mode"
-                                                                        }, void 0, false, {
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                                            type: "button",
+                                                                            onClick: ()=>handleSelectChange("appearanceSettings", "theme", "dark"),
+                                                                            className: `relative px-4 py-3 flex items-center justify-center text-sm font-medium uppercase rounded-md border ${settings.appearanceSettings.theme === "dark" ? "bg-cyan-50 dark:bg-[#00e5FF]/10 border-[#00e5FF] text-[#00e5FF] dark:text-[#00e5FF]" : "border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 bg-white dark:bg-gray-700"} transition-colors`,
+                                                                            children: [
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$moon$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Moon$3e$__["Moon"], {
+                                                                                    className: "h-5 w-5 mr-2"
+                                                                                }, void 0, false, {
+                                                                                    fileName: "[project]/app/settings/page.tsx",
+                                                                                    lineNumber: 649,
+                                                                                    columnNumber: 29
+                                                                                }, this),
+                                                                                "Dark"
+                                                                            ]
+                                                                        }, void 0, true, {
                                                                             fileName: "[project]/app/settings/page.tsx",
-                                                                            lineNumber: 577,
-                                                                            columnNumber: 17
+                                                                            lineNumber: 640,
+                                                                            columnNumber: 27
                                                                         }, this),
-                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                                                            value: "dark",
-                                                                            children: "Dark Mode"
-                                                                        }, void 0, false, {
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                                            type: "button",
+                                                                            onClick: ()=>handleSelectChange("appearanceSettings", "theme", "system"),
+                                                                            className: `relative px-4 py-3 flex items-center justify-center text-sm font-medium uppercase rounded-md border ${settings.appearanceSettings.theme === "system" ? "bg-cyan-50 dark:bg-[#00e5FF]/10 border-[#00e5FF] text-[#00e5FF] dark:text-[#00e5FF]" : "border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 bg-white dark:bg-gray-700"} transition-colors`,
+                                                                            children: [
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                                                                                    xmlns: "http://www.w3.org/2000/svg",
+                                                                                    className: "h-5 w-5 mr-2",
+                                                                                    fill: "none",
+                                                                                    viewBox: "0 0 24 24",
+                                                                                    stroke: "currentColor",
+                                                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                                                                        strokeLinecap: "round",
+                                                                                        strokeLinejoin: "round",
+                                                                                        strokeWidth: 2,
+                                                                                        d: "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                                                                                    }, void 0, false, {
+                                                                                        fileName: "[project]/app/settings/page.tsx",
+                                                                                        lineNumber: 668,
+                                                                                        columnNumber: 31
+                                                                                    }, this)
+                                                                                }, void 0, false, {
+                                                                                    fileName: "[project]/app/settings/page.tsx",
+                                                                                    lineNumber: 661,
+                                                                                    columnNumber: 29
+                                                                                }, this),
+                                                                                "System"
+                                                                            ]
+                                                                        }, void 0, true, {
                                                                             fileName: "[project]/app/settings/page.tsx",
-                                                                            lineNumber: 578,
-                                                                            columnNumber: 17
+                                                                            lineNumber: 652,
+                                                                            columnNumber: 27
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/app/settings/page.tsx",
-                                                                    lineNumber: 569,
-                                                                    columnNumber: 15
+                                                                    lineNumber: 627,
+                                                                    columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/settings/page.tsx",
-                                                            lineNumber: 565,
-                                                            columnNumber: 13
+                                                            lineNumber: 620,
+                                                            columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                             children: [
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                                                     htmlFor: "fontSize",
-                                                                    className: "block text-sm font-medium text-gray-700",
+                                                                    className: "block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1",
                                                                     children: "Font Size"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/settings/page.tsx",
-                                                                    lineNumber: 583,
-                                                                    columnNumber: 15
+                                                                    lineNumber: 681,
+                                                                    columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
                                                                     id: "fontSize",
                                                                     name: "fontSize",
                                                                     value: settings.appearanceSettings.fontSize,
-                                                                    onChange: (e)=>handleSelectChange('appearanceSettings', 'fontSize', e.target.value),
-                                                                    className: "mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm",
+                                                                    onChange: (e)=>handleSelectChange("appearanceSettings", "fontSize", e.target.value),
+                                                                    className: "px-4 py-2.5 mt-1 block w-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-[#00e5FF] focus:border-[#00e5FF] sm:text-sm text-gray-900 dark:text-white",
                                                                     children: [
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                                             value: "small",
                                                                             children: "Small"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/settings/page.tsx",
-                                                                            lineNumber: 593,
-                                                                            columnNumber: 17
+                                                                            lineNumber: 694,
+                                                                            columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                                             value: "medium",
                                                                             children: "Medium"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/settings/page.tsx",
-                                                                            lineNumber: 594,
-                                                                            columnNumber: 17
+                                                                            lineNumber: 695,
+                                                                            columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                                             value: "large",
                                                                             children: "Large"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/settings/page.tsx",
-                                                                            lineNumber: 595,
-                                                                            columnNumber: 17
+                                                                            lineNumber: 696,
+                                                                            columnNumber: 27
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/app/settings/page.tsx",
-                                                                    lineNumber: 586,
-                                                                    columnNumber: 15
+                                                                    lineNumber: 687,
+                                                                    columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/settings/page.tsx",
-                                                            lineNumber: 582,
-                                                            columnNumber: 13
+                                                            lineNumber: 680,
+                                                            columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                             className: "flex items-start",
@@ -1335,223 +1330,222 @@ function Settings() {
                                                                         name: "compactView",
                                                                         type: "checkbox",
                                                                         checked: settings.appearanceSettings.compactView,
-                                                                        onChange: ()=>handleCheckboxChange('appearanceSettings', 'compactView'),
-                                                                        className: "focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                                                                        onChange: ()=>handleCheckboxChange("appearanceSettings", "compactView"),
+                                                                        className: "focus:ring-[#00e5FF] h-5 w-5 text-[#00e5FF] border-gray-300 dark:border-gray-600 rounded"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/settings/page.tsx",
-                                                                        lineNumber: 601,
-                                                                        columnNumber: 17
+                                                                        lineNumber: 702,
+                                                                        columnNumber: 27
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/settings/page.tsx",
-                                                                    lineNumber: 600,
-                                                                    columnNumber: 15
+                                                                    lineNumber: 701,
+                                                                    columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                     className: "ml-3 text-sm",
                                                                     children: [
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                                                             htmlFor: "compactView",
-                                                                            className: "font-medium text-gray-700",
+                                                                            className: "font-medium text-gray-700 dark:text-gray-300",
                                                                             children: "Compact View"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/settings/page.tsx",
-                                                                            lineNumber: 611,
-                                                                            columnNumber: 17
+                                                                            lineNumber: 712,
+                                                                            columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                            className: "text-gray-500",
+                                                                            className: "text-gray-500 dark:text-gray-400 mt-1",
                                                                             children: "Enable more compact layout for content lists"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/settings/page.tsx",
-                                                                            lineNumber: 614,
-                                                                            columnNumber: 17
+                                                                            lineNumber: 715,
+                                                                            columnNumber: 27
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/app/settings/page.tsx",
-                                                                    lineNumber: 610,
-                                                                    columnNumber: 15
+                                                                    lineNumber: 711,
+                                                                    columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/settings/page.tsx",
-                                                            lineNumber: 599,
-                                                            columnNumber: 13
+                                                            lineNumber: 700,
+                                                            columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/settings/page.tsx",
-                                                    lineNumber: 564,
-                                                    columnNumber: 11
+                                                    lineNumber: 619,
+                                                    columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/settings/page.tsx",
-                                            lineNumber: 562,
-                                            columnNumber: 9
+                                            lineNumber: 615,
+                                            columnNumber: 19
                                         }, this),
-                                        activeTab === 'content' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        activeTab === "content" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "space-y-6",
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                    className: "text-lg font-medium leading-6 text-gray-900",
+                                                    className: "text-xl font-semibold leading-6 text-gray-900 dark:text-white",
                                                     children: "Content Preferences"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/settings/page.tsx",
-                                                    lineNumber: 624,
-                                                    columnNumber: 11
+                                                    lineNumber: 727,
+                                                    columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "space-y-4",
+                                                    className: "space-y-5",
                                                     children: [
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                             children: [
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                                                    className: "block text-sm font-medium text-gray-700 mb-2",
+                                                                    className: "block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2",
                                                                     children: "Preferred Categories"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/settings/page.tsx",
-                                                                    lineNumber: 627,
-                                                                    columnNumber: 15
+                                                                    lineNumber: 732,
+                                                                    columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                    className: "grid grid-cols-2 gap-2",
+                                                                    className: "grid grid-cols-2 sm:grid-cols-3 gap-3",
                                                                     children: availableCategories.map((category)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                                             type: "button",
                                                                             onClick: ()=>handleCategoryToggle(category),
-                                                                            className: `${settings.contentPreferences.categories.includes(category) ? 'bg-indigo-600 text-white hover:bg-indigo-700' : 'bg-gray-50 text-gray-700 hover:bg-gray-100'} rounded-md px-3 py-2 text-sm font-medium transition-colors`,
+                                                                            className: `${settings.contentPreferences.categories.includes(category) ? "bg-[#00e5FF] dark:bg-[#00e5FF]/90 text-white dark:text-black hover:bg-[#00e5FF]/80 dark:hover:bg-[#00e5FF]" : "bg-gray-50 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600"} rounded-md px-4 py-2.5 text-sm font-medium transition-colors`,
                                                                             children: category
                                                                         }, category, false, {
                                                                             fileName: "[project]/app/settings/page.tsx",
-                                                                            lineNumber: 632,
-                                                                            columnNumber: 19
+                                                                            lineNumber: 737,
+                                                                            columnNumber: 29
                                                                         }, this))
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/settings/page.tsx",
-                                                                    lineNumber: 630,
-                                                                    columnNumber: 15
+                                                                    lineNumber: 735,
+                                                                    columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/settings/page.tsx",
-                                                            lineNumber: 626,
-                                                            columnNumber: 13
+                                                            lineNumber: 731,
+                                                            columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                             children: [
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                                                     htmlFor: "language",
-                                                                    className: "block text-sm font-medium text-gray-700",
+                                                                    className: "block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1",
                                                                     children: "Preferred Language"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/settings/page.tsx",
-                                                                    lineNumber: 649,
-                                                                    columnNumber: 15
+                                                                    lineNumber: 754,
+                                                                    columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
                                                                     id: "language",
                                                                     name: "language",
                                                                     value: settings.contentPreferences.language,
-                                                                    onChange: (e)=>handleSelectChange('contentPreferences', 'language', e.target.value),
-                                                                    className: "mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm",
+                                                                    onChange: (e)=>handleSelectChange("contentPreferences", "language", e.target.value),
+                                                                    className: "px-4 py-2.5 mt-1 block w-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-[#00e5FF] focus:border-[#00e5FF] sm:text-sm text-gray-900 dark:text-white",
                                                                     children: availableLanguages.map((lang)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                                             value: lang.code,
                                                                             children: lang.name
                                                                         }, lang.code, false, {
                                                                             fileName: "[project]/app/settings/page.tsx",
-                                                                            lineNumber: 660,
-                                                                            columnNumber: 19
+                                                                            lineNumber: 768,
+                                                                            columnNumber: 29
                                                                         }, this))
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/settings/page.tsx",
-                                                                    lineNumber: 652,
-                                                                    columnNumber: 15
+                                                                    lineNumber: 760,
+                                                                    columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/settings/page.tsx",
-                                                            lineNumber: 648,
-                                                            columnNumber: 13
+                                                            lineNumber: 753,
+                                                            columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/settings/page.tsx",
-                                                    lineNumber: 625,
-                                                    columnNumber: 11
+                                                    lineNumber: 730,
+                                                    columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/settings/page.tsx",
-                                            lineNumber: 623,
-                                            columnNumber: 9
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "px-4 py-3 bg-gray-50 sm:px-6 flex justify-between",
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    children: saveMessage && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                        className: `text-sm ${saveMessage.includes('success') ? 'text-green-600' : 'text-red-600'}`,
-                                                        children: saveMessage
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/app/settings/page.tsx",
-                                                        lineNumber: 674,
-                                                        columnNumber: 13
-                                                    }, this)
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/settings/page.tsx",
-                                                    lineNumber: 672,
-                                                    columnNumber: 9
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                    type: "button",
-                                                    onClick: saveSettings,
-                                                    disabled: isSaving,
-                                                    className: "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50",
-                                                    children: isSaving ? 'Saving...' : 'Save Changes'
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/settings/page.tsx",
-                                                    lineNumber: 679,
-                                                    columnNumber: 9
-                                                }, this)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/app/settings/page.tsx",
-                                            lineNumber: 671,
-                                            columnNumber: 7
+                                            lineNumber: 726,
+                                            columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/settings/page.tsx",
-                                    lineNumber: 264,
+                                    lineNumber: 282,
                                     columnNumber: 15
                                 }, this),
-                                ");"
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: " mt-2 px-6 py-4 bg-gray-50 dark:bg-[#0a0a0a] sm:px-6 flex justify-between items-center rounded-xl",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            children: saveMessage && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: `text-sm ${saveMessage.includes("success") ? "text-green-600 dark:text-green-400" : "text-red-600 dark:text-red-400"}`,
+                                                children: saveMessage
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/settings/page.tsx",
+                                                lineNumber: 783,
+                                                columnNumber: 21
+                                            }, this)
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/settings/page.tsx",
+                                            lineNumber: 781,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                            type: "button",
+                                            onClick: saveSettings,
+                                            disabled: isSaving,
+                                            className: "inline-flex justify-center py-2.5 px-5 border border-transparent shadow-sm text-sm font-medium rounded-md text-white dark:text-black bg-[#00e5FF] hover:bg-[#00e5FF]/80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus-[#00e5FF] disabled:opacity-50 transition-colors",
+                                            children: isSaving ? "Saving..." : "Save Changes"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/settings/page.tsx",
+                                            lineNumber: 790,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/app/settings/page.tsx",
+                                    lineNumber: 780,
+                                    columnNumber: 15
+                                }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/settings/page.tsx",
-                            lineNumber: 263,
+                            lineNumber: 281,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/settings/page.tsx",
-                        lineNumber: 262,
+                        lineNumber: 280,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/settings/page.tsx",
-                lineNumber: 179,
+                lineNumber: 207,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/app/settings/page.tsx",
-            lineNumber: 178,
+            lineNumber: 206,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/settings/page.tsx",
-        lineNumber: 176,
+        lineNumber: 204,
         columnNumber: 5
     }, this);
 }

@@ -4,6 +4,7 @@
     "[project]/app/about/page": [],
     "[project]/app/blogs/page": [],
     "[project]/app/categories/page": [],
+    "[project]/app/category/[slug]/page": [],
     "[project]/app/contact/page": [],
     "[project]/app/landing_homepage/page": [],
     "[project]/app/notifications/page": [],

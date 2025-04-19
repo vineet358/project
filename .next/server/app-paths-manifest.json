@@ -3,6 +3,7 @@
   "/about/page": "app/about/page.js",
   "/blogs/page": "app/blogs/page.js",
   "/categories/page": "app/categories/page.js",
+  "/category/[slug]/page": "app/category/[slug]/page.js",
   "/contact/page": "app/contact/page.js",
   "/landing_homepage/page": "app/landing_homepage/page.js",
   "/notifications/page": "app/notifications/page.js",
